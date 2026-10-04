@@ -1,0 +1,1 @@
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}

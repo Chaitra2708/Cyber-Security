@@ -1,0 +1,19 @@
+# EVID-REVERIFY-C5
+# Candidate: C5 - Unauthenticated user feedback exposure
+# Historical: evidence/responses/WEB-VUL-005-feedbacks.json
+# Target: http://127.0.0.1:3000
+# Date/Time: 2026-10-03T21:17:02+05:30
+
+--- GET /api/Feedbacks (unauthenticated) ---
+HTTP:200 (1734 bytes)
+first record:
+{"status":"success","data":[{"UserId":1,"id":1,"comment":"I love this shop! Best products in town! Highly recommended! (***in@juice-sh.op)","rating":5,"createdAt":"2026-10-03T14:45:53.005Z","updatedAt":"2026-10-03T14:45:53.005Z"},{"UserId":2,"id":2,"comment":"Great shop! Awesome service! (***@juice-
+--- unauthenticated /api/Users (should be 401; logging enforcement) ---
+HTTP:401
+<html>
+  <head>
+    <meta charset='utf-8'> 
+    <title>UnauthorizedError: No Authorization header was found</title>
+    
+--- cURL header leak check: response contains any user data headers? no Set-Cookie on home ---
+  (none found - good)

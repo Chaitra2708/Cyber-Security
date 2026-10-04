@@ -1,0 +1,38 @@
+# Environment secrets — never publish
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build output
+coverage/
+dist/
+build/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local database state (laboratory runtime data)
+*.sqlite
+*.sqlite-journal
+
+# Local application instance (third-party; download separately)
+lab/
+
+# Unrelated scaffolding containing local secrets
+backend/data/mysql-data/
+backend/data/*.sock
+backend/data/*.pid

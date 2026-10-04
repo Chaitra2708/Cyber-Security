@@ -1,0 +1,21 @@
+# Evidence ID: EVD-V3-RES
+# Finding: WEB-VUL-003 (Missing Security Headers)
+# Date: 2026-10-03T19:33:59+05:30
+# Full response headers for GET http://127.0.0.1:3000/ :
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Feature-Policy: payment 'self'
+X-Recruiting: /#/jobs
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sat, 03 Oct 2026 13:55:56 GMT
+ETag: W/"24b1-1a1020cd03c"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 9393
+Vary: Accept-Encoding
+Date: Sat, 03 Oct 2026 14:03:59 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+

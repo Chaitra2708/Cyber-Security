@@ -1,0 +1,3594 @@
+TAP version 13
+# info: Accuracy for 'Find It' phase of coding challenge [36mtestChallenge1[39m: [32m1[39m
+# info: Accuracy for 'Find It' phase of coding challenge [36mtestChallenge2[39m: [33m0.5[39m
+# info: Accuracy for 'Find It' phase of coding challenge [36mtestChallenge3[39m: [33m0.3333333333333333[39m
+# info: Accuracy for 'Find It' phase of coding challenge [36mtestChallenge4[39m: [32m1[39m
+# info: Accuracy for 'Fix It' phase of coding challenge [36mtestChallenge5[39m: [33m0.5[39m
+# info: Accuracy for 'Find It' phase of coding challenge [36mtestChallengeUnsolved[39m: [31m0[39m
+# info: Accuracy for 'Find It' phase of coding challenge [36mtestChallenge5Attempts[39m: [31m0.2[39m
+# Subtest: accuracy
+    # Subtest: should calculate accuracy as 1.0 when solved on first attempt
+    ok 1 - should calculate accuracy as 1.0 when solved on first attempt
+      ---
+      duration_ms: 4.566899
+      type: 'test'
+      ...
+    # Subtest: should calculate accuracy as 0.5 when solved on second attempt
+    ok 2 - should calculate accuracy as 0.5 when solved on second attempt
+      ---
+      duration_ms: 0.846244
+      type: 'test'
+      ...
+    # Subtest: should calculate accuracy as 0.3333333333333333 when solved on third attempt
+    ok 3 - should calculate accuracy as 0.3333333333333333 when solved on third attempt
+      ---
+      duration_ms: 0.825425
+      type: 'test'
+      ...
+    # Subtest: should not increase attempts after challenge is solved
+    ok 4 - should not increase attempts after challenge is solved
+      ---
+      duration_ms: 0.862315
+      type: 'test'
+      ...
+    # Subtest: should calculate fix it accuracy independently
+    ok 5 - should calculate fix it accuracy independently
+      ---
+      duration_ms: 0.728384
+      type: 'test'
+      ...
+    # Subtest: should return 0 attempts for unknown challenge
+    ok 6 - should return 0 attempts for unknown challenge
+      ---
+      duration_ms: 0.302196
+      type: 'test'
+      ...
+    # Subtest: should return 0 accuracy for unsolved challenge
+    ok 7 - should return 0 accuracy for unsolved challenge
+      ---
+      duration_ms: 0.633636
+      type: 'test'
+      ...
+    # Subtest: should calculate total accuracy for multiple solved challenges
+    ok 8 - should calculate total accuracy for multiple solved challenges
+      ---
+      duration_ms: 0.590415
+      type: 'test'
+      ...
+    # Subtest: should return NaN for total accuracy when no challenges are solved
+    ok 9 - should return NaN for total accuracy when no challenges are solved
+      ---
+      duration_ms: 0.553946
+      type: 'test'
+      ...
+    # Subtest: should calculate accuracy as 0.2 for solved on fifth attempt
+    ok 10 - should calculate accuracy as 0.2 for solved on fifth attempt
+      ---
+      duration_ms: 1.749695
+      type: 'test'
+      ...
+    1..10
+ok 1 - accuracy
+  ---
+  duration_ms: 15.009847
+  type: 'suite'
+  ...
+# Subtest: angular
+    # Subtest: should serve index.html for any URL
+    ok 1 - should serve index.html for any URL
+      ---
+      duration_ms: 2.618843
+      type: 'test'
+      ...
+    # Subtest: should raise error for /api endpoint URL
+    ok 2 - should raise error for /api endpoint URL
+      ---
+      duration_ms: 0.584915
+      type: 'test'
+      ...
+    # Subtest: should raise error for /rest endpoint URL
+    ok 3 - should raise error for /rest endpoint URL
+      ---
+      duration_ms: 0.355044
+      type: 'test'
+      ...
+    1..3
+ok 2 - angular
+  ---
+  duration_ms: 5.179215
+  type: 'suite'
+  ...
+# info: Cheat score for [36mloginAdminChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.9999833333333333[39m
+# info: Cheat score for tightly coupled [36mweakPasswordChallenge[39m solved in 0min (expected ~0min) with hints allowed: [32m0[39m
+# info: Cheat score for [36mlocalXssChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.9999916666666666[39m
+# info: Cheat score for loosely coupled [36mxssBonusChallenge[39m solved in 0min (expected ~0min) with hints allowed: [32m0[39m
+# info: Cheat score for [36mlocalXssChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m1[39m
+# info: Cheat score for [36mmissingEncodingChallenge[39m solved in 0min (expected ~2min) with hints allowed and 0% expected preceding URL interaction: [31m1[39m
+# info: Cheat score for [36mforgottenBackupChallenge[39m solved in 0min (expected ~2min) with hints allowed and 0% expected preceding URL interaction: [31m1[39m
+# info: Cheat score for loosely coupled [36mxssBonusChallenge[39m solved in 0min (expected ~0min) with hints allowed: [32m0[39m
+# info: Cheat score for [36mlocalXssChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m1[39m
+# info: Cheat score for [36mmissingEncodingChallenge[39m solved in 0min (expected ~2min) with hints allowed and 0% expected preceding URL interaction: [31m1[39m
+# info: Cheat score for [36mloginAdminChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m1[39m
+# info: Cheat score for tightly coupled [36mweakPasswordChallenge[39m solved in 0min (expected ~0min) with hints allowed: [32m0[39m
+# info: Cheat score for [36mmissingEncodingChallenge[39m solved in 0min (expected ~2min) with hints allowed and 0% expected preceding URL interaction: [31m1[39m
+# info: Cheat score for [36mdirectoryListingChallenge[39m solved in 0min (expected ~2min) with hints allowed and 0% expected preceding URL interaction: [31m1[39m
+# Subtest: antiCheat
+    # Subtest: calculateCheatScore
+        # Subtest: should return cheat score of 0 if challenge is tightly coupled to the previously solved one
+        ok 1 - should return cheat score of 0 if challenge is tightly coupled to the previously solved one
+          ---
+          duration_ms: 642.159689
+          type: 'test'
+          ...
+        # Subtest: should return cheat score of 0 if challenge is loosely coupled to the previously solved one
+        ok 2 - should return cheat score of 0 if challenge is loosely coupled to the previously solved one
+          ---
+          duration_ms: 3.785255
+          type: 'test'
+          ...
+        # Subtest: should return cheat score of 0 if challenge is loosely coupled to one in the past
+        ok 3 - should return cheat score of 0 if challenge is loosely coupled to one in the past
+          ---
+          duration_ms: 2.603283
+          type: 'test'
+          ...
+        # Subtest: should assume cheating if two unrelated challenges are solved after each other
+        ok 4 - should assume cheating if two unrelated challenges are solved after each other
+          ---
+          duration_ms: 2.770045
+          type: 'test'
+          ...
+        1..4
+    ok 1 - calculateCheatScore
+      ---
+      duration_ms: 653.236103
+      type: 'suite'
+      ...
+    # Subtest: totalCheatScore
+        # Subtest: should return 0 if no challenges are solved
+        ok 1 - should return 0 if no challenges are solved
+          ---
+          duration_ms: 1.352713
+          type: 'test'
+          ...
+        # Subtest: should return the median cheat score of all solves
+        ok 2 - should return the median cheat score of all solves
+          ---
+          duration_ms: 2.455636
+          type: 'test'
+          ...
+        1..2
+    ok 2 - totalCheatScore
+      ---
+      duration_ms: 4.335346
+      type: 'suite'
+      ...
+# info: Cheat score for [36mdirectoryListingChallenge[39m solved in 0min (expected ~2min) with hints allowed and 100% expected preceding URL interaction: [31m0.9991666666666666[39m
+# warn: Detected source file overlap for [36mknownVulnerableComponentChallenge[39m: 100% similarity with ftp/package.json.bak
+# info: Cheat score for [36mlocalXssChallenge[39m solved by using a bypass, direct access, etc. cheat: [31m1[39m
+    # Subtest: checkForPreSolveInteractions
+        # Subtest: should mark interaction as true if URL matches a fragment
+        ok 1 - should mark interaction as true if URL matches a fragment
+          ---
+          duration_ms: 103.111807
+          type: 'test'
+          ...
+        1..1
+    ok 3 - checkForPreSolveInteractions
+      ---
+      duration_ms: 103.725736
+      type: 'suite'
+      ...
+    # Subtest: checkForSourceFileOverlap
+        # Subtest: should not flag short submissions as cheating
+        ok 1 - should not flag short submissions as cheating
+          ---
+          duration_ms: 1.301968
+          type: 'test'
+          ...
+        # Subtest: should not flag submissions for challenges without source file mapping
+        ok 2 - should not flag submissions for challenges without source file mapping
+          ---
+          duration_ms: 1.290836
+          type: 'test'
+          ...
+        # Subtest: should flag 1:1 copy-paste of package.json.bak as cheating
+        ok 3 - should flag 1:1 copy-paste of package.json.bak as cheating
+          ---
+          duration_ms: 3.588999
+          type: 'test'
+          ...
+        # Subtest: should not flag a partial submission from package.json.bak
+        ok 4 - should not flag a partial submission from package.json.bak
+          ---
+          duration_ms: 2.956194
+          type: 'test'
+          ...
+        # Subtest: should not flag a minimal correct answer
+        ok 5 - should not flag a minimal correct answer
+          ---
+          duration_ms: 8.601983
+          type: 'test'
+          ...
+        # Subtest: should flag 1:1 copy-paste of docker-compose.yml as cheating
+        not ok 6 - should flag 1:1 copy-paste of docker-compose.yml as cheating
+          ---
+          duration_ms: 1.275127
+          type: 'test'
+          location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/antiCheat.unit.test.js:119:33'
+          failureType: 'testCodeFailure'
+          error: "ENOENT: no such file or directory, open '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/infrastructure/docker-compose.yml'"
+          code: 'ENOENT'
+          stack: |-
+            Object.readFileSync (node:fs:440:20)
+            TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/antiCheat.unit.test.js:122:35)
+            Test.runInAsyncScope (node:async_hooks:214:14)
+            Test.run (node:internal/test_runner/test:1047:25)
+            async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+          ...
+        # Subtest: should use cache when loading same source file again
+        ok 7 - should use cache when loading same source file again
+          ---
+          duration_ms: 5.802371
+          type: 'test'
+          ...
+        1..7
+    not ok 4 - checkForSourceFileOverlap
+      ---
+      duration_ms: 29.549194
+      type: 'suite'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/antiCheat.unit.test.js:79:35'
+      failureType: 'subtestsFailed'
+      error: '1 subtest failed'
+      code: 'ERR_TEST_FAILURE'
+      ...
+    # Subtest: calculateCheatScore
+        # Subtest: should return cheat score of 1 if isCheating is true
+        ok 1 - should return cheat score of 1 if isCheating is true
+          ---
+          duration_ms: 1.682049
+          type: 'test'
+          ...
+        1..1
+    ok 5 - calculateCheatScore
+      ---
+      duration_ms: 1.91231
+      type: 'suite'
+      ...
+# warn: File ./infrastructure could not be read. It might have been moved or deleted. If coding challenges are contained in the file, they will not be available.
+# info: Cheat score for "Find it" phase of tutorial [36mscoreBoardChallenge[39m solved in 0min (expected ~2min): [31m1[39m
+# info: Cheat score for "Fix it" phase of [36mscoreBoardChallenge[39m solved in 0min (expected ~1min): [31m0.9999833333333333[39m
+# info: Cheat score for "Find it" phase of [36mlocalXssChallenge[39m solved in 0min (expected ~1min): [31m0.9999833333333333[39m
+# info: Cheat score for "Find it" phase of [36mxssBonusChallenge[39m solved in 0min (expected ~1min): [31m1[39m
+# info: Cheat score for [36mdirectoryListingChallenge[39m solved in 0min (expected ~2min) with hints allowed and 100% expected preceding URL interaction: [31m0.9999916666666666[39m
+# info: Cheat score for [36mdirectoryListingChallenge[39m solved in 0min (expected ~2min) with hints allowed and 0% expected preceding URL interaction: [31m1[39m
+    # Subtest: calculateFindItCheatScore
+        # Subtest: should return 0 if no code snippet exists for challenge
+        ok 1 - should return 0 if no code snippet exists for challenge
+          ---
+          duration_ms: 446.892727
+          type: 'test'
+          ...
+        # Subtest: should return cheat score for challenge with code snippet
+        ok 2 - should return cheat score for challenge with code snippet
+          ---
+          duration_ms: 2.162979
+          type: 'test'
+          ...
+        1..2
+    ok 6 - calculateFindItCheatScore
+      ---
+      duration_ms: 449.444002
+      type: 'suite'
+      ...
+    # Subtest: calculateFixItCheatScore
+        # Subtest: should return cheat score for challenge with fixes
+        ok 1 - should return cheat score for challenge with fixes
+          ---
+          duration_ms: 3.427797
+          type: 'test'
+          ...
+        1..1
+    ok 7 - calculateFixItCheatScore
+      ---
+      duration_ms: 3.667576
+      type: 'suite'
+      ...
+    # Subtest: checkForIdenticalSolvedChallenge
+        # Subtest: should return false if challenge is not a coding challenge
+        ok 1 - should return false if challenge is not a coding challenge
+          ---
+          duration_ms: 1.167846
+          type: 'test'
+          ...
+        # Subtest: should detect identical solved challenge and reduce time factor in calculateFindItCheatScore
+        ok 2 - should detect identical solved challenge and reduce time factor in calculateFindItCheatScore
+          ---
+          duration_ms: 1.868388
+          type: 'test'
+          ...
+        # Subtest: should return false if coding challenge has no snippet
+        ok 3 - should return false if coding challenge has no snippet
+          ---
+          duration_ms: 4.095206
+          type: 'test'
+          ...
+        1..3
+    ok 8 - checkForIdenticalSolvedChallenge
+      ---
+      duration_ms: 9.26825
+      type: 'suite'
+      ...
+    # Subtest: loadSourceFile
+        # Subtest: should return empty string if source file cannot be read
+        ok 1 - should return empty string if source file cannot be read
+          ---
+          duration_ms: 1.278263
+          type: 'test'
+          ...
+        1..1
+    ok 9 - loadSourceFile
+      ---
+      duration_ms: 1.509957
+      type: 'suite'
+      ...
+    # Subtest: reset
+        # Subtest: should reset solves and interactions
+        ok 1 - should reset solves and interactions
+          ---
+          duration_ms: 3.077721
+          type: 'test'
+          ...
+        1..1
+    ok 10 - reset
+      ---
+      duration_ms: 3.331796
+      type: 'suite'
+      ...
+    1..10
+not ok 3 - antiCheat
+  ---
+  duration_ms: 1264.967714
+  type: 'suite'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/antiCheat.unit.test.js:8:31'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: appConfiguration
+    # Subtest: should return configuration object
+    ok 1 - should return configuration object
+      ---
+      duration_ms: 2.812084
+      type: 'test'
+      ...
+    # Subtest: should not expose chatBot.llmApiUrl
+    ok 2 - should not expose chatBot.llmApiUrl
+      ---
+      duration_ms: 1.382047
+      type: 'test'
+      ...
+    1..2
+ok 4 - appConfiguration
+  ---
+  duration_ms: 6.03138
+  type: 'suite'
+  ...
+# Subtest: appVersion
+    # Subtest: <anonymous>
+    ok 1 - <anonymous>
+      ---
+      duration_ms: 2.882726
+      type: 'test'
+      ...
+    1..1
+ok 5 - appVersion
+  ---
+  duration_ms: 4.420615
+  type: 'suite'
+  ...
+# Subtest: b2bOrder
+    # Subtest: infinite loop payload does not succeed but solves "rceChallenge"
+    ok 1 - infinite loop payload does not succeed but solves "rceChallenge" # SKIP
+      ---
+      duration_ms: 1.473448
+      type: 'test'
+      ...
+    # Subtest: timeout after 2 seconds solves "rceOccupyChallenge"
+    ok 2 - timeout after 2 seconds solves "rceOccupyChallenge" # SKIP
+      ---
+      duration_ms: 0.336621
+      type: 'test'
+      ...
+    # Subtest: deserializing JSON as documented in Swagger should not solve "rceChallenge"
+    ok 3 - deserializing JSON as documented in Swagger should not solve "rceChallenge"
+      ---
+      duration_ms: 12.906279
+      type: 'test'
+      ...
+    # Subtest: deserializing arbitrary JSON should not solve "rceChallenge"
+    ok 4 - deserializing arbitrary JSON should not solve "rceChallenge"
+      ---
+      duration_ms: 5.08592
+      type: 'test'
+      ...
+    # Subtest: deserializing broken JSON should not solve "rceChallenge"
+    ok 5 - deserializing broken JSON should not solve "rceChallenge"
+      ---
+      duration_ms: 6.040979
+      type: 'test'
+      ...
+    1..5
+ok 6 - b2bOrder
+  ---
+  duration_ms: 28.13667
+  type: 'suite'
+  ...
+# Subtest: blueprint
+    # Subtest: checkExifData
+        # Subtest: should contain properties from exifForBlueprintChallenge
+        not ok 1 - should contain properties from exifForBlueprintChallenge
+          ---
+          duration_ms: 19.233162
+          type: 'test'
+          location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/blueprint.unit.test.js:64:33'
+          failureType: 'uncaughtException'
+          error: 'Could not read EXIF data from /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/frontend/src/assets/public/images/products/3d_keychain.jpg'
+          code: 'ERR_ASSERTION'
+          name: 'AssertionError'
+          operator: 'fail'
+          stack: |-
+            /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/blueprint.unit.test.js:53:34
+            /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/exif/lib/exif/ExifImage.js:119:16
+            ReadFileContext.callback (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/exif/lib/exif/ExifImage.js:153:9)
+            FSReqCallback.readFileAfterOpen [as oncomplete] (node:fs:297:13)
+          ...
+        1..1
+    not ok 1 - checkExifData
+      ---
+      duration_ms: 21.551211
+      type: 'suite'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/blueprint.unit.test.js:63:35'
+      failureType: 'subtestsFailed'
+      error: '1 subtest failed'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        async Promise.all (index 0)
+      ...
+    1..1
+not ok 7 - blueprint
+  ---
+  duration_ms: 22.341361
+  type: 'suite'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/blueprint.unit.test.js:60:31'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: challengeCountryMapping
+    # Subtest: should have a country mapping for every challenge
+    ok 1 - should have a country mapping for every challenge
+      ---
+      duration_ms: 2.342966
+      type: 'test'
+      ...
+    # Subtest: should have unique country codes in every mapping
+    ok 2 - should have unique country codes in every mapping
+      ---
+      duration_ms: 1.182573
+      type: 'test'
+      ...
+    1..2
+ok 8 - challengeCountryMapping
+  ---
+  duration_ms: 60.003079
+  type: 'suite'
+  ...
+# node:fs:440
+#     return binding.readFileUtf8(path, stringToFlags(options.flag));
+#                    ^
+# Error: ENOENT: no such file or directory, open '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/data/static/challenges.yml'
+#     at Object.readFileSync (node:fs:440:20)
+#     at Object.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/challengeTag.unit.test.js:15:53)
+#     at Module._compile (node:internal/modules/cjs/loader:1781:14)
+#     at Object..js (node:internal/modules/cjs/loader:1913:10)
+#     at Module.load (node:internal/modules/cjs/loader:1505:32)
+#     at Function._load (node:internal/modules/cjs/loader:1309:12)
+#     at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+#     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+#     at node:internal/main/run_main_module:36:49 {
+#   errno: -2,
+#   code: 'ENOENT',
+#   syscall: 'open',
+#   path: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/data/static/challenges.yml'
+# }
+# Node.js v22.23.3
+# Subtest: build/test/server/challengeTag.unit.test.js
+not ok 9 - build/test/server/challengeTag.unit.test.js
+  ---
+  duration_ms: 118.242817
+  type: 'test'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/server/challengeTag.unit.test.js:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: challengeTutorialSequence
+    # Subtest: should have unique tutorial orders
+    ok 1 - should have unique tutorial orders
+      ---
+      duration_ms: 12.224963
+      type: 'test'
+      ...
+    1..1
+ok 10 - challengeTutorialSequence
+  ---
+  duration_ms: 64.052028
+  type: 'suite'
+  ...
+# warn: Missing challenge with name: blubbChallenge
+# warn: Missing challenge with id: 43
+# info: [32mSolved[39m 1-star [36mscoreBoardChallenge[39m (Score Board)
+# info: Cheat score for [36mscoreBoardChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.999925[39m
+# info: [90mRestored[39m 1-star [36mscoreBoardChallenge[39m (Score Board)
+# info: [32mSolved[39m 1-star [36mscoreBoardChallenge[39m (Score Board)
+# info: Cheat score for [36mscoreBoardChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.9999916666666666[39m
+# Subtest: challengeUtils
+    # Subtest: findChallengeByName
+        # Subtest: returns undefined for non-existing challenge
+        ok 1 - returns undefined for non-existing challenge
+          ---
+          duration_ms: 7.664958
+          type: 'test'
+          ...
+        # Subtest: returns existing challenge
+        ok 2 - returns existing challenge
+          ---
+          duration_ms: 1.130045
+          type: 'test'
+          ...
+        1..2
+    ok 1 - findChallengeByName
+      ---
+      duration_ms: 10.47608
+      type: 'suite'
+      ...
+    # Subtest: findChallengeById
+        # Subtest: returns undefined for non-existing challenge
+        ok 1 - returns undefined for non-existing challenge
+          ---
+          duration_ms: 1.856836
+          type: 'test'
+          ...
+        # Subtest: returns existing challenge
+        ok 2 - returns existing challenge
+          ---
+          duration_ms: 1.368382
+          type: 'test'
+          ...
+        1..2
+    ok 2 - findChallengeById
+      ---
+      duration_ms: 3.825821
+      type: 'suite'
+      ...
+    # Subtest: notSolved
+        # Subtest: returns true for unsolved challenge
+        ok 1 - returns true for unsolved challenge
+          ---
+          duration_ms: 1.038404
+          type: 'test'
+          ...
+        # Subtest: returns false for solved challenge
+        ok 2 - returns false for solved challenge
+          ---
+          duration_ms: 0.569125
+          type: 'test'
+          ...
+        # Subtest: returns falsy for null challenge
+        ok 3 - returns falsy for null challenge
+          ---
+          duration_ms: 0.610903
+          type: 'test'
+          ...
+        1..3
+    ok 3 - notSolved
+      ---
+      duration_ms: 2.792237
+      type: 'suite'
+      ...
+    # Subtest: solve
+        # Subtest: should mark challenge as solved and save it
+        ok 1 - should mark challenge as solved and save it
+          ---
+          duration_ms: 10.921554
+          type: 'test'
+          ...
+        # Subtest: should not calculate cheat score if it is a restore
+        ok 2 - should not calculate cheat score if it is a restore
+          ---
+          duration_ms: 1.708077
+          type: 'test'
+          ...
+# info: [32mSolved[39m 1-star [36mscoreBoardChallenge[39m (Score Board)
+# info: Cheat score for [36mscoreBoardChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.9999916666666666[39m
+# info: [32mSolved[39m 'Find It' phase of coding challenge [36mscoreBoardChallenge[39m (scoreBoardChallenge)
+# info: Accuracy for 'Find It' phase of coding challenge [36mscoreBoardChallenge[39m: [32m1[39m
+        # Subtest: should log error if webhook notification fails
+        ok 3 - should log error if webhook notification fails
+          ---
+          duration_ms: 23.66581
+          type: 'test'
+          ...
+        1..3
+    ok 4 - solve
+      ---
+      duration_ms: 36.940169
+      type: 'suite'
+      ...
+    # Subtest: solveIf
+        # Subtest: should solve challenge if criteria is met and not yet solved
+        ok 1 - should solve challenge if criteria is met and not yet solved
+          ---
+          duration_ms: 2.61238
+          type: 'test'
+          ...
+        1..1
+    ok 5 - solveIf
+      ---
+      duration_ms: 2.840547
+      type: 'suite'
+      ...
+    # Subtest: sendCodingChallengeNotification
+        # Subtest: should emit "code challenge solved" event via socket.io
+        ok 1 - should emit "code challenge solved" event via socket.io
+          ---
+          duration_ms: 0.721721
+          type: 'test'
+          ...
+        1..1
+    ok 6 - sendCodingChallengeNotification
+      ---
+      duration_ms: 1.035558
+      type: 'suite'
+      ...
+# warn: File ./infrastructure could not be read. It might have been moved or deleted. If coding challenges are contained in the file, they will not be available.
+# info: Cheat score for "Find it" phase of tutorial [36mscoreBoardChallenge[39m solved in 0min (expected ~2min): [31m0.9999666666666667[39m
+# info: [90mRestored[39m 'Find It' phase of coding challenge [36mscoreBoardChallenge[39m (scoreBoardChallenge)
+# info: [32mSolved[39m 'Fix It' phase of coding challenge [36mscoreBoardChallenge[39m (scoreBoardChallenge)
+# info: Accuracy for 'Fix It' phase of coding challenge [36mscoreBoardChallenge[39m: [32m1[39m
+# info: Cheat score for "Fix it" phase of [36mscoreBoardChallenge[39m solved in 0min (expected ~1min): [31m0.9999666666666667[39m
+# info: [90mRestored[39m 'Fix It' phase of coding challenge [36mscoreBoardChallenge[39m (scoreBoardChallenge)
+    # Subtest: solveFindIt
+        # Subtest: should update status and calculate accuracy/cheat score
+        ok 1 - should update status and calculate accuracy/cheat score
+          ---
+          duration_ms: 467.627811
+          type: 'test'
+          ...
+        # Subtest: should not calculate accuracy/cheat score if it is a restore
+        ok 2 - should not calculate accuracy/cheat score if it is a restore
+          ---
+          duration_ms: 1.0525
+          type: 'test'
+          ...
+        1..2
+    ok 7 - solveFindIt
+      ---
+      duration_ms: 469.033152
+      type: 'suite'
+      ...
+    # Subtest: solveFixIt
+        # Subtest: should update status and calculate accuracy/cheat score
+        ok 1 - should update status and calculate accuracy/cheat score
+          ---
+          duration_ms: 3.56339
+          type: 'test'
+          ...
+        # Subtest: should not calculate accuracy/cheat score if it is a restore
+        ok 2 - should not calculate accuracy/cheat score if it is a restore
+          ---
+          duration_ms: 0.696844
+          type: 'test'
+          ...
+        1..2
+    ok 8 - solveFixIt
+      ---
+      duration_ms: 4.542002
+      type: 'suite'
+      ...
+    # Subtest: sendNotification
+        # Subtest: should return early if challenge is not solved
+        ok 1 - should return early if challenge is not solved
+          ---
+          duration_ms: 0.462756
+          type: 'test'
+          ...
+        # Subtest: should push notification to datacache and emit via socket.io
+        ok 2 - should push notification to datacache and emit via socket.io
+          ---
+          duration_ms: 1.336592
+          type: 'test'
+          ...
+        # Subtest: should handle missing fullChallenge
+        ok 3 - should handle missing fullChallenge
+          ---
+          duration_ms: 0.81182
+          type: 'test'
+          ...
+        # Subtest: should respect showSolvedNotifications config
+        ok 4 - should respect showSolvedNotifications config
+          ---
+          duration_ms: 0.912448
+          type: 'test'
+          ...
+        # Subtest: should handle codingChallengesEnabled set to "never"
+        ok 5 - should handle codingChallengesEnabled set to "never"
+          ---
+          duration_ms: 1.028715
+          type: 'test'
+          ...
+        1..5
+    ok 9 - sendNotification
+      ---
+      duration_ms: 5.242373
+      type: 'suite'
+      ...
+    1..9
+ok 11 - challengeUtils
+  ---
+  duration_ms: 538.852909
+  type: 'suite'
+  ...
+# Subtest: chat
+    # Subtest: summarizeLlmError
+        # Subtest: should handle non-Error objects
+        ok 1 - should handle non-Error objects
+          ---
+          duration_ms: 1.53882
+          type: 'test'
+          ...
+        # Subtest: should return reachable message for connection errors
+        ok 2 - should return reachable message for connection errors
+          ---
+          duration_ms: 0.52873
+          type: 'test'
+          ...
+        # Subtest: should return status code if available
+        ok 3 - should return status code if available
+          ---
+          duration_ms: 0.510426
+          type: 'test'
+          ...
+        # Subtest: should return first line of message otherwise
+        ok 4 - should return first line of message otherwise
+          ---
+          duration_ms: 0.466403
+          type: 'test'
+          ...
+        1..4
+    ok 1 - summarizeLlmError
+      ---
+      duration_ms: 4.684339
+      type: 'suite'
+      ...
+    # Subtest: buildSystemPrompt
+        # Subtest: should include user name if provided
+        ok 1 - should include user name if provided
+          ---
+          duration_ms: 0.777826
+          type: 'test'
+          ...
+        # Subtest: should not include user name if not provided
+        ok 2 - should not include user name if not provided
+          ---
+          duration_ms: 0.698057
+          type: 'test'
+          ...
+        1..2
+    ok 2 - buildSystemPrompt
+      ---
+      duration_ms: 1.938909
+      type: 'suite'
+      ...
+    # Subtest: getUserId
+        # Subtest: should return undefined if no token is present
+        ok 1 - should return undefined if no token is present
+          ---
+          duration_ms: 0.855201
+          type: 'test'
+          ...
+        # Subtest: should return user ID from decoded token
+        ok 2 - should return user ID from decoded token
+          ---
+          duration_ms: 4.264613
+          type: 'test'
+          ...
+        1..2
+    ok 3 - getUserId
+      ---
+      duration_ms: 5.636021
+      type: 'suite'
+      ...
+    # Subtest: getUserNameFromToken
+        # Subtest: should return undefined if no user ID is found
+        ok 1 - should return undefined if no user ID is found
+          ---
+          duration_ms: 12.144844
+          type: 'test'
+          ...
+        # Subtest: should return username from database
+        ok 2 - should return username from database
+          ---
+          duration_ms: 4.641389
+          type: 'test'
+          ...
+        1..2
+    ok 4 - getUserNameFromToken
+      ---
+      duration_ms: 17.205127
+      type: 'suite'
+      ...
+    1..4
+ok 12 - chat
+  ---
+  duration_ms: 31.018945
+  type: 'suite'
+  ...
+# Subtest: vulnCodeSnippet
+    # Subtest: should assert single correctly selected vuln line as correct
+    ok 1 - should assert single correctly selected vuln line as correct
+      ---
+      duration_ms: 1.385323
+      type: 'test'
+      ...
+    # Subtest: should assert multiple correctly selected vuln lines as correct in any order
+    ok 2 - should assert multiple correctly selected vuln lines as correct in any order
+      ---
+      duration_ms: 0.532226
+      type: 'test'
+      ...
+    # Subtest: should ignore selected neutral lines during correct assertion
+    ok 3 - should ignore selected neutral lines during correct assertion
+      ---
+      duration_ms: 0.655948
+      type: 'test'
+      ...
+    # Subtest: should assert missing vuln lines as wrong
+    ok 4 - should assert missing vuln lines as wrong
+      ---
+      duration_ms: 0.403085
+      type: 'test'
+      ...
+    # Subtest: should assert additionally selected lines as wrong
+    ok 5 - should assert additionally selected lines as wrong
+      ---
+      duration_ms: 0.484066
+      type: 'test'
+      ...
+    # Subtest: should assert lack of selected lines as wrong
+    ok 6 - should assert lack of selected lines as wrong
+      ---
+      duration_ms: 0.318376
+      type: 'test'
+      ...
+    # Subtest: should assert empty edge case as correct
+    ok 7 - should assert empty edge case as correct
+      ---
+      duration_ms: 0.361727
+      type: 'test'
+      ...
+    1..7
+ok 13 - vulnCodeSnippet
+  ---
+  duration_ms: 6.892983
+  type: 'suite'
+  ...
+# warn: File ./infrastructure could not be read. It might have been moved or deleted. If coding challenges are contained in the file, they will not be available.
+# Subtest: codingChallengeFixes
+    # Subtest: should have a correct fix for each coding challenge
+    ok 1 - should have a correct fix for each coding challenge
+      ---
+      duration_ms: 12.65016
+      type: 'test'
+      ...
+    # Subtest: should have a total of three or more fix options for each coding challenge
+    ok 2 - should have a total of three or more fix options for each coding challenge
+      ---
+      duration_ms: 0.429735
+      type: 'test'
+      ...
+    # Subtest: should have an info YAML file for each coding challenge
+    ok 3 - should have an info YAML file for each coding challenge
+      ---
+      duration_ms: 0.681826
+      type: 'test'
+      ...
+    1..3
+ok 14 - codingChallengeFixes
+  ---
+  duration_ms: 488.633301
+  type: 'suite'
+  ...
+# Subtest: codingChallenges
+    # Subtest: should find files with code challenges in the project structure
+    ok 1 - should find files with code challenges in the project structure
+      ---
+      duration_ms: 50.795293
+      type: 'test'
+      ...
+# warn: File non-existent-folder could not be read. It might have been moved or deleted. If coding challenges are contained in the file, they will not be available.
+    # Subtest: should log warning and continue if a path does not exist
+    ok 2 - should log warning and continue if a path does not exist
+      ---
+      duration_ms: 4.379467
+      type: 'test'
+      ...
+# warn: File ./infrastructure could not be read. It might have been moved or deleted. If coding challenges are contained in the file, they will not be available.
+    # Subtest: should successfully retrieve coding challenges map
+    ok 3 - should successfully retrieve coding challenges map
+      ---
+      duration_ms: 451.172507
+      type: 'test'
+      ...
+    # Subtest: BrokenBoundary error should have correct properties
+    ok 4 - BrokenBoundary error should have correct properties
+      ---
+      duration_ms: 0.596587
+      type: 'test'
+      ...
+    # Subtest: should throw BrokenBoundary error if snippet boundaries are broken
+    ok 5 - should throw BrokenBoundary error if snippet boundaries are broken
+      ---
+      duration_ms: 2.034469
+      type: 'test'
+      ...
+    1..5
+ok 15 - codingChallenges
+  ---
+  duration_ms: 511.788254
+  type: 'suite'
+  ...
+# warn: 2 products are configured as [3m"Christmas Special" challenge product[23m but only one is allowed ([31mERROR[39m)
+# warn: No product is configured as [3m"Leaked Unsafe Product" challenge product[23m but one is required ([31mERROR[39m)
+# warn: No product is configured as [3m"Retrieve Blueprint" challenge product[23m but one is required ([31mERROR[39m)
+# warn: No product is configured as [3m"Leaked Unsafe Product" challenge product[23m but one is required ([31mERROR[39m)
+# warn: Product [3mMelon Juice[23m configured as [3m"Retrieve Blueprint" challenge product[23m does't contain necessary [3mlist of EXIF metadata properties[23m ([31mERROR[39m)
+# warn: Product [3mApple Juice[23m is used as [3m"Christmas Special" challenge product[23m and [3m"Product Tampering" challenge product[23m but can only be used for one challenge ([31mERROR[39m)
+# warn: Only 3 products are configured but at least four are required ([31mERROR[39m)
+# warn: 2 memories are configured as [3m"Meta Geo Stalking" challenge memory[23m but only one is allowed ([31mERROR[39m)
+# warn: No memory is configured as [3m"Visual Geo Stalking" challenge memory[23m but one is required ([31mERROR[39m)
+# warn: No memory is configured as [3m"Meta Geo Stalking" challenge memory[23m but one is required ([31mERROR[39m)
+# warn: No memory is configured as [3m"Visual Geo Stalking" challenge memory[23m but one is required ([31mERROR[39m)
+# warn: Memory [3mBla[23m is used as [3m"Meta Geo Stalking" challenge memory[23m and [3m"Visual Geo Stalking" challenge memory[23m but can only be used for one challenge ([31mERROR[39m)
+# warn: Memory configured as [3m"Meta Geo Stalking" challenge memory[23m must belong to user [3mjohn[23m but was linked to [3madmin[23m user ([31mERROR[39m)
+# warn: Only 1 memories are configured but at least two are required ([31mERROR[39m)
+# info: Configuration [1mdefault[22m validated ([32mSUCCESS[39m)
+# warn: Only 0 products are configured but at least four are required ([31mERROR[39m)
+# warn: No product is configured as [3m"Christmas Special" challenge product[23m but one is required ([31mERROR[39m)
+# warn: No product is configured as [3m"Product Tampering" challenge product[23m but one is required ([31mERROR[39m)
+# warn: No product is configured as [3m"Retrieve Blueprint" challenge product[23m but one is required ([31mERROR[39m)
+# warn: No product is configured as [3m"Leaked Unsafe Product" challenge product[23m but one is required ([31mERROR[39m)
+# warn: Configuration [1mdefault[22m validated ([31mERROR[39m)
+# warn: Visit [33mhttps://pwning.owasp-juice.shop/companion-guide/latest/part4/customization.html\#_yaml_configuration_file[39m for the configuration schema definition.
+# warn: Config schema validation failed with 3 errors ([31mERROR[39m)
+# warn: application.domain:[31m Invalid input: expected string, received number[39m
+# warn: application.welcomeBanner.showOnFirstStart:[31m Invalid input: expected boolean, received string[39m
+# warn: hackingInstructor.avatarImage:[31m Invalid input: expected string, received boolean[39m
+# warn: ctf.systemWideNotifications.url is set but pollFrequencySeconds is missing or not a positive number ([31mERROR[39m)
+# warn: ctf.systemWideNotifications.url is set but pollFrequencySeconds is missing or not a positive number ([31mERROR[39m)
+# warn: ctf.systemWideNotifications.url is set but pollFrequencySeconds is missing or not a positive number ([31mERROR[39m)
+# Subtest: configValidation
+    # Subtest: checkUnambiguousMandatorySpecialProducts
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 1.322215
+          type: 'test'
+          ...
+        # Subtest: should fail if multiple products are configured for the same challenge
+        ok 2 - should fail if multiple products are configured for the same challenge
+          ---
+          duration_ms: 8.235777
+          type: 'test'
+          ...
+        # Subtest: should fail if a required challenge product is missing
+        ok 3 - should fail if a required challenge product is missing
+          ---
+          duration_ms: 11.617607
+          type: 'test'
+          ...
+        1..3
+    ok 1 - checkUnambiguousMandatorySpecialProducts
+      ---
+      duration_ms: 23.728978
+      type: 'suite'
+      ...
+    # Subtest: checkNecessaryExtraKeysOnSpecialProducts
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 0.912739
+          type: 'test'
+          ...
+        # Subtest: should fail if product has no exifForBlueprintChallenge
+        ok 2 - should fail if product has no exifForBlueprintChallenge
+          ---
+          duration_ms: 0.848658
+          type: 'test'
+          ...
+        1..2
+    ok 2 - checkNecessaryExtraKeysOnSpecialProducts
+      ---
+      duration_ms: 2.131931
+      type: 'suite'
+      ...
+    # Subtest: checkUniqueSpecialOnProducts
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 8.32858
+          type: 'test'
+          ...
+        # Subtest: should fail if a product is configured for multiple challenges
+        ok 2 - should fail if a product is configured for multiple challenges
+          ---
+          duration_ms: 1.307577
+          type: 'test'
+          ...
+        1..2
+    ok 3 - checkUniqueSpecialOnProducts
+      ---
+      duration_ms: 10.393736
+      type: 'suite'
+      ...
+    # Subtest: checkMinimumRequiredNumberOfProducts
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 0.435224
+          type: 'test'
+          ...
+        # Subtest: should fail if less than 4 products are configured
+        ok 2 - should fail if less than 4 products are configured
+          ---
+          duration_ms: 5.514122
+          type: 'test'
+          ...
+        1..2
+    ok 4 - checkMinimumRequiredNumberOfProducts
+      ---
+      duration_ms: 6.51711
+      type: 'suite'
+      ...
+    # Subtest: checkUnambiguousMandatorySpecialMemories
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 7.496433
+          type: 'test'
+          ...
+        # Subtest: should fail if multiple memories are configured for the same challenge
+        ok 2 - should fail if multiple memories are configured for the same challenge
+          ---
+          duration_ms: 2.841319
+          type: 'test'
+          ...
+        # Subtest: should fail if a required challenge memory is missing
+        ok 3 - should fail if a required challenge memory is missing
+          ---
+          duration_ms: 3.035472
+          type: 'test'
+          ...
+        # Subtest: should fail if memories have mixed up the required challenge keys
+        ok 4 - should fail if memories have mixed up the required challenge keys
+          ---
+          duration_ms: 3.362274
+          type: 'test'
+          ...
+        1..4
+    ok 5 - checkUnambiguousMandatorySpecialMemories
+      ---
+      duration_ms: 19.348369
+      type: 'suite'
+      ...
+    # Subtest: checkThatThereIsOnlyOneMemoryPerSpecial
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 0.79055
+          type: 'test'
+          ...
+        # Subtest: should fail if a memory is configured for multiple challenges
+        ok 2 - should fail if a memory is configured for multiple challenges
+          ---
+          duration_ms: 0.611204
+          type: 'test'
+          ...
+        1..2
+    ok 6 - checkThatThereIsOnlyOneMemoryPerSpecial
+      ---
+      duration_ms: 1.755676
+      type: 'suite'
+      ...
+    # Subtest: checkSpecialMemoriesHaveNoUserAssociated
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 1.041851
+          type: 'test'
+          ...
+        # Subtest: should accept a config where the default users are associated
+        ok 2 - should accept a config where the default users are associated
+          ---
+          duration_ms: 0.316132
+          type: 'test'
+          ...
+        # Subtest: should fail if a memory is linked to another user
+        ok 3 - should fail if a memory is linked to another user
+          ---
+          duration_ms: 0.80109
+          type: 'test'
+          ...
+        1..3
+    ok 7 - checkSpecialMemoriesHaveNoUserAssociated
+      ---
+      duration_ms: 21.426318
+      type: 'suite'
+      ...
+    # Subtest: checkMinimumRequiredNumberOfMemories
+        # Subtest: should accept a valid config
+        ok 1 - should accept a valid config
+          ---
+          duration_ms: 0.402684
+          type: 'test'
+          ...
+        # Subtest: should fail if less than 2 memories are configured
+        ok 2 - should fail if less than 2 memories are configured
+          ---
+          duration_ms: 0.647272
+          type: 'test'
+          ...
+        1..2
+    ok 8 - checkMinimumRequiredNumberOfMemories
+      ---
+      duration_ms: 7.000134
+      type: 'suite'
+      ...
+    # Subtest: should accept the active config from config/undefined.yml
+    ok 9 - should accept the active config from config/undefined.yml
+      ---
+      duration_ms: 41.788956
+      type: 'test'
+      ...
+    # Subtest: should fail if the config is invalid
+    ok 10 - should fail if the config is invalid
+      ---
+      duration_ms: 7.224704
+      type: 'test'
+      ...
+    # Subtest: should accept a config with valid schema
+    ok 11 - should accept a config with valid schema
+      ---
+      duration_ms: 0.689971
+      type: 'test'
+      ...
+    # Subtest: should accept a config that blanks out arbitrary fields with null
+    ok 12 - should accept a config that blanks out arbitrary fields with null
+      ---
+      duration_ms: 0.59799
+      type: 'test'
+      ...
+    # Subtest: should fail for a config with schema errors
+    ok 13 - should fail for a config with schema errors
+      ---
+      duration_ms: 3.471539
+      type: 'test'
+      ...
+    # Subtest: checkForIllogicalCombos
+        # Subtest: should accept a config without systemWideNotifications set
+        ok 1 - should accept a config without systemWideNotifications set
+          ---
+          duration_ms: 0.425156
+          type: 'test'
+          ...
+        # Subtest: should accept a config with systemWideNotifications url and pollFrequencySeconds set
+        ok 2 - should accept a config with systemWideNotifications url and pollFrequencySeconds set
+          ---
+          duration_ms: 0.278591
+          type: 'test'
+          ...
+        # Subtest: should fail if systemWideNotifications url is set but pollFrequencySeconds is missing
+        ok 3 - should fail if systemWideNotifications url is set but pollFrequencySeconds is missing
+          ---
+          duration_ms: 0.873184
+          type: 'test'
+          ...
+        # Subtest: should fail if systemWideNotifications url is set but pollFrequencySeconds is zero
+        ok 4 - should fail if systemWideNotifications url is set but pollFrequencySeconds is zero
+          ---
+          duration_ms: 1.191641
+          type: 'test'
+          ...
+        # Subtest: should fail if systemWideNotifications url is set but pollFrequencySeconds is negative
+        ok 5 - should fail if systemWideNotifications url is set but pollFrequencySeconds is negative
+          ---
+          duration_ms: 1.663213
+          type: 'test'
+          ...
+        1..5
+    ok 14 - checkForIllogicalCombos
+      ---
+      duration_ms: 4.945929
+      type: 'suite'
+      ...
+    1..14
+ok 16 - configValidation
+  ---
+  duration_ms: 153.687871
+  type: 'suite'
+  ...
+# Subtest: continueCode
+    # Subtest: should be empty when no challenges are solved
+    ok 1 - should be empty when no challenges are solved
+      ---
+      duration_ms: 4.324075
+      type: 'test'
+      ...
+    # Subtest: should be hashid value of IDs of solved challenges
+    ok 2 - should be hashid value of IDs of solved challenges
+      ---
+      duration_ms: 1.598442
+      type: 'test'
+      ...
+    1..2
+ok 17 - continueCode
+  ---
+  duration_ms: 7.891362
+  type: 'suite'
+  ...
+# warn: Country mapping was requested but was not found in the selected config file. Take a look at the fbctf.yml config file to find out how to configure the country mappings required by FBCTF.
+# warn: Country mapping was requested but was not found in the selected config file. Take a look at the fbctf.yml config file to find out how to configure the country mappings required by FBCTF.
+# Subtest: countryMapping
+    # Subtest: should return configured country mappings
+    ok 1 - should return configured country mappings
+      ---
+      duration_ms: 2.223041
+      type: 'test'
+      ...
+    # Subtest: should return server error when configuration has no country mappings
+    ok 2 - should return server error when configuration has no country mappings
+      ---
+      duration_ms: 5.586177
+      type: 'test'
+      ...
+    # Subtest: should return server error for active configuration from config/undefined.yml
+    ok 3 - should return server error for active configuration from config/undefined.yml
+      ---
+      duration_ms: 1.777828
+      type: 'test'
+      ...
+    1..3
+ok 18 - countryMapping
+  ---
+  duration_ms: 11.967753
+  type: 'suite'
+  ...
+# Subtest: currentUser
+    # Subtest: should return neither ID nor email if no cookie was present in the request headers
+    ok 1 - should return neither ID nor email if no cookie was present in the request headers
+      ---
+      duration_ms: 4.114783
+      type: 'test'
+      ...
+    # Subtest: should return ID and email of user belonging to cookie from the request
+    ok 2 - should return ID and email of user belonging to cookie from the request
+      ---
+      duration_ms: 3.209288
+      type: 'test'
+      ...
+    1..2
+ok 19 - currentUser
+  ---
+  duration_ms: 9.269682
+  type: 'suite'
+  ...
+# Subtest: dataExport
+    # Subtest: should call next with error if user is not authenticated
+    ok 1 - should call next with error if user is not authenticated
+      ---
+      duration_ms: 3.606792
+      type: 'test'
+      ...
+    # Subtest: should call next with error if MemoryModel.findAll fails
+    ok 2 - should call next with error if MemoryModel.findAll fails
+      ---
+      duration_ms: 1.197372
+      type: 'test'
+      ...
+    # Subtest: should call next with error if ordersCollection.find fails
+    ok 3 - should call next with error if ordersCollection.find fails
+      ---
+      duration_ms: 1.076725
+      type: 'test'
+      ...
+    # Subtest: should call next with error if reviewsCollection.find fails
+    ok 4 - should call next with error if reviewsCollection.find fails
+      ---
+      duration_ms: 1.262874
+      type: 'test'
+      ...
+    1..4
+ok 20 - dataExport
+  ---
+  duration_ms: 9.33766
+  type: 'suite'
+  ...
+# Subtest: easterEgg
+    # Subtest: should serve /frontend/dist/frontend/assets/private/threejs-demo.html
+    ok 1 - should serve /frontend/dist/frontend/assets/private/threejs-demo.html
+      ---
+      duration_ms: 1.948808
+      type: 'test'
+      ...
+    # Subtest: should solve "easterEggLevelTwoChallenge"
+    ok 2 - should solve "easterEggLevelTwoChallenge"
+      ---
+      duration_ms: 0.998059
+      type: 'test'
+      ...
+    1..2
+ok 21 - easterEgg
+  ---
+  duration_ms: 4.244966
+  type: 'suite'
+  ...
+# Subtest: fileServer
+    # Subtest: should serve PDF files from folder /ftp
+    ok 1 - should serve PDF files from folder /ftp
+      ---
+      duration_ms: 3.052885
+      type: 'test'
+      ...
+    # Subtest: should serve Markdown files from folder /ftp
+    ok 2 - should serve Markdown files from folder /ftp
+      ---
+      duration_ms: 0.714918
+      type: 'test'
+      ...
+    # Subtest: should serve incident-support.kdbx files from folder /ftp
+    ok 3 - should serve incident-support.kdbx files from folder /ftp
+      ---
+      duration_ms: 0.743131
+      type: 'test'
+      ...
+    # Subtest: should raise error for slashes in filename
+    ok 4 - should raise error for slashes in filename
+      ---
+      duration_ms: 1.0474
+      type: 'test'
+      ...
+    # Subtest: should raise error for disallowed file type
+    ok 5 - should raise error for disallowed file type
+      ---
+      duration_ms: 0.96727
+      type: 'test'
+      ...
+    # Subtest: should solve "directoryListingChallenge" when requesting acquisitions.md
+    ok 6 - should solve "directoryListingChallenge" when requesting acquisitions.md
+      ---
+      duration_ms: 1.13795
+      type: 'test'
+      ...
+    # Subtest: should solve "easterEggLevelOneChallenge" when requesting eastere.gg with Poison Null Byte attack
+    ok 7 - should solve "easterEggLevelOneChallenge" when requesting eastere.gg with Poison Null Byte attack
+      ---
+      duration_ms: 0.798024
+      type: 'test'
+      ...
+    # Subtest: should solve "forgottenDevBackupChallenge" when requesting package.json.bak with Poison Null Byte attack
+    ok 8 - should solve "forgottenDevBackupChallenge" when requesting package.json.bak with Poison Null Byte attack
+      ---
+      duration_ms: 0.793155
+      type: 'test'
+      ...
+    # Subtest: should solve "forgottenBackupChallenge" when requesting coupons_2013.md.bak with Poison Null Byte attack
+    ok 9 - should solve "forgottenBackupChallenge" when requesting coupons_2013.md.bak with Poison Null Byte attack
+      ---
+      duration_ms: 1.045958
+      type: 'test'
+      ...
+    # Subtest: should solve "misplacedSignatureFileChallenge" when requesting suspicious_errors.yml with Poison Null Byte attack
+    ok 10 - should solve "misplacedSignatureFileChallenge" when requesting suspicious_errors.yml with Poison Null Byte attack
+      ---
+      duration_ms: 1.108015
+      type: 'test'
+      ...
+    1..10
+ok 22 - fileServer
+  ---
+  duration_ms: 13.884932
+  type: 'suite'
+  ...
+# Subtest: fileUpload
+    # Subtest: should not solve "uploadSizeChallenge" when file size is
+        # Subtest: 0 bytes
+        ok 1 - 0 bytes
+          ---
+          duration_ms: 2.241096
+          type: 'test'
+          ...
+        # Subtest: 1 bytes
+        ok 2 - 1 bytes
+          ---
+          duration_ms: 0.552193
+          type: 'test'
+          ...
+        # Subtest: 100 bytes
+        ok 3 - 100 bytes
+          ---
+          duration_ms: 0.663432
+          type: 'test'
+          ...
+        # Subtest: 1000 bytes
+        ok 4 - 1000 bytes
+          ---
+          duration_ms: 0.682507
+          type: 'test'
+          ...
+        # Subtest: 10000 bytes
+        ok 5 - 10000 bytes
+          ---
+          duration_ms: 1.011293
+          type: 'test'
+          ...
+        # Subtest: 99999 bytes
+        ok 6 - 99999 bytes
+          ---
+          duration_ms: 0.639948
+          type: 'test'
+          ...
+        # Subtest: 100000 bytes
+        ok 7 - 100000 bytes
+          ---
+          duration_ms: 0.300142
+          type: 'test'
+          ...
+        1..7
+    ok 1 - should not solve "uploadSizeChallenge" when file size is
+      ---
+      duration_ms: 8.206031
+      type: 'suite'
+      ...
+    # Subtest: should solve "uploadSizeChallenge" when file size exceeds 100000 bytes
+    ok 2 - should solve "uploadSizeChallenge" when file size exceeds 100000 bytes
+      ---
+      duration_ms: 1.428555
+      type: 'test'
+      ...
+    # Subtest: should solve "uploadTypeChallenge" when file type is not PDF
+    ok 3 - should solve "uploadTypeChallenge" when file type is not PDF
+      ---
+      duration_ms: 0.851284
+      type: 'test'
+      ...
+    # Subtest: should not solve "uploadTypeChallenge" when file type is PDF
+    ok 4 - should not solve "uploadTypeChallenge" when file type is PDF
+      ---
+      duration_ms: 0.663602
+      type: 'test'
+      ...
+    1..4
+ok 23 - fileUpload
+  ---
+  duration_ms: 12.605016
+  type: 'suite'
+  ...
+# Subtest: insecurity
+    # Subtest: cutOffPoisonNullByte
+        # Subtest: returns string unchanged if it contains no null byte
+        ok 1 - returns string unchanged if it contains no null byte
+          ---
+          duration_ms: 1.260069
+          type: 'test'
+          ...
+        # Subtest: returns string up to null byte
+        ok 2 - returns string up to null byte
+          ---
+          duration_ms: 0.339295
+          type: 'test'
+          ...
+        1..2
+    ok 1 - cutOffPoisonNullByte
+      ---
+      duration_ms: 2.953278
+      type: 'suite'
+      ...
+    # Subtest: userEmailFrom
+        # Subtest: returns content of "x-user-email" header if present
+        ok 1 - returns content of "x-user-email" header if present
+          ---
+          duration_ms: 0.450343
+          type: 'test'
+          ...
+        # Subtest: returns undefined if header "x-user-email" is not present
+        ok 2 - returns undefined if header "x-user-email" is not present
+          ---
+          duration_ms: 0.347881
+          type: 'test'
+          ...
+        1..2
+    ok 2 - userEmailFrom
+      ---
+      duration_ms: 1.1536
+      type: 'suite'
+      ...
+    # Subtest: generateCoupon
+        # Subtest: returns base85-encoded month, year and discount as coupon code
+        ok 1 - returns base85-encoded month, year and discount as coupon code
+          ---
+          duration_ms: 1.241634
+          type: 'test'
+          ...
+        # Subtest: uses current month and year if not specified
+        ok 2 - uses current month and year if not specified
+          ---
+          duration_ms: 0.463668
+          type: 'test'
+          ...
+        # Subtest: does not encode day of month or time into coupon code
+        ok 3 - does not encode day of month or time into coupon code
+          ---
+          duration_ms: 0.768879
+          type: 'test'
+          ...
+        1..3
+    ok 3 - generateCoupon
+      ---
+      duration_ms: 3.158703
+      type: 'suite'
+      ...
+    # Subtest: discountFromCoupon
+        # Subtest: returns undefined when not passing in a coupon code
+        ok 1 - returns undefined when not passing in a coupon code
+          ---
+          duration_ms: 0.576479
+          type: 'test'
+          ...
+        # Subtest: returns undefined for malformed coupon code
+        ok 2 - returns undefined for malformed coupon code
+          ---
+          duration_ms: 0.929921
+          type: 'test'
+          ...
+        # Subtest: returns undefined for coupon code not according to expected pattern
+        ok 3 - returns undefined for coupon code not according to expected pattern
+          ---
+          duration_ms: 1.309652
+          type: 'test'
+          ...
+        # Subtest: returns undefined for expired coupon code
+        ok 4 - returns undefined for expired coupon code
+          ---
+          duration_ms: 0.594021
+          type: 'test'
+          ...
+        # Subtest: returns discount from valid coupon code
+        ok 5 - returns discount from valid coupon code
+          ---
+          duration_ms: 0.682869
+          type: 'test'
+          ...
+        1..5
+    ok 4 - discountFromCoupon
+      ---
+      duration_ms: 4.803733
+      type: 'suite'
+      ...
+    # Subtest: authenticatedUsers
+        # Subtest: returns user by associated token
+        ok 1 - returns user by associated token
+          ---
+          duration_ms: 1.701996
+          type: 'test'
+          ...
+        # Subtest: returns undefined if no token is passed in
+        ok 2 - returns undefined if no token is passed in
+          ---
+          duration_ms: 0.287868
+          type: 'test'
+          ...
+        # Subtest: returns token by associated user
+        ok 3 - returns token by associated user
+          ---
+          duration_ms: 0.233026
+          type: 'test'
+          ...
+        # Subtest: returns user by associated token from request
+        ok 4 - returns user by associated token from request
+          ---
+          duration_ms: 0.343423
+          type: 'test'
+          ...
+        # Subtest: returns undefined if no token is present in request
+        ok 5 - returns undefined if no token is present in request
+          ---
+          duration_ms: 0.164488
+          type: 'test'
+          ...
+        1..5
+    ok 5 - authenticatedUsers
+      ---
+      duration_ms: 3.198687
+      type: 'suite'
+      ...
+    # Subtest: sanitizeHtml
+        # Subtest: handles empty inputs by returning their string representation
+        ok 1 - handles empty inputs by returning their string representation
+          ---
+          duration_ms: 1.373251
+          type: 'test'
+          ...
+        # Subtest: returns input unchanged for plain text input
+        ok 2 - returns input unchanged for plain text input
+          ---
+          duration_ms: 0.882773
+          type: 'test'
+          ...
+        # Subtest: returns input unchanged for HTML input with only harmless text formatting
+        ok 3 - returns input unchanged for HTML input with only harmless text formatting
+          ---
+          duration_ms: 1.292429
+          type: 'test'
+          ...
+        # Subtest: returns input unchanged for HTML input with only harmless links
+        ok 4 - returns input unchanged for HTML input with only harmless links
+          ---
+          duration_ms: 1.631254
+          type: 'test'
+          ...
+        # Subtest: removes all Javascript from HTML input
+        ok 5 - removes all Javascript from HTML input
+          ---
+          duration_ms: 1.243628
+          type: 'test'
+          ...
+        # Subtest: can be bypassed by exploiting lack of recursive sanitization
+        ok 6 - can be bypassed by exploiting lack of recursive sanitization
+          ---
+          duration_ms: 0.461855
+          type: 'test'
+          ...
+        1..6
+    ok 6 - sanitizeHtml
+      ---
+      duration_ms: 7.521079
+      type: 'suite'
+      ...
+    # Subtest: sanitizeLegacy
+        # Subtest: returns empty string for undefined input
+        ok 1 - returns empty string for undefined input
+          ---
+          duration_ms: 0.577882
+          type: 'test'
+          ...
+        # Subtest: returns input unchanged for plain text input
+        ok 2 - returns input unchanged for plain text input
+          ---
+          duration_ms: 0.204704
+          type: 'test'
+          ...
+        # Subtest: removes all opening tags and subsequent character from HTML input
+        ok 3 - removes all opening tags and subsequent character from HTML input
+          ---
+          duration_ms: 0.175628
+          type: 'test'
+          ...
+        # Subtest: can be bypassed to allow working HTML payload to be returned
+        ok 4 - can be bypassed to allow working HTML payload to be returned
+          ---
+          duration_ms: 0.162925
+          type: 'test'
+          ...
+        1..4
+    ok 7 - sanitizeLegacy
+      ---
+      duration_ms: 1.424727
+      type: 'suite'
+      ...
+    # Subtest: sanitizeSecure
+        # Subtest: handles empty inputs by returning their string representation
+        ok 1 - handles empty inputs by returning their string representation
+          ---
+          duration_ms: 1.12141
+          type: 'test'
+          ...
+        # Subtest: returns input unchanged for plain text input
+        ok 2 - returns input unchanged for plain text input
+          ---
+          duration_ms: 0.48089
+          type: 'test'
+          ...
+        # Subtest: returns input unchanged for HTML input with only harmless text formatting
+        ok 3 - returns input unchanged for HTML input with only harmless text formatting
+          ---
+          duration_ms: 0.620331
+          type: 'test'
+          ...
+        # Subtest: returns input unchanged for HTML input with only harmless links
+        ok 4 - returns input unchanged for HTML input with only harmless links
+          ---
+          duration_ms: 0.586338
+          type: 'test'
+          ...
+        # Subtest: removes all Javascript from HTML input
+        ok 5 - removes all Javascript from HTML input
+          ---
+          duration_ms: 0.700651
+          type: 'test'
+          ...
+        # Subtest: cannot be bypassed by exploiting lack of recursive sanitization
+        ok 6 - cannot be bypassed by exploiting lack of recursive sanitization
+          ---
+          duration_ms: 0.478666
+          type: 'test'
+          ...
+        1..6
+    ok 8 - sanitizeSecure
+      ---
+      duration_ms: 4.483884
+      type: 'suite'
+      ...
+    # Subtest: hash
+        # Subtest: returns MD5 hash for any input string
+        ok 1 - returns MD5 hash for any input string
+          ---
+          duration_ms: 1.102794
+          type: 'test'
+          ...
+        1..1
+    ok 9 - hash
+      ---
+      duration_ms: 1.300344
+      type: 'suite'
+      ...
+    # Subtest: hmac
+        # Subtest: returns SHA-256 HMAC with "pa4qacea4VK9t9nGv7yZtwmj" as salt any input string
+        ok 1 - returns SHA-256 HMAC with "pa4qacea4VK9t9nGv7yZtwmj" as salt any input string
+          ---
+          duration_ms: 2.074944
+          type: 'test'
+          ...
+        1..1
+    ok 10 - hmac
+      ---
+      duration_ms: 2.357624
+      type: 'suite'
+      ...
+    # Subtest: deluxeToken
+        # Subtest: returns SHA-256 HMAC with private key as salt for email and deluxe role
+        ok 1 - returns SHA-256 HMAC with private key as salt for email and deluxe role
+          ---
+          duration_ms: 0.791882
+          type: 'test'
+          ...
+        1..1
+    ok 11 - deluxeToken
+      ---
+      duration_ms: 0.984663
+      type: 'suite'
+      ...
+    # Subtest: isCustomer
+        # Subtest: returns true if decoded token has customer role
+        ok 1 - returns true if decoded token has customer role
+          ---
+          duration_ms: 4.710027
+          type: 'test'
+          ...
+        # Subtest: returns false if decoded token has other role
+        ok 2 - returns false if decoded token has other role
+          ---
+          duration_ms: 1.966692
+          type: 'test'
+          ...
+        # Subtest: returns false if no token is present
+        ok 3 - returns false if no token is present
+          ---
+          duration_ms: 0.236192
+          type: 'test'
+          ...
+        1..3
+    ok 12 - isCustomer
+      ---
+      duration_ms: 7.235835
+      type: 'suite'
+      ...
+    # Subtest: isDeluxe
+        # Subtest: returns true if decoded token has deluxe role and valid deluxe token
+        ok 1 - returns true if decoded token has deluxe role and valid deluxe token
+          ---
+          duration_ms: 5.305872
+          type: 'test'
+          ...
+        # Subtest: returns false if decoded token has deluxe role but invalid deluxe token
+        ok 2 - returns false if decoded token has deluxe role but invalid deluxe token
+          ---
+          duration_ms: 2.124227
+          type: 'test'
+          ...
+        # Subtest: returns false if decoded token has other role
+        ok 3 - returns false if decoded token has other role
+          ---
+          duration_ms: 1.855434
+          type: 'test'
+          ...
+        1..3
+    ok 13 - isDeluxe
+      ---
+      duration_ms: 20.960086
+      type: 'suite'
+      ...
+    # Subtest: isRedirectAllowed
+        # Subtest: returns true for allowed URLs
+        ok 1 - returns true for allowed URLs
+          ---
+          duration_ms: 0.483144
+          type: 'test'
+          ...
+        # Subtest: returns true for URLs containing allowed URLs
+        ok 2 - returns true for URLs containing allowed URLs
+          ---
+          duration_ms: 0.148969
+          type: 'test'
+          ...
+        # Subtest: returns false for disallowed URLs
+        ok 3 - returns false for disallowed URLs
+          ---
+          duration_ms: 0.110246
+          type: 'test'
+          ...
+        1..3
+    ok 14 - isRedirectAllowed
+      ---
+      duration_ms: 0.916155
+      type: 'suite'
+      ...
+    # Subtest: sanitizeFilename
+        # Subtest: returns sanitized filename
+        ok 1 - returns sanitized filename
+          ---
+          duration_ms: 0.891629
+          type: 'test'
+          ...
+        1..1
+    ok 15 - sanitizeFilename
+      ---
+      duration_ms: 1.071216
+      type: 'suite'
+      ...
+    # Subtest: authenticatedUsers.updateFrom
+        # Subtest: updates user in token map
+        ok 1 - updates user in token map
+          ---
+          duration_ms: 0.468137
+          type: 'test'
+          ...
+        1..1
+    ok 16 - authenticatedUsers.updateFrom
+      ---
+      duration_ms: 0.702735
+      type: 'suite'
+      ...
+    # Subtest: middlewares
+        # Subtest: isAccounting should allow next() for accounting role
+        ok 1 - isAccounting should allow next() for accounting role
+          ---
+          duration_ms: 2.436731
+          type: 'test'
+          ...
+        # Subtest: isAccounting should return 403 for other roles
+        ok 2 - isAccounting should return 403 for other roles
+          ---
+          duration_ms: 1.90224
+          type: 'test'
+          ...
+        # Subtest: appendUserId should append user id to req.body
+        ok 3 - appendUserId should append user id to req.body
+          ---
+          duration_ms: 0.53416
+          type: 'test'
+          ...
+        # Subtest: appendUserId should return 401 if token is invalid or missing
+        ok 4 - appendUserId should return 401 if token is invalid or missing
+          ---
+          duration_ms: 0.45443
+          type: 'test'
+          ...
+        # Subtest: updateAuthenticatedUsers should call next()
+        ok 5 - updateAuthenticatedUsers should call next()
+          ---
+          duration_ms: 0.378318
+          type: 'test'
+          ...
+        # Subtest: isAuthorized returns a middleware
+        ok 6 - isAuthorized returns a middleware
+          ---
+          duration_ms: 0.36862
+          type: 'test'
+          ...
+        # Subtest: denyAll returns a middleware
+        ok 7 - denyAll returns a middleware
+          ---
+          duration_ms: 0.278071
+          type: 'test'
+          ...
+        1..7
+    ok 17 - middlewares
+      ---
+      duration_ms: 6.984996
+      type: 'suite'
+      ...
+    1..17
+ok 24 - insecurity
+  ---
+  duration_ms: 73.984344
+  type: 'suite'
+  ...
+# Subtest: isDocker
+    # Subtest: should return false if no docker markers are present
+    ok 1 - should return false if no docker markers are present
+      ---
+      duration_ms: 3.982095
+      type: 'test'
+      ...
+    # Subtest: should return true if /.dockerenv exists
+    ok 2 - should return true if /.dockerenv exists
+      ---
+      duration_ms: 1.343195
+      type: 'test'
+      ...
+    # Subtest: should return true if /proc/self/cgroup contains "docker"
+    ok 3 - should return true if /proc/self/cgroup contains "docker"
+      ---
+      duration_ms: 4.448346
+      type: 'test'
+      ...
+    # Subtest: should return true if /proc/self/mountinfo contains "/docker/containers/"
+    ok 4 - should return true if /proc/self/mountinfo contains "/docker/containers/"
+      ---
+      duration_ms: 1.302528
+      type: 'test'
+      ...
+    1..4
+ok 25 - isDocker
+  ---
+  duration_ms: 14.121474
+  type: 'suite'
+  ...
+# Subtest: keyServer
+    # Subtest: should serve requested file from folder /encryptionkeys
+    ok 1 - should serve requested file from folder /encryptionkeys
+      ---
+      duration_ms: 3.220608
+      type: 'test'
+      ...
+    # Subtest: should raise error for slashes in filename
+    ok 2 - should raise error for slashes in filename
+      ---
+      duration_ms: 0.943897
+      type: 'test'
+      ...
+    1..2
+ok 26 - keyServer
+  ---
+  duration_ms: 6.142288
+  type: 'suite'
+  ...
+# Subtest: noUpdate
+    # Subtest: should throw an error when trying to update a non-updatable key
+    ok 1 - should throw an error when trying to update a non-updatable key
+      ---
+      duration_ms: 3.216171
+      type: 'test'
+      ...
+    # Subtest: should not throw when the non-updatable key is not changed
+    ok 2 - should not throw when the non-updatable key is not changed
+      ---
+      duration_ms: 0.617035
+      type: 'test'
+      ...
+    # Subtest: should not throw when isNewRecord is true
+    ok 3 - should not throw when isNewRecord is true
+      ---
+      duration_ms: 0.568093
+      type: 'test'
+      ...
+    # Subtest: should not throw when validate option is false
+    ok 4 - should not throw when validate option is false
+      ---
+      duration_ms: 0.420778
+      type: 'test'
+      ...
+    # Subtest: should not throw when there are no changed keys
+    ok 5 - should not throw when there are no changed keys
+      ---
+      duration_ms: 0.393567
+      type: 'test'
+      ...
+    # Subtest: should not throw when previous value is null or undefined
+    ok 6 - should not throw when previous value is null or undefined
+      ---
+      duration_ms: 0.586187
+      type: 'test'
+      ...
+    1..6
+ok 27 - noUpdate
+  ---
+  duration_ms: 7.996178
+  type: 'suite'
+  ...
+# Subtest: order
+    # Subtest: should call next with error if basket does not exist
+    ok 1 - should call next with error if basket does not exist
+      ---
+      duration_ms: 2.62842
+      type: 'test'
+      ...
+    # Subtest: should call next with error if QuantityModel.findOne fails
+    ok 2 - should call next with error if QuantityModel.findOne fails
+      ---
+      duration_ms: 146.712017
+      type: 'test'
+      ...
+    # Subtest: should call next with error if QuantityModel.update fails
+    ok 3 - should call next with error if QuantityModel.update fails
+      ---
+      duration_ms: 15.302155
+      type: 'test'
+      ...
+    # Subtest: should call next with error if WalletModel.decrement fails
+    ok 4 - should call next with error if WalletModel.decrement fails
+      ---
+      duration_ms: 14.218727
+      type: 'test'
+      ...
+    # Subtest: should call next with error if WalletModel.increment fails
+    ok 5 - should call next with error if WalletModel.increment fails
+      ---
+      duration_ms: 20.837878
+      type: 'test'
+      ...
+    # Subtest: should call next with error if DeliveryModel.findOne fails
+    ok 6 - should call next with error if DeliveryModel.findOne fails
+      ---
+      duration_ms: 9.325507
+      type: 'test'
+      ...
+    # Subtest: should call next with error if ordersCollection.insert fails
+    ok 7 - should call next with error if ordersCollection.insert fails
+      ---
+      duration_ms: 9.676404
+      type: 'test'
+      ...
+    # Subtest: should call next with error if BasketItemModel.destroy fails
+    ok 8 - should call next with error if BasketItemModel.destroy fails
+      ---
+      duration_ms: 21.381285
+      type: 'test'
+      ...
+    # Subtest: should handle base64 coupon data in calculateApplicableDiscount
+    ok 9 - should handle base64 coupon data in calculateApplicableDiscount
+      ---
+      duration_ms: 9.756123
+      type: 'test'
+      ...
+    # Subtest: should call next with error if wallet balance is insufficient
+    ok 10 - should call next with error if wallet balance is insufficient
+      ---
+      duration_ms: 9.446844
+      type: 'test'
+      ...
+    1..10
+ok 28 - order
+  ---
+  duration_ms: 261.010509
+  type: 'suite'
+  ...
+# info: Detected Node.js version [1m26.42.1[22m ([32mSUCCESS[39m)
+# info: Detected Node.js version [1m25.8.1[22m ([32mSUCCESS[39m)
+# info: Detected Node.js version [1m24.2.0[22m ([32mSUCCESS[39m)
+# info: Detected Node.js version [1m23.11.1[22m ([32mSUCCESS[39m)
+# info: Detected Node.js version [1m22.16.0[22m ([32mSUCCESS[39m)
+# warn: Detected Node version [1m21.7.3[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m20.19.2[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m19.9.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m18.20.4[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m17.3.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m16.10.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m15.9.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m14.0.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m13.13.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m12.16.2[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m11.14.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m10.20.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m9.11.2[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m8.12.0[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m7.10.1[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m6.14.4[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m4.9.1[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# warn: Detected Node version [1m0.12.8[22m is not in the supported version range of 22 - 26 ([31mERROR[39m)
+# Subtest: preconditionValidation
+    # Subtest: checkIfRunningOnSupportedNodeVersion
+        # Subtest: should define the supported semver range as 22 - 26
+        ok 1 - should define the supported semver range as 22 - 26
+          ---
+          duration_ms: 4.756154
+          type: 'test'
+          ...
+        # Subtest: should accept a supported version
+        ok 2 - should accept a supported version
+          ---
+          duration_ms: 8.033929
+          type: 'test'
+          ...
+        # Subtest: should fail for an unsupported version
+        ok 3 - should fail for an unsupported version
+          ---
+          duration_ms: 5.724436
+          type: 'test'
+          ...
+        1..3
+    ok 1 - checkIfRunningOnSupportedNodeVersion
+      ---
+      duration_ms: 19.944155
+      type: 'suite'
+      ...
+# info: Port [1m3000[22m is available ([32mSUCCESS[39m)
+    # Subtest: checkIfPortIsAvailable
+        # Subtest: should resolve when port 3000 is closed
+        ok 1 - should resolve when port 3000 is closed
+          ---
+          duration_ms: 23.786267
+          type: 'test'
+          ...
+# warn: Port [1m3000[22m is in use ([31mERROR[39m)
+        # Subtest: open a server before running the test
+            # Subtest: should reject when port 3000 is open
+            ok 1 - should reject when port 3000 is open
+              ---
+              duration_ms: 14.123168
+              type: 'test'
+              ...
+# info: Environment variable [1mALCHEMY_API_KEY[22m is present ([32mSUCCESS[39m)
+# warn: Environment variable [1mALCHEMY_API_KEY[22m is not present ([33mWARNING[39m)
+# warn: [3m"Mint the Honey Pot" challenge[23m will not work as intended without a valid [1mALCHEMY_API_KEY[22m
+# warn: [3m"Wallet Depletion" challenge[23m will not work as intended without a valid [1mALCHEMY_API_KEY[22m
+# warn: Environment variable [1mNON_EXISTING_VAR[22m is not present ([33mWARNING[39m)
+# warn: LLM model [1mgemma4:e4b[22m is not available ([33mWARNING[39m)
+# info: Pull the model with: [1mollama pull gemma4:e4b[22m or configure an available model: [1mqwen3.5:9b, llama3:8b[22m
+# warn: LLM model [1mgemma4:e4b[22m is not available ([33mWARNING[39m)
+# info: Pull the model with: [1mollama pull gemma4:e4b[22m or configure an available model: [1mqwen3.5:9b-q4[22m
+# warn: LLM model [1mgemma4:e4b[22m is not available ([33mWARNING[39m)
+# info: Pull the model with: [1mollama pull gemma4:e4b[22m or configure an available model: [1mllama3:8b, mistral:7b[22m
+# warn: LLM model [1mgemma4:e4b[22m is not available ([33mWARNING[39m)
+# info: Pull the model with: [1mollama pull gemma4:e4b[22m
+# warn: Could not verify LLM model [1mgemma4:e4b[22m availability ([33mWARNING[39m)
+# info: Domain [1mhttps://www.alchemy.com/[22m is reachable ([32mSUCCESS[39m)
+# warn: Domain [1mhttps://www.alchemy.com/[22m is not reachable ([33mWARNING[39m)
+# warn: [3m"Mint the Honey Pot" challenge[23m will not work as intended without access to [1mhttps://www.alchemy.com/[22m
+# warn: [3m"Wallet Depletion" challenge[23m will not work as intended without access to [1mhttps://www.alchemy.com/[22m
+            1..1
+        ok 2 - open a server before running the test
+          ---
+          duration_ms: 20.717773
+          type: 'suite'
+          ...
+        1..2
+    ok 2 - checkIfPortIsAvailable
+      ---
+      duration_ms: 51.084768
+      type: 'suite'
+      ...
+    # Subtest: checkIfEnvironmentVariableExists
+        # Subtest: should return true if environment variable is present
+        ok 1 - should return true if environment variable is present
+          ---
+          duration_ms: 0.830014
+          type: 'test'
+          ...
+        # Subtest: should return false if environment variable is not present
+        ok 2 - should return false if environment variable is not present
+          ---
+          duration_ms: 0.812972
+          type: 'test'
+          ...
+        # Subtest: should return false if a non-existing environment variable is checked
+        ok 3 - should return false if a non-existing environment variable is checked
+          ---
+          duration_ms: 0.759692
+          type: 'test'
+          ...
+        1..3
+    ok 3 - checkIfEnvironmentVariableExists
+      ---
+      duration_ms: 3.346464
+      type: 'suite'
+      ...
+    # Subtest: isOllamaUrl
+        # Subtest: should detect URL with Ollama default port 11434
+        ok 1 - should detect URL with Ollama default port 11434
+          ---
+          duration_ms: 1.00963
+          type: 'test'
+          ...
+        # Subtest: should detect URL with ollama hostname
+        ok 2 - should detect URL with ollama hostname
+          ---
+          duration_ms: 0.490198
+          type: 'test'
+          ...
+        # Subtest: should detect URL with /ollama path prefix
+        ok 3 - should detect URL with /ollama path prefix
+          ---
+          duration_ms: 0.238035
+          type: 'test'
+          ...
+        # Subtest: should not flag non-Ollama URLs
+        ok 4 - should not flag non-Ollama URLs
+          ---
+          duration_ms: 0.246741
+          type: 'test'
+          ...
+        # Subtest: should handle invalid URLs gracefully
+        ok 5 - should handle invalid URLs gracefully
+          ---
+          duration_ms: 0.262421
+          type: 'test'
+          ...
+        1..5
+    ok 4 - isOllamaUrl
+      ---
+      duration_ms: 2.678624
+      type: 'suite'
+      ...
+    # Subtest: checkIfOllamaModelAvailable
+        # Subtest: should succeed when model is listed in Ollama response
+        ok 1 - should succeed when model is listed in Ollama response
+          ---
+          duration_ms: 2.667203
+          type: 'test'
+          ...
+        # Subtest: should warn when configured model tag does not match pulled model tag
+        ok 2 - should warn when configured model tag does not match pulled model tag
+          ---
+          duration_ms: 1.211398
+          type: 'test'
+          ...
+        # Subtest: should warn when model is not in the available list
+        ok 3 - should warn when model is not in the available list
+          ---
+          duration_ms: 1.432111
+          type: 'test'
+          ...
+        # Subtest: should handle empty model list
+        ok 4 - should handle empty model list
+          ---
+          duration_ms: 1.28235
+          type: 'test'
+          ...
+        # Subtest: should handle non-ok response gracefully
+        ok 5 - should handle non-ok response gracefully
+          ---
+          duration_ms: 0.722923
+          type: 'test'
+          ...
+        # Subtest: should handle fetch error gracefully
+        ok 6 - should handle fetch error gracefully
+          ---
+          duration_ms: 1.189406
+          type: 'test'
+          ...
+        1..6
+    ok 5 - checkIfOllamaModelAvailable
+      ---
+      duration_ms: 9.115785
+      type: 'suite'
+      ...
+    # Subtest: checkIfDomainReachable
+        # Subtest: should return true if domain is reachable
+        ok 1 - should return true if domain is reachable
+          ---
+          duration_ms: 1.389632
+          type: 'test'
+          ...
+        # Subtest: should return false and log warnings if domain is not reachable
+        ok 2 - should return false and log warnings if domain is not reachable
+          ---
+          duration_ms: 1.325411
+          type: 'test'
+          ...
+        1..2
+    ok 6 - checkIfDomainReachable
+      ---
+      duration_ms: 3.022618
+      type: 'suite'
+      ...
+    1..6
+ok 29 - preconditionValidation
+  ---
+  duration_ms: 90.890452
+  type: 'suite'
+  ...
+# Subtest: premiumReward
+    # Subtest: should serve /frontend/dist/frontend/assets/private/JuiceShop_Wallpaper_1920x1080_VR.jpg
+    ok 1 - should serve /frontend/dist/frontend/assets/private/JuiceShop_Wallpaper_1920x1080_VR.jpg
+      ---
+      duration_ms: 5.118902
+      type: 'test'
+      ...
+    # Subtest: should solve "premiumPaywallChallenge"
+    ok 2 - should solve "premiumPaywallChallenge"
+      ---
+      duration_ms: 1.007797
+      type: 'test'
+      ...
+    1..2
+ok 30 - premiumReward
+  ---
+  duration_ms: 11.79568
+  type: 'suite'
+  ...
+# Subtest: redirect
+    # Subtest: should be performed for all allowlisted URLs
+        # Subtest: https://github.com/juice-shop/juice-shop
+        ok 1 - https://github.com/juice-shop/juice-shop
+          ---
+          duration_ms: 1.643146
+          type: 'test'
+          ...
+        # Subtest: https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm
+        ok 2 - https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm
+          ---
+          duration_ms: 0.525333
+          type: 'test'
+          ...
+        # Subtest: https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW
+        ok 3 - https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW
+          ---
+          duration_ms: 0.635991
+          type: 'test'
+          ...
+        # Subtest: https://etherscan.io/address/0x0f933ab9fcaaa782d0279c300d73750e1311eae6
+        ok 4 - https://etherscan.io/address/0x0f933ab9fcaaa782d0279c300d73750e1311eae6
+          ---
+          duration_ms: 1.022855
+          type: 'test'
+          ...
+        # Subtest: http://shop.spreadshirt.com/juiceshop
+        ok 5 - http://shop.spreadshirt.com/juiceshop
+          ---
+          duration_ms: 0.756446
+          type: 'test'
+          ...
+        # Subtest: http://shop.spreadshirt.de/juiceshop
+        ok 6 - http://shop.spreadshirt.de/juiceshop
+          ---
+          duration_ms: 0.260267
+          type: 'test'
+          ...
+        # Subtest: https://www.stickeryou.com/products/owasp-juice-shop/794
+        ok 7 - https://www.stickeryou.com/products/owasp-juice-shop/794
+          ---
+          duration_ms: 0.301113
+          type: 'test'
+          ...
+        # Subtest: http://leanpub.com/juice-shop
+        ok 8 - http://leanpub.com/juice-shop
+          ---
+          duration_ms: 0.185186
+          type: 'test'
+          ...
+        1..8
+    ok 1 - should be performed for all allowlisted URLs
+      ---
+      duration_ms: 6.658424
+      type: 'suite'
+      ...
+    # Subtest: should raise error for URL not on allowlist
+    ok 2 - should raise error for URL not on allowlist
+      ---
+      duration_ms: 0.619249
+      type: 'test'
+      ...
+    # Subtest: redirecting to https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm should solve the "redirectCryptoCurrencyChallenge"
+    ok 3 - redirecting to https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm should solve the "redirectCryptoCurrencyChallenge"
+      ---
+      duration_ms: 0.564246
+      type: 'test'
+      ...
+    # Subtest: redirecting to https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW should solve the "redirectCryptoCurrencyChallenge"
+    ok 4 - redirecting to https://explorer.dash.org/address/Xr556RzuwX6hg5EGpkybbv5RanJoZN17kW should solve the "redirectCryptoCurrencyChallenge"
+      ---
+      duration_ms: 0.383287
+      type: 'test'
+      ...
+    # Subtest: redirecting to https://etherscan.io/address/0x0f933ab9fcaaa782d0279c300d73750e1311eae6 should solve the "redirectCryptoCurrencyChallenge"
+    ok 5 - redirecting to https://etherscan.io/address/0x0f933ab9fcaaa782d0279c300d73750e1311eae6 should solve the "redirectCryptoCurrencyChallenge"
+      ---
+      duration_ms: 0.221214
+      type: 'test'
+      ...
+    # Subtest: tricking the allowlist should solve "redirectChallenge"
+    ok 6 - tricking the allowlist should solve "redirectChallenge"
+      ---
+      duration_ms: 0.27232
+      type: 'test'
+      ...
+    1..6
+ok 31 - redirect
+  ---
+  duration_ms: 9.898129
+  type: 'suite'
+  ...
+# Subtest: rsnUtil
+    # Subtest: filterString
+        # Subtest: should remove carriage return characters
+        ok 1 - should remove carriage return characters
+          ---
+          duration_ms: 1.292119
+          type: 'test'
+          ...
+        # Subtest: should leave unix line endings intact
+        ok 2 - should leave unix line endings intact
+          ---
+          duration_ms: 0.409987
+          type: 'test'
+          ...
+        # Subtest: should handle empty string
+        ok 3 - should handle empty string
+          ---
+          duration_ms: 0.227256
+          type: 'test'
+          ...
+        # Subtest: should handle string with only carriage returns
+        ok 4 - should handle string with only carriage returns
+          ---
+          duration_ms: 0.165409
+          type: 'test'
+          ...
+        1..4
+    ok 1 - filterString
+      ---
+      duration_ms: 3.107928
+      type: 'suite'
+      ...
+    # Subtest: findChangedFiles
+        # Subtest: should return empty array when no changes
+        ok 1 - should return empty array when no changes
+          ---
+          duration_ms: 1.658765
+          type: 'test'
+          ...
+        # Subtest: should detect changed added lines
+        ok 2 - should detect changed added lines
+          ---
+          duration_ms: 0.722363
+          type: 'test'
+          ...
+        # Subtest: should detect changed removed lines
+        ok 3 - should detect changed removed lines
+          ---
+          duration_ms: 0.289722
+          type: 'test'
+          ...
+        # Subtest: should detect new files not in cache
+        ok 4 - should detect new files not in cache
+          ---
+          duration_ms: 0.541764
+          type: 'test'
+          ...
+        # Subtest: should detect length changes in added lines
+        ok 5 - should detect length changes in added lines
+          ---
+          duration_ms: 0.41668
+          type: 'test'
+          ...
+        # Subtest: should detect length changes in removed lines
+        ok 6 - should detect length changes in removed lines
+          ---
+          duration_ms: 0.524652
+          type: 'test'
+          ...
+        # Subtest: should return multiple changed files
+        ok 7 - should return multiple changed files
+          ---
+          duration_ms: 0.370914
+          type: 'test'
+          ...
+        # Subtest: should compare correctly regardless of array order
+        ok 8 - should compare correctly regardless of array order
+          ---
+          duration_ms: 0.228568
+          type: 'test'
+          ...
+        1..8
+    ok 2 - findChangedFiles
+      ---
+      duration_ms: 5.504364
+      type: 'suite'
+      ...
+    # Subtest: getFixExplanation
+        # Subtest: should return explanation for standard filename
+        ok 1 - should return explanation for standard filename
+          ---
+          duration_ms: 0.56627
+          type: 'test'
+          ...
+        # Subtest: should return explanation for correct fix filename
+        ok 2 - should return explanation for correct fix filename
+          ---
+          duration_ms: 0.377066
+          type: 'test'
+          ...
+        # Subtest: should return null when fix id not found in info
+        ok 3 - should return null when fix id not found in info
+          ---
+          duration_ms: 0.212267
+          type: 'test'
+          ...
+        # Subtest: should return null when info is null
+        ok 4 - should return null when info is null
+          ---
+          duration_ms: 0.269905
+          type: 'test'
+          ...
+        # Subtest: should return null when filename has no id pattern
+        ok 5 - should return null when filename has no id pattern
+          ---
+          duration_ms: 0.400931
+          type: 'test'
+          ...
+        1..5
+    ok 3 - getFixExplanation
+      ---
+      duration_ms: 2.199056
+      type: 'suite'
+      ...
+    # Subtest: loadChallengeInfo
+        # Subtest: should return null when info file does not exist
+        ok 1 - should return null when info file does not exist
+          ---
+          duration_ms: 1.518061
+          type: 'test'
+          ...
+        # Subtest: should parse and return challenge info from yml file
+        ok 2 - should parse and return challenge info from yml file
+          ---
+          duration_ms: 1.018607
+          type: 'test'
+          ...
+        1..2
+    ok 4 - loadChallengeInfo
+      ---
+      duration_ms: 2.778632
+      type: 'suite'
+      ...
+    1..4
+ok 32 - rsnUtil
+  ---
+  duration_ms: 14.46629
+  type: 'suite'
+  ...
+# Subtest: saveLoginIp
+    # Subtest: should return 401 if user is not authenticated
+    ok 1 - should return 401 if user is not authenticated
+      ---
+      duration_ms: 1.898304
+      type: 'test'
+      ...
+    # Subtest: should use the first element if true-client-ip header is an array
+    ok 2 - should use the first element if true-client-ip header is an array
+      ---
+      duration_ms: 2.04593
+      type: 'test'
+      ...
+    # Subtest: should call next with error if update fails
+    ok 3 - should call next with error if update fails
+      ---
+      duration_ms: 0.601486
+      type: 'test'
+      ...
+    1..3
+ok 33 - saveLoginIp
+  ---
+  duration_ms: 5.732331
+  type: 'suite'
+  ...
+# Subtest: checkSystemPromptSimilarity
+    # Subtest: returns true for verbatim system prompt (score ~1.0)
+    ok 1 - returns true for verbatim system prompt (score ~1.0)
+      ---
+      duration_ms: 1.151235
+      type: 'test'
+      ...
+    # Subtest: returns true for near-verbatim submission with minor rewording (score > 0.25)
+    ok 2 - returns true for near-verbatim submission with minor rewording (score > 0.25)
+      ---
+      duration_ms: 0.717743
+      type: 'test'
+      ...
+    # Subtest: returns false for verbatim confidential section only (score ~0.22, below 0.25 threshold)
+    ok 3 - returns false for verbatim confidential section only (score ~0.22, below 0.25 threshold)
+      ---
+      duration_ms: 0.709869
+      type: 'test'
+      ...
+    # Subtest: returns true for German translation containing same technical terms (score > 0.25)
+    ok 4 - returns true for German translation containing same technical terms (score > 0.25)
+      ---
+      duration_ms: 0.886279
+      type: 'test'
+      ...
+    # Subtest: returns true for a scrambled version of 100% of the prompt (score > 0.5)
+    ok 5 - returns true for a scrambled version of 100% of the prompt (score > 0.5)
+      ---
+      duration_ms: 0.686836
+      type: 'test'
+      ...
+    # Subtest: returns false for submission without courtesy discount mention (score ~0.06)
+    ok 6 - returns false for submission without courtesy discount mention (score ~0.06)
+      ---
+      duration_ms: 0.61948
+      type: 'test'
+      ...
+    # Subtest: returns false for submission with wrong discount percentage (score ~0.07)
+    ok 7 - returns false for submission with wrong discount percentage (score ~0.07)
+      ---
+      duration_ms: 0.773037
+      type: 'test'
+      ...
+    # Subtest: returns false for keyword stuffing without coherent context (score ~0.13)
+    ok 8 - returns false for keyword stuffing without coherent context (score ~0.13)
+      ---
+      duration_ms: 0.619239
+      type: 'test'
+      ...
+    # Subtest: returns false for completely unrelated text (score ~0.03)
+    ok 9 - returns false for completely unrelated text (score ~0.03)
+      ---
+      duration_ms: 0.859318
+      type: 'test'
+      ...
+    # Subtest: returns false for empty string (score 0)
+    ok 10 - returns false for empty string (score 0)
+      ---
+      duration_ms: 0.413464
+      type: 'test'
+      ...
+    # Subtest: treats comparison as case-insensitive (UPPER CASE equals lowercase)
+    ok 11 - treats comparison as case-insensitive (UPPER CASE equals lowercase)
+      ---
+      duration_ms: 0.177442
+      type: 'test'
+      ...
+    # Subtest: respects a custom threshold when provided
+    ok 12 - respects a custom threshold when provided
+      ---
+      duration_ms: 6.201188
+      type: 'test'
+      ...
+    # Subtest: returns false for null message
+    ok 13 - returns false for null message
+      ---
+      duration_ms: 0.396432
+      type: 'test'
+      ...
+    # Subtest: returns false for undefined message
+    ok 14 - returns false for undefined message
+      ---
+      duration_ms: 0.169487
+      type: 'test'
+      ...
+    # Subtest: returns false for whitespace only
+    ok 15 - returns false for whitespace only
+      ---
+      duration_ms: 0.14432
+      type: 'test'
+      ...
+    # Subtest: returns false at threshold boundary (random text score << 0.15)
+    ok 16 - returns false at threshold boundary (random text score << 0.15)
+      ---
+      duration_ms: 0.290884
+      type: 'test'
+      ...
+    # Subtest: handles very long submissions (prompt repeated 3x)
+    ok 17 - handles very long submissions (prompt repeated 3x)
+      ---
+      duration_ms: 1.26069
+      type: 'test'
+      ...
+    1..17
+ok 34 - checkSystemPromptSimilarity
+  ---
+  duration_ms: 17.70851
+  type: 'suite'
+  ...
+# Subtest: returns false when submitting a very long random string
+ok 35 - returns false when submitting a very long random string
+  ---
+  duration_ms: 0.64126
+  type: 'test'
+  ...
+# Subtest: similarity scoring precision
+    # Subtest: scores exactly 1.0 for identical strings
+    ok 1 - scores exactly 1.0 for identical strings
+      ---
+      duration_ms: 0.374
+      type: 'test'
+      ...
+    # Subtest: scores >= 0.6 when submitting ~60% of system prompt
+    ok 2 - scores >= 0.6 when submitting ~60% of system prompt
+      ---
+      duration_ms: 0.600695
+      type: 'test'
+      ...
+    # Subtest: scores >= 0.8 when submitting ~80% of system prompt
+    ok 3 - scores >= 0.8 when submitting ~80% of system prompt
+      ---
+      duration_ms: 0.683079
+      type: 'test'
+      ...
+    # Subtest: scores >= 0.9 when submitting ~90% of system prompt
+    ok 4 - scores >= 0.9 when submitting ~90% of system prompt
+      ---
+      duration_ms: 0.674683
+      type: 'test'
+      ...
+    # Subtest: scores < 0.20 when submitting only 10% of system prompt
+    ok 5 - scores < 0.20 when submitting only 10% of system prompt
+      ---
+      duration_ms: 0.501078
+      type: 'test'
+      ...
+    1..5
+ok 36 - similarity scoring precision
+  ---
+  duration_ms: 3.249202
+  type: 'suite'
+  ...
+# Subtest: utils
+    # Subtest: toSimpleIpAddress
+        # Subtest: returns ipv6 address unchanged
+        ok 1 - returns ipv6 address unchanged
+          ---
+          duration_ms: 1.403487
+          type: 'test'
+          ...
+        # Subtest: returns ipv4 address fully specified as ipv6 unchanged
+        ok 2 - returns ipv4 address fully specified as ipv6 unchanged
+          ---
+          duration_ms: 0.399238
+          type: 'test'
+          ...
+        # Subtest: returns ipv6 loopback address as ipv4 address
+        ok 3 - returns ipv6 loopback address as ipv4 address
+          ---
+          duration_ms: 0.271117
+          type: 'test'
+          ...
+        # Subtest: returns ipv4-mapped address as ipv4 address
+        ok 4 - returns ipv4-mapped address as ipv4 address
+          ---
+          duration_ms: 0.334276
+          type: 'test'
+          ...
+        1..4
+    ok 1 - toSimpleIpAddress
+      ---
+      duration_ms: 3.956446
+      type: 'suite'
+      ...
+    # Subtest: queryResultToJson
+        # Subtest: returns object with status success and passed data by default
+        ok 1 - returns object with status success and passed data by default
+          ---
+          duration_ms: 1.39423
+          type: 'test'
+          ...
+        # Subtest: returns object with passed status and passed data
+        ok 2 - returns object with passed status and passed data
+          ---
+          duration_ms: 0.526866
+          type: 'test'
+          ...
+        1..2
+    ok 2 - queryResultToJson
+      ---
+      duration_ms: 2.449094
+      type: 'suite'
+      ...
+    # Subtest: extractFilename
+        # Subtest: returns standalone filename unchanged
+        ok 1 - returns standalone filename unchanged
+          ---
+          duration_ms: 0.687277
+          type: 'test'
+          ...
+        # Subtest: returns filename from http:// URL
+        ok 2 - returns filename from http:// URL
+          ---
+          duration_ms: 0.380182
+          type: 'test'
+          ...
+        # Subtest: ignores query part of http:// URL
+        ok 3 - ignores query part of http:// URL
+          ---
+          duration_ms: 7.192374
+          type: 'test'
+          ...
+        # Subtest: also works for file:// URLs
+        ok 4 - also works for file:// URLs
+          ---
+          duration_ms: 0.626002
+          type: 'test'
+          ...
+        1..4
+    ok 3 - extractFilename
+      ---
+      duration_ms: 9.766011
+      type: 'suite'
+      ...
+    # Subtest: matchesSystemIniFile
+        # Subtest: fails on plain input string
+        ok 1 - fails on plain input string
+          ---
+          duration_ms: 0.53954
+          type: 'test'
+          ...
+        # Subtest: passes on Windows 10 system.ini file content
+        ok 2 - passes on Windows 10 system.ini file content
+          ---
+          duration_ms: 0.504825
+          type: 'test'
+          ...
+        1..2
+    ok 4 - matchesSystemIniFile
+      ---
+      duration_ms: 1.586059
+      type: 'suite'
+      ...
+    # Subtest: matchesEtcPasswdFile
+        # Subtest: fails on plain input string
+        ok 1 - fails on plain input string
+          ---
+          duration_ms: 0.631523
+          type: 'test'
+          ...
+        # Subtest: passes on Arch Linux passwd file content
+        ok 2 - passes on Arch Linux passwd file content
+          ---
+          duration_ms: 0.572812
+          type: 'test'
+          ...
+        1..2
+    ok 5 - matchesEtcPasswdFile
+      ---
+      duration_ms: 1.509195
+      type: 'suite'
+      ...
+    # Subtest: getChallengeEnablementStatus
+        # Subtest: challenges without disabledEnv are enabled with safetyMode set to enabled
+        ok 1 - challenges without disabledEnv are enabled with safetyMode set to enabled
+          ---
+          duration_ms: 0.647382
+          type: 'test'
+          ...
+        # Subtest: challenges without disabledEnv are enabled with safetyMode set to disabled
+        ok 2 - challenges without disabledEnv are enabled with safetyMode set to disabled
+          ---
+          duration_ms: 0.237975
+          type: 'test'
+          ...
+        # Subtest: challenges without disabledEnv are enabled with safetyMode set to auto
+        ok 3 - challenges without disabledEnv are enabled with safetyMode set to auto
+          ---
+          duration_ms: 0.165119
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'enabled': challenge with disabledOnEnv Docker should be marked as disabled
+        ok 4 - safetyMode: 'enabled': challenge with disabledOnEnv Docker should be marked as disabled
+          ---
+          duration_ms: 0.291015
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'auto': challenge with disabledOnEnv Docker should be marked as disabled
+        ok 5 - safetyMode: 'auto': challenge with disabledOnEnv Docker should be marked as disabled
+          ---
+          duration_ms: 0.323325
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'disabled': challenge with disabledOnEnv Docker should be marked as enabled
+        ok 6 - safetyMode: 'disabled': challenge with disabledOnEnv Docker should be marked as enabled
+          ---
+          duration_ms: 0.242203
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'enabled': challenge with disabledOnEnv Heroku should be marked as disabled
+        ok 7 - safetyMode: 'enabled': challenge with disabledOnEnv Heroku should be marked as disabled
+          ---
+          duration_ms: 0.332442
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'auto': challenge with disabledOnEnv Heroku should be marked as disabled
+        ok 8 - safetyMode: 'auto': challenge with disabledOnEnv Heroku should be marked as disabled
+          ---
+          duration_ms: 0.228698
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'disabled': challenge with disabledOnEnv Heroku should be marked as enabled
+        ok 9 - safetyMode: 'disabled': challenge with disabledOnEnv Heroku should be marked as enabled
+          ---
+          duration_ms: 0.179606
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'enabled': challenge with disabledOnEnv Windows should be marked as disabled
+        ok 10 - safetyMode: 'enabled': challenge with disabledOnEnv Windows should be marked as disabled
+          ---
+          duration_ms: 0.140643
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'auto': challenge with disabledOnEnv Windows should be marked as disabled
+        ok 11 - safetyMode: 'auto': challenge with disabledOnEnv Windows should be marked as disabled
+          ---
+          duration_ms: 0.130494
+          type: 'test'
+          ...
+        # Subtest: safetyMode: 'disabled': challenge with disabledOnEnv Windows should be marked as enabled
+        ok 12 - safetyMode: 'disabled': challenge with disabledOnEnv Windows should be marked as enabled
+          ---
+          duration_ms: 0.150692
+          type: 'test'
+          ...
+        1..12
+    ok 6 - getChallengeEnablementStatus
+      ---
+      duration_ms: 3.828226
+      type: 'suite'
+      ...
+    # Subtest: toISO8601
+        # Subtest: converts date to ISO 8601 representation
+        ok 1 - converts date to ISO 8601 representation
+          ---
+          duration_ms: 0.681816
+          type: 'test'
+          ...
+        # Subtest: prepends single-digit months with a zero
+        ok 2 - prepends single-digit months with a zero
+          ---
+          duration_ms: 0.311974
+          type: 'test'
+          ...
+        # Subtest: prepends single-digit days with a zero
+        ok 3 - prepends single-digit days with a zero
+          ---
+          duration_ms: 0.228268
+          type: 'test'
+          ...
+        1..3
+    ok 7 - toISO8601
+      ---
+      duration_ms: 1.519625
+      type: 'suite'
+      ...
+    # Subtest: parseJsonCustom
+        # Subtest: parses a simple JSON object
+        ok 1 - parses a simple JSON object
+          ---
+          duration_ms: 2.170083
+          type: 'test'
+          ...
+        # Subtest: parses a nested JSON object
+        ok 2 - parses a nested JSON object
+          ---
+          duration_ms: 0.44854
+          type: 'test'
+          ...
+        1..2
+    ok 8 - parseJsonCustom
+      ---
+      duration_ms: 2.896903
+      type: 'suite'
+      ...
+    # Subtest: containsOrEscaped
+        # Subtest: returns true if string contains element
+        ok 1 - returns true if string contains element
+          ---
+          duration_ms: 0.418924
+          type: 'test'
+          ...
+        # Subtest: returns true if string contains escaped element
+        ok 2 - returns true if string contains escaped element
+          ---
+          duration_ms: 0.254055
+          type: 'test'
+          ...
+        # Subtest: returns false if string contains neither element nor escaped element
+        ok 3 - returns false if string contains neither element nor escaped element
+          ---
+          duration_ms: 0.137027
+          type: 'test'
+          ...
+        1..3
+    ok 9 - containsOrEscaped
+      ---
+      duration_ms: 1.073309
+      type: 'suite'
+      ...
+    # Subtest: unquote
+        # Subtest: removes quotes from quoted string
+        ok 1 - removes quotes from quoted string
+          ---
+          duration_ms: 0.482724
+          type: 'test'
+          ...
+        # Subtest: returns unquoted string unchanged
+        ok 2 - returns unquoted string unchanged
+          ---
+          duration_ms: 0.296966
+          type: 'test'
+          ...
+        1..2
+    ok 10 - unquote
+      ---
+      duration_ms: 1.126649
+      type: 'suite'
+      ...
+    # Subtest: trunc
+        # Subtest: truncates long string and adds ellipses
+        ok 1 - truncates long string and adds ellipses
+          ---
+          duration_ms: 0.46467
+          type: 'test'
+          ...
+        # Subtest: returns short string unchanged
+        ok 2 - returns short string unchanged
+          ---
+          duration_ms: 0.351758
+          type: 'test'
+          ...
+        # Subtest: removes newlines
+        ok 3 - removes newlines
+          ---
+          duration_ms: 0.212087
+          type: 'test'
+          ...
+        1..3
+    ok 11 - trunc
+      ---
+      duration_ms: 1.2927
+      type: 'suite'
+      ...
+    # Subtest: diceCoefficient
+        # Subtest: should return 1 for identical strings
+        ok 1 - should return 1 for identical strings
+          ---
+          duration_ms: 0.663563
+          type: 'test'
+          ...
+        # Subtest: should return 1 for identical strings even if they are short
+        ok 2 - should return 1 for identical strings even if they are short
+          ---
+          duration_ms: 0.28307
+          type: 'test'
+          ...
+        # Subtest: should return 0 for different strings if at least one is less than 2 characters
+        ok 3 - should return 0 for different strings if at least one is less than 2 characters
+          ---
+          duration_ms: 0.197099
+          type: 'test'
+          ...
+        # Subtest: should return 0 for completely different strings
+        ok 4 - should return 0 for completely different strings
+          ---
+          duration_ms: 0.209232
+          type: 'test'
+          ...
+        # Subtest: should return correct coefficient for partially overlapping strings
+        ok 5 - should return correct coefficient for partially overlapping strings
+          ---
+          duration_ms: 0.152635
+          type: 'test'
+          ...
+        1..5
+    ok 12 - diceCoefficient
+      ---
+      duration_ms: 1.867355
+      type: 'suite'
+      ...
+    # Subtest: toMMMYY
+        # Subtest: returns MMMYY representation of date
+        ok 1 - returns MMMYY representation of date
+          ---
+          duration_ms: 0.380773
+          type: 'test'
+          ...
+        1..1
+    ok 13 - toMMMYY
+      ---
+      duration_ms: 0.554488
+      type: 'suite'
+      ...
+    # Subtest: isUrl
+        # Subtest: returns true for strings starting with http
+        ok 1 - returns true for strings starting with http
+          ---
+          duration_ms: 0.402132
+          type: 'test'
+          ...
+        # Subtest: returns false for strings not starting with http
+        ok 2 - returns false for strings not starting with http
+          ---
+          duration_ms: 0.143007
+          type: 'test'
+          ...
+        1..2
+    ok 14 - isUrl
+      ---
+      duration_ms: 0.720539
+      type: 'suite'
+      ...
+    # Subtest: version
+        # Subtest: returns package version if no module is specified
+        ok 1 - returns package version if no module is specified
+          ---
+          duration_ms: 0.259596
+          type: 'test'
+          ...
+        # Subtest: returns module version if module is specified
+        ok 2 - returns module version if module is specified
+          ---
+          duration_ms: 0.15463
+          type: 'test'
+          ...
+        1..2
+    ok 15 - version
+      ---
+      duration_ms: 0.562242
+      type: 'suite'
+      ...
+    # Subtest: jwtFrom
+        # Subtest: extracts token from authorization header
+        ok 1 - extracts token from authorization header
+          ---
+          duration_ms: 0.460382
+          type: 'test'
+          ...
+        # Subtest: returns undefined if authorization header is missing or malformed
+        ok 2 - returns undefined if authorization header is missing or malformed
+          ---
+          duration_ms: 0.201728
+          type: 'test'
+          ...
+        1..2
+    ok 16 - jwtFrom
+      ---
+      duration_ms: 0.818252
+      type: 'suite'
+      ...
+    # Subtest: randomHexString
+        # Subtest: returns random hex string of specified length
+        ok 1 - returns random hex string of specified length
+          ---
+          duration_ms: 0.726881
+          type: 'test'
+          ...
+        1..1
+    ok 17 - randomHexString
+      ---
+      duration_ms: 0.854289
+      type: 'suite'
+      ...
+    # Subtest: getErrorMessage
+        # Subtest: returns message if error is an Error object
+        ok 1 - returns message if error is an Error object
+          ---
+          duration_ms: 0.308317
+          type: 'test'
+          ...
+        # Subtest: returns string representation if error is not an Error object
+        ok 2 - returns string representation if error is not an Error object
+          ---
+          duration_ms: 0.172032
+          type: 'test'
+          ...
+        1..2
+    ok 18 - getErrorMessage
+      ---
+      duration_ms: 0.652792
+      type: 'suite'
+      ...
+    1..18
+ok 37 - utils
+  ---
+  duration_ms: 41.136044
+  type: 'suite'
+  ...
+# Subtest: verify
+    # Subtest: "forgedFeedbackChallenge"
+        # Subtest: is not solved when an authenticated user passes his own ID when writing feedback
+        ok 1 - is not solved when an authenticated user passes his own ID when writing feedback
+          ---
+          duration_ms: 1.30893
+          type: 'test'
+          ...
+        # Subtest: is not solved when an authenticated user passes no ID when writing feedback
+        ok 2 - is not solved when an authenticated user passes no ID when writing feedback
+          ---
+          duration_ms: 0.424825
+          type: 'test'
+          ...
+        # Subtest: is solved when an authenticated user passes someone elses ID when writing feedback
+        ok 3 - is solved when an authenticated user passes someone elses ID when writing feedback
+          ---
+          duration_ms: 0.761796
+          type: 'test'
+          ...
+        # Subtest: is solved when an unauthenticated user passes someones ID when writing feedback
+        ok 4 - is solved when an unauthenticated user passes someones ID when writing feedback
+          ---
+          duration_ms: 0.421088
+          type: 'test'
+          ...
+        1..4
+    ok 1 - "forgedFeedbackChallenge"
+      ---
+      duration_ms: 3.578509
+      type: 'suite'
+      ...
+    # Subtest: accessControlChallenges
+        # Subtest: "scoreBoardChallenge" is solved when the 1px.png transpixel is requested
+        ok 1 - "scoreBoardChallenge" is solved when the 1px.png transpixel is requested
+          ---
+          duration_ms: 0.525924
+          type: 'test'
+          ...
+        # Subtest: "adminSectionChallenge" is solved when the 19px.png transpixel is requested
+        ok 2 - "adminSectionChallenge" is solved when the 19px.png transpixel is requested
+          ---
+          duration_ms: 0.226033
+          type: 'test'
+          ...
+        # Subtest: "tokenSaleChallenge" is solved when the 56px.png transpixel is requested
+        ok 3 - "tokenSaleChallenge" is solved when the 56px.png transpixel is requested
+          ---
+          duration_ms: 0.199633
+          type: 'test'
+          ...
+        # Subtest: "extraLanguageChallenge" is solved when the Klingon translation file is requested
+        ok 4 - "extraLanguageChallenge" is solved when the Klingon translation file is requested
+          ---
+          duration_ms: 0.318055
+          type: 'test'
+          ...
+        # Subtest: "retrieveBlueprintChallenge" is solved when the blueprint file is requested
+        ok 5 - "retrieveBlueprintChallenge" is solved when the blueprint file is requested
+          ---
+          duration_ms: 0.296004
+          type: 'test'
+          ...
+        # Subtest: "missingEncodingChallenge" is solved when the crazy cat photo is requested
+        ok 6 - "missingEncodingChallenge" is solved when the crazy cat photo is requested
+          ---
+          duration_ms: 0.255959
+          type: 'test'
+          ...
+        # Subtest: "accessLogDisclosureChallenge" is solved when any server access log file is requested
+        ok 7 - "accessLogDisclosureChallenge" is solved when any server access log file is requested
+          ---
+          duration_ms: 0.24038
+          type: 'test'
+          ...
+        # Subtest: "misplacedIacFiles" is solved when a Terraform .tf file under /infrastructure is requested
+        ok 8 - "misplacedIacFiles" is solved when a Terraform .tf file under /infrastructure is requested
+          ---
+          duration_ms: 0.194955
+          type: 'test'
+          ...
+        # Subtest: "misplacedIacFiles" is solved when a Dockerfile under /infrastructure is requested
+        ok 9 - "misplacedIacFiles" is solved when a Dockerfile under /infrastructure is requested
+          ---
+          duration_ms: 0.228317
+          type: 'test'
+          ...
+        # Subtest: "misplacedIacFiles" is solved when a docker-compose.yml under /infrastructure is requested
+        ok 10 - "misplacedIacFiles" is solved when a docker-compose.yml under /infrastructure is requested
+          ---
+          duration_ms: 0.182241
+          type: 'test'
+          ...
+        1..10
+    ok 2 - accessControlChallenges
+      ---
+      duration_ms: 3.186325
+      type: 'suite'
+      ...
+    # Subtest: "errorHandlingChallenge"
+        # Subtest: is solved when an error occurs on a response with OK 200 status code
+        ok 1 - is solved when an error occurs on a response with OK 200 status code
+          ---
+          duration_ms: 0.379851
+          type: 'test'
+          ...
+        # Subtest: is solved when an error occurs on a response with error
+            # Subtest: 402 status code
+            ok 1 - 402 status code
+              ---
+              duration_ms: 0.416249
+              type: 'test'
+              ...
+            # Subtest: 403 status code
+            ok 2 - 403 status code
+              ---
+              duration_ms: 0.171471
+              type: 'test'
+              ...
+            # Subtest: 404 status code
+            ok 3 - 404 status code
+              ---
+              duration_ms: 0.209973
+              type: 'test'
+              ...
+            # Subtest: 500 status code
+            ok 4 - 500 status code
+              ---
+              duration_ms: 0.211906
+              type: 'test'
+              ...
+            1..4
+        ok 2 - is solved when an error occurs on a response with error
+          ---
+          duration_ms: 1.157617
+          type: 'suite'
+          ...
+        # Subtest: is not solved when no error occurs on a response with OK 200 status code
+        ok 3 - is not solved when no error occurs on a response with OK 200 status code
+          ---
+          duration_ms: 0.19785
+          type: 'test'
+          ...
+        # Subtest: is not solved when no error occurs on a response with error
+            # Subtest: 401 status code
+            ok 1 - 401 status code
+              ---
+              duration_ms: 0.255358
+              type: 'test'
+              ...
+            # Subtest: 402 status code
+            ok 2 - 402 status code
+              ---
+              duration_ms: 0.215554
+              type: 'test'
+              ...
+            # Subtest: 404 status code
+            ok 3 - 404 status code
+              ---
+              duration_ms: 0.173554
+              type: 'test'
+              ...
+            # Subtest: 500 status code
+            ok 4 - 500 status code
+              ---
+              duration_ms: 0.169768
+              type: 'test'
+              ...
+            1..4
+        ok 4 - is not solved when no error occurs on a response with error
+          ---
+          duration_ms: 0.953935
+          type: 'suite'
+          ...
+        # Subtest: should pass occurred error on to next route
+        ok 5 - should pass occurred error on to next route
+          ---
+          duration_ms: 0.251391
+          type: 'test'
+          ...
+        1..5
+    ok 3 - "errorHandlingChallenge"
+      ---
+      duration_ms: 3.128066
+      type: 'suite'
+      ...
+    # Subtest: databaseRelatedChallenges
+        # Subtest: "changeProductChallenge"
+            # Subtest: is solved when the link in the O-Saft product goes to https://owasp.slack.com
+            ok 1 - is solved when the link in the O-Saft product goes to https://owasp.slack.com
+              ---
+              duration_ms: 0.553546
+              type: 'test'
+              ...
+            # Subtest: is not solved when the link in the O-Saft product is changed to an arbitrary URL
+            ok 2 - is not solved when the link in the O-Saft product is changed to an arbitrary URL
+              ---
+              duration_ms: 0.22456
+              type: 'test'
+              ...
+            # Subtest: is not solved when the link in the O-Saft product remained unchanged
+            ok 3 - is not solved when the link in the O-Saft product remained unchanged
+              ---
+              duration_ms: 0.249968
+              type: 'test'
+              ...
+            1..3
+        ok 1 - "changeProductChallenge"
+          ---
+          duration_ms: 1.154901
+          type: 'suite'
+          ...
+        1..1
+    ok 4 - databaseRelatedChallenges
+      ---
+      duration_ms: 1.272903
+      type: 'suite'
+      ...
+    # Subtest: jwtChallenges
+        # Subtest: "jwtUnsignedChallenge" is solved when forged unsigned token has email jwtn3d@juice-sh.op in the payload
+        ok 1 - "jwtUnsignedChallenge" is solved when forged unsigned token has email jwtn3d@juice-sh.op in the payload
+          ---
+          duration_ms: 2.392649
+          type: 'test'
+          ...
+        # Subtest: "jwtUnsignedChallenge" is solved when forged unsigned token has string "jwtn3d@" in the payload
+        ok 2 - "jwtUnsignedChallenge" is solved when forged unsigned token has string "jwtn3d@" in the payload
+          ---
+          duration_ms: 1.302939
+          type: 'test'
+          ...
+        # Subtest: "jwtUnsignedChallenge" is not solved via regularly signed token even with email jwtn3d@juice-sh.op in the payload
+        ok 3 - "jwtUnsignedChallenge" is not solved via regularly signed token even with email jwtn3d@juice-sh.op in the payload
+          ---
+          duration_ms: 2.76175
+          type: 'test'
+          ...
+        # Subtest: "jwtForgedChallenge" is solved when forged token HMAC-signed with public RSA-key has email rsa_lord@juice-sh.op in the payload
+        ok 4 - "jwtForgedChallenge" is solved when forged token HMAC-signed with public RSA-key has email rsa_lord@juice-sh.op in the payload
+          ---
+          duration_ms: 1.035459
+          type: 'test'
+          ...
+        # Subtest: "jwtForgedChallenge" is solved when forged token HMAC-signed with public RSA-key has string "rsa_lord@" in the payload
+        ok 5 - "jwtForgedChallenge" is solved when forged token HMAC-signed with public RSA-key has string "rsa_lord@" in the payload
+          ---
+          duration_ms: 0.820777
+          type: 'test'
+          ...
+        # Subtest: "jwtForgedChallenge" is not solved when token regularly signed with private RSA-key has email rsa_lord@juice-sh.op in the payload
+        ok 6 - "jwtForgedChallenge" is not solved when token regularly signed with private RSA-key has email rsa_lord@juice-sh.op in the payload
+          ---
+          duration_ms: 1.284404
+          type: 'test'
+          ...
+        # Subtest: "iacLeakedKeyChallenge" is solved when RS256-signed token has email cloud-admin@juice-sh.op in the payload
+        ok 7 - "iacLeakedKeyChallenge" is solved when RS256-signed token has email cloud-admin@juice-sh.op in the payload
+          ---
+          duration_ms: 1.732323
+          type: 'test'
+          ...
+        # Subtest: "iacLeakedKeyChallenge" is solved when RS256-signed token has string "cloud-admin@" in the payload
+        ok 8 - "iacLeakedKeyChallenge" is solved when RS256-signed token has string "cloud-admin@" in the payload
+          ---
+          duration_ms: 1.256262
+          type: 'test'
+          ...
+        # Subtest: "iacLeakedKeyChallenge" is not solved when token has wrong email
+        ok 9 - "iacLeakedKeyChallenge" is not solved when token has wrong email
+          ---
+          duration_ms: 1.123603
+          type: 'test'
+          ...
+        1..9
+    ok 5 - jwtChallenges
+      ---
+      duration_ms: 14.301792
+      type: 'suite'
+      ...
+    # Subtest: checkSystemPromptSimilarity
+        # Subtest: should return true if similarity is above threshold
+        ok 1 - should return true if similarity is above threshold
+          ---
+          duration_ms: 0.311273
+          type: 'test'
+          ...
+        # Subtest: should return false if similarity is below threshold
+        ok 2 - should return false if similarity is below threshold
+          ---
+          duration_ms: 0.164237
+          type: 'test'
+          ...
+        1..2
+    ok 6 - checkSystemPromptSimilarity
+      ---
+      duration_ms: 0.579324
+      type: 'suite'
+      ...
+    1..6
+ok 38 - verify
+  ---
+  duration_ms: 26.815728
+  type: 'suite'
+  ...
+# Subtest: webhook
+    # Subtest: notify
+        # Subtest: ignores errors where no webhook URL is provided via environment variable
+        ok 1 - ignores errors where no webhook URL is provided via environment variable
+          ---
+          duration_ms: 0.713435
+          type: 'test'
+          ...
+        # Subtest: fails when supplied webhook is not a valid URL
+        ok 2 - fails when supplied webhook is not a valid URL
+          ---
+          duration_ms: 18.002179
+          type: 'test'
+          ...
+# info: Webhook [1mhttp://localhost:45877[22m notified about [36mkey[39m being solved: [32m200[39m
+        # Subtest: submits POST with payload to existing URL
+        ok 3 - submits POST with payload to existing URL
+          ---
+          duration_ms: 37.290756
+          type: 'test'
+          ...
+        1..3
+    ok 1 - notify
+      ---
+      duration_ms: 56.948725
+      type: 'suite'
+      ...
+    1..1
+ok 39 - webhook
+  ---
+  duration_ms: 57.304801
+  type: 'suite'
+  ...
+# Subtest: xml
+    # Subtest: should parse a simple XML string
+    ok 1 - should parse a simple XML string
+      ---
+      duration_ms: 107.226793
+      type: 'test'
+      ...
+    # Subtest: should expand internal entities
+    ok 2 - should expand internal entities
+      ---
+      duration_ms: 3.756613
+      type: 'test'
+      ...
+    # Subtest: should throw error on malformed XML
+    ok 3 - should throw error on malformed XML
+      ---
+      duration_ms: 3.592004
+      type: 'test'
+      ...
+    # Subtest: should timeout on entity expansion bomb
+    ok 4 - should timeout on entity expansion bomb
+      ---
+      duration_ms: 4.006459
+      type: 'test'
+      ...
+    1..4
+ok 40 - xml
+  ---
+  duration_ms: 120.444355
+  type: 'suite'
+  ...
+1..40
+# tests 415
+# suites 129
+# pass 410
+# fail 3
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 2484.751659

@@ -1,0 +1,30 @@
+# EVID-REVERIFY-C3
+# Candidate: C3 - Missing security headers
+# Historical: evidence/responses/WEB-VUL-003-headers.txt + RECON-002-response-headers.txt
+# Target: http://127.0.0.1:3000/
+# Date/Time: 2026-10-03T21:16:42+05:30
+# Method: curl -D - (executed)
+
+=== full response headers for GET / ===
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Feature-Policy: payment 'self'
+X-Recruiting: /#/jobs
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sat, 03 Oct 2026 14:45:54 GMT
+ETag: W/"24b1-1a1023a8f21"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 9393
+Vary: Accept-Encoding
+Date: Sat, 03 Oct 2026 15:46:42 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+=== required header check ===
+Strict-Transport-Security: Content-Security-Policy: X-Content-Type-Options: X-Content-Type-Options: nosniff
+X-Frame-Options: X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: Referrer-Policy: Permissions-Policy: Cross-Origin-Opener-Policy: Cross-Origin-Resource-Policy: Cache-Control: Cache-Control: public, max-age=0

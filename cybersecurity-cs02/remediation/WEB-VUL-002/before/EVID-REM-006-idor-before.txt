@@ -1,0 +1,48 @@
+# EVID-REM-006
+# BEFORE REMEDIATION - Phase 16/18 third remediation (WEB-VUL-002 basket IDOR)
+# Finding: WEB-VUL-002 - Broken Access Control / IDOR on /rest/basket/:id
+# Application: http://127.0.0.1:3000
+# Captured: 2026-10-04T16:37:02+05:30
+# Instance: current lab instance (mitigated for WEB-VUL-001/003; basket endpoint still original)
+# Method: same controlled reproduction as the original finding (finding.md S9 / EVID-REVERIFY-C2)
+# Lab-scenario only: seeded training accounts, no real user data
+
+--- CONTROL 1: unauthenticated GET /rest/basket/2 (expected 401) ---
+HTTP 401
+<html>
+  <head>
+    <meta charset='utf-8'> 
+    <title>UnauthorizedError: No Authorization header was found</title>
+    
+
+--- Login as seeded admin (control principal, token redacted) ---
+HTTP 200
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+
+--- VULNERABLE BEHAVIOR: admin (UserId 1) reads ANOTHER user's basket 2 ---
+Request: GET /rest/basket/2  Authorization: Bearer [REDACTED-JWT]
+HTTP 200
+{"status":"success","data":{"id":2,"coupon":null,"UserId":2,"createdAt":"2026-10-04T10:59:41.235Z","updatedAt":"2026-10-04T10:59:41.235Z","Products":[{"id":4,"name":"Raspberry Juice (1000ml)","description":"Made from blended Raspberry Pi, water and sugar.","price":4.99,"deluxePrice":4.99,"image":"raspberry_juice.jpg","createdAt":"2026-10-04T10:59:40.925Z","updatedAt":"2026-10-04T10:59:40.925Z","deletedAt":null,"BasketItem":{"ProductId":4,"BasketId":2,"id":4,"quantity":2,"createdAt":"2026-10-04T10:59:41.312Z","updatedAt":"2026-10-04T10:59:41.312Z"}}]}}
+
+--- CONTROL 2: admin reads OWN basket 1 (must keep working after fix) ---
+HTTP 200
+{"status":"success","data":{"id":1,"coupon":null,"UserId":1,"createdAt":"2026-10-04T10:59:41.235Z","updatedAt":"2026-10-04T10:59:41.235Z","Products":[{"id":1,"name":"Apple Juice (1000ml)","description
+
+--- VULNERABLE BEHAVIOR 2: admin applies coupon to ANOTHER user's basket 2 (modification) ---
+Request: PUT /rest/basket/2/coupon/<valid-coupon-generated-by-app-logic>
+HTTP 404
+Invalid coupon.
+
+Interpretation:
+- Cross-user READ: HTTP 200 returning UserId 2's basket contents = VULNERABLE
+  (primary observation; matches finding WEB-VUL-002 and EVID-REVERIFY-C2).
+- Cross-user WRITE probe (coupon PUT on basket 2): the request reached the
+  basket-update code path and was rejected ONLY with 404 "Invalid coupon"
+  (coupon invalidity) - no authorization rejection at any point; the write path
+  has no ownership check in source (routes/coupon.ts applyCoupon, routes/order.ts placeOrder).
+- Unauthenticated request remains 401: authentication middleware exists, but
+  object-level authorization does not.
+- No cross-user checkout was executed deliberately: a successful checkout would
+  destructively empty the seeded victim basket (non-authorized destructive change
+  avoided). Write-path vulnerability is established by source inspection + the
+  coupon probe instead.

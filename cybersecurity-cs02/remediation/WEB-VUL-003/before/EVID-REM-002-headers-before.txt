@@ -1,0 +1,38 @@
+BEFORE REMEDIATION - Phase 16 (WEB-VUL-003)
+Finding: WEB-VUL-003 (Missing HTTP security headers)
+Application: http://127.0.0.1:3000
+Captured: 2026-10-04T15:43:03+05:30
+Instance: original OWASP Juice Shop v20.2.0, unmodified build (node build/app)
+Method: same safe reproduction as Phase 10 (EVID-REVERIFY-C3) - curl -D - on GET /
+
+--- RESPONSE HEADERS: GET http://127.0.0.1:3000/ ---
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Feature-Policy: payment 'self'
+X-Recruiting: /#/jobs
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sun, 04 Oct 2026 10:12:42 GMT
+ETag: W/"24b1-1a10666cb0f"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 9393
+Vary: Accept-Encoding
+Date: Sun, 04 Oct 2026 10:13:03 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+--- HEADER PRESENCE CHECK (expected-secure baseline) ---
+MISSING : Strict-Transport-Security
+MISSING : Content-Security-Policy
+MISSING : X-XSS-Protection
+MISSING : Referrer-Policy
+MISSING : Permissions-Policy
+MISSING : Cross-Origin-Opener-Policy
+MISSING : Cross-Origin-Resource-Policy
+PRESENT : X-Content-Type-Options
+PRESENT : X-Frame-Options
+
+Interpretation: missing hardening headers = vulnerable (matches EVID-REVERIFY-C3)

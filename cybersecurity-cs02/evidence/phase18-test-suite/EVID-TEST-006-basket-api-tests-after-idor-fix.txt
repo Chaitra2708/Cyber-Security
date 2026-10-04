@@ -1,0 +1,530 @@
+TAP version 13
+# info: Detected Node.js version [1mv22.23.3[22m ([32mSUCCESS[39m)
+# info: Detected OS [1mlinux[22m ([32mSUCCESS[39m)
+# info: Detected CPU [1mx64[22m ([32mSUCCESS[39m)
+# info: Configuration [1mdefault[22m validated ([32mSUCCESS[39m)
+# info: Entity models [1m21[22m of [1m21[22m are initialized ([32mSUCCESS[39m)
+# info: All dependencies in [1m./package.json[22m are satisfied ([32mSUCCESS[39m)
+# info: Required file [1mserver.js[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mindex.html[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mpolyfills.js[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mstyles.css[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mmain.js[22m is present ([32mSUCCESS[39m)
+# info: Required file matching [1m/^hacking-instructor-.+\\.js$/[22m is present ([32mSUCCESS[39m)
+# info: Port [1m3000[22m is available ([32mSUCCESS[39m)
+# warn: File ./infrastructure could not be read. It might have been moved or deleted. If coding challenges are contained in the file, they will not be available.
+# info: [32mSolved[39m 3-star [36mloginJimChallenge[39m (Login Jim)
+# info: Cheat score for tutorial [36mloginJimChallenge[39m solved in 0min (expected ~3min) with hints allowed: [31m0.9945944444444444[39m
+# UnauthorizedError: No Authorization header was found
+# Subtest: /rest/basket/:id
+    # Subtest: GET existing basket by id is not allowed via public API
+    ok 1 - GET existing basket by id is not allowed via public API
+      ---
+      duration_ms: 8.487496
+      type: 'test'
+      ...
+# info: [32mSolved[39m 1-star [36merrorHandlingChallenge[39m (Error Handling)
+# info: Cheat score for trivial [36merrorHandlingChallenge[39m solved in 0min (expected ~0min) with hints allowed: [32m0[39m
+    # Subtest: GET empty basket when requesting non-existing basket id
+    ok 2 - GET empty basket when requesting non-existing basket id
+      ---
+      duration_ms: 37.962692
+      type: 'test'
+      ...
+# info: [32mSolved[39m 2-star [36mbasketAccessChallenge[39m (View Basket)
+# info: Cheat score for tutorial [36mbasketAccessChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.9996833333333334[39m
+    # Subtest: GET existing basket with contained products by id
+    not ok 3 - GET existing basket with contained products by id
+      ---
+      duration_ms: 22.729066
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:81:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:83:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: GET basket should accept forged JWTs
+    not ok 4 - GET basket should accept forged JWTs
+      ---
+      duration_ms: 23.9712
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:88:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:95:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    1..4
+not ok 1 - /rest/basket/:id
+  ---
+  duration_ms: 564.83368
+  type: 'suite'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:70:31'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Error: Unexpected path: /api/Baskets
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/angular.js:18:18
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/utils.js:235:26
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/verify.js:235:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/insecurity.js:218:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+# Subtest: /api/Baskets
+    # Subtest: POST new basket is not part of API
+    ok 1 - POST new basket is not part of API
+      ---
+      duration_ms: 16.734352
+      type: 'test'
+      ...
+# Error: Unexpected path: /api/Baskets
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/angular.js:18:18
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/utils.js:235:26
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/verify.js:235:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/insecurity.js:218:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+    # Subtest: GET all baskets is not part of API
+    ok 2 - GET all baskets is not part of API
+      ---
+      duration_ms: 13.29552
+      type: 'test'
+      ...
+    1..2
+ok 2 - /api/Baskets
+  ---
+  duration_ms: 30.472701
+  type: 'suite'
+  ...
+# Error: Unexpected path: /api/Baskets/1
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/angular.js:18:18
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/utils.js:235:26
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/verify.js:235:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/insecurity.js:218:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+# Subtest: /api/Baskets/:id
+    # Subtest: GET existing basket is not part of API
+    ok 1 - GET existing basket is not part of API
+      ---
+      duration_ms: 13.81962
+      type: 'test'
+      ...
+# Error: Unexpected path: /api/Baskets/1
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/angular.js:18:18
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/utils.js:235:26
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/verify.js:235:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/insecurity.js:218:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+    # Subtest: PUT update existing basket is not part of API
+    ok 2 - PUT update existing basket is not part of API
+      ---
+      duration_ms: 19.997878
+      type: 'test'
+      ...
+# Error: Unexpected path: /api/Baskets/1
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/angular.js:18:18
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/utils.js:235:26
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/verify.js:235:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:286:9
+#     at Function.process_params (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:346:12)
+#     at next (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:280:10)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/lib/insecurity.js:218:5
+#     at Layer.handle [as handle_request] (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/layer.js:95:5)
+#     at trim_prefix (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/express/lib/router/index.js:328:13)
+    # Subtest: DELETE existing basket is not part of API
+    ok 3 - DELETE existing basket is not part of API
+      ---
+      duration_ms: 13.506435
+      type: 'test'
+      ...
+    1..3
+ok 3 - /api/Baskets/:id
+  ---
+  duration_ms: 47.80433
+  type: 'suite'
+  ...
+# info: [32mSolved[39m 4-star [36moauthUserPasswordChallenge[39m (Login Bjoern)
+# info: Cheat score for [36moauthUserPasswordChallenge[39m solved in 0min (expected ~8min) with hints allowed: [31m0.99968125[39m
+# Subtest: /rest/basket/:id
+    # Subtest: GET existing basket of another user
+    not ok 1 - GET existing basket of another user
+      ---
+      duration_ms: 67.586705
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:130:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:138:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1442:7)
+        async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    1..1
+not ok 4 - /rest/basket/:id
+  ---
+  duration_ms: 67.871497
+  type: 'suite'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:129:31'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# info: Domain [1mhttps://www.alchemy.com/[22m is reachable ([32mSUCCESS[39m)
+# warn: Environment variable [1mALCHEMY_API_KEY[22m is not present ([33mWARNING[39m)
+# warn: [3m"Mint the Honey Pot" challenge[23m will not work as intended without a valid [1mALCHEMY_API_KEY[22m
+# warn: [3m"Wallet Depletion" challenge[23m will not work as intended without a valid [1mALCHEMY_API_KEY[22m
+# info: Check [1mhttps://howto-web3.owasp-juice.shop[22m for instructions on how to set up and configure the Alchemy API
+# UnauthorizedError: No Authorization header was found
+# Subtest: /rest/basket/:id/checkout
+    # Subtest: POST placing an order for a basket is not allowed via public API
+    ok 1 - POST placing an order for a basket is not allowed via public API
+      ---
+      duration_ms: 11.112947
+      type: 'test'
+      ...
+# warn: Domain [1mhttp://localhost:11434/v1[22m is not reachable ([33mWARNING[39m)
+# warn: [3m"Chatbot Prompt Injection" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# warn: [3m"Greedy Chatbot Manipulation" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# warn: [3m"AI Debugging" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# warn: [3m"System Prompt Extraction" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# info: Check [1mhttps://howto-llm.owasp-juice.shop[22m for instructions on how to set up and configure the LLM API
+    # Subtest: POST placing an order for an existing basket returns orderId
+    not ok 2 - POST placing an order for an existing basket returns orderId
+      ---
+      duration_ms: 20.447458
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:148:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:150:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+# Error: Basket with id=42 does not exist.
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/order.js:209:22
+    # Subtest: POST placing an order for a non-existing basket fails
+    ok 3 - POST placing an order for a non-existing basket fails
+      ---
+      duration_ms: 21.671287
+      type: 'test'
+      ...
+    # Subtest: POST placing an order for a basket with a negative total cost is possible
+    not ok 4 - POST placing an order for a basket with a negative total cost is possible
+      ---
+      duration_ms: 29.37633
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:158:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:165:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+# info: [32mSolved[39m 4-star [36mchristmasSpecialChallenge[39m (Christmas Special)
+# info: Cheat score for [36mchristmasSpecialChallenge[39m solved in 0min (expected ~8min) with hints allowed: [31m0.99943125[39m
+# info: [32mSolved[39m 6-star [36mforgedCouponChallenge[39m (Forged Coupon)
+# info: Cheat score for [36mforgedCouponChallenge[39m solved in 0min (expected ~12min) with hints allowed: [31m0.9999805555555555[39m
+# info: [32mSolved[39m 3-star [36mnegativeOrderChallenge[39m (Payback Time)
+# info: Cheat score for [36mnegativeOrderChallenge[39m solved in 0min (expected ~6min) with hints allowed: [31m0.9999944444444444[39m
+    # Subtest: POST placing an order for a basket with 99% discount is possible
+    ok 5 - POST placing an order for a basket with 99% discount is possible
+      ---
+      duration_ms: 170.140968
+      type: 'test'
+      ...
+    # Subtest: error cases
+        # Subtest: should return 500 if QuantityModel.findOne fails during checkout
+        not ok 1 - should return 500 if QuantityModel.findOne fails during checkout
+          ---
+          duration_ms: 45.850927
+          type: 'test'
+          location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:180:33'
+          failureType: 'testCodeFailure'
+          error: |-
+            Expected values to be strictly equal:
+            
+            403 !== 500
+            
+          code: 'ERR_ASSERTION'
+          name: 'AssertionError'
+          expected: 500
+          actual: 403
+          operator: 'strictEqual'
+          stack: |-
+            TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:186:30)
+            process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+            async Test.run (node:internal/test_runner/test:1054:7)
+            async Promise.all (index 0)
+            async Suite.run (node:internal/test_runner/test:1442:7)
+            async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+          ...
+# info: [32mSolved[39m 2-star [36mweakPasswordChallenge[39m (Password Strength)
+# info: Cheat score for tutorial [36mweakPasswordChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.9994583333333333[39m
+# info: [32mSolved[39m 2-star [36mloginAdminChallenge[39m (Login Admin)
+# info: Cheat score for tightly coupled tutorial [36mloginAdminChallenge[39m solved in 0min (expected ~0min) with hints allowed: [32m0[39m
+# Error
+#     at Database.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/sqlite/query.js:185:27)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/sqlite/query.js:183:50
+#     at new Promise (<anonymous>)
+#     at Query.run (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/sqlite/query.js:183:12)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/sequelize.js:315:28
+#     at async SQLiteQueryInterface.insert (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+#     at async BasketItem.save (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/model.js:2490:35)
+#     at async /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/basketItems.js:79:41
+# Error: Wallet error
+#     at Wallet.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:193:74)
+#     at Object.apply (node:internal/test_runner/mock/mock:765:20)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/order.js:173:67
+        # Subtest: should return 500 if WalletModel.findOne fails during checkout
+        ok 2 - should return 500 if WalletModel.findOne fails during checkout
+          ---
+          duration_ms: 68.407711
+          type: 'test'
+          ...
+# Error
+#     at Database.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/sqlite/query.js:185:27)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/sqlite/query.js:183:50
+#     at new Promise (<anonymous>)
+#     at Query.run (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/sqlite/query.js:183:12)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/sequelize.js:315:28
+#     at async SQLiteQueryInterface.insert (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+#     at async BasketItem.save (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/node_modules/sequelize/lib/model.js:2490:35)
+#     at async /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/basketItems.js:79:41
+# Error: Insert error
+#     at Collection.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:202:78)
+#     at Object.apply (node:internal/test_runner/mock/mock:765:20)
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/order.js:190:37
+        # Subtest: should return 500 if ordersCollection.insert fails during checkout
+        ok 3 - should return 500 if ordersCollection.insert fails during checkout
+          ---
+          duration_ms: 61.109449
+          type: 'test'
+          ...
+        1..3
+    not ok 6 - error cases
+      ---
+      duration_ms: 175.824459
+      type: 'suite'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:179:35'
+      failureType: 'subtestsFailed'
+      error: '1 subtest failed'
+      code: 'ERR_TEST_FAILURE'
+      ...
+    1..6
+not ok 5 - /rest/basket/:id/checkout
+  ---
+  duration_ms: 428.990761
+  type: 'suite'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:143:31'
+  failureType: 'subtestsFailed'
+  error: '3 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: /rest/basket/:id/coupon/:coupon
+    # Subtest: PUT apply valid coupon to existing basket
+    not ok 1 - PUT apply valid coupon to existing basket
+      ---
+      duration_ms: 18.795007
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:210:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:214:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1442:7)
+        async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: PUT apply invalid coupon is not accepted
+    not ok 2 - PUT apply invalid coupon is not accepted
+      ---
+      duration_ms: 20.685413
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:218:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 404
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 404
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:222:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: PUT apply outdated coupon is not accepted
+    not ok 3 - PUT apply outdated coupon is not accepted
+      ---
+      duration_ms: 17.167142
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:224:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        403 !== 404
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 404
+      actual: 403
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:228:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+# Error: Basket with id=4711 does not exist.
+#     at /home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/routes/coupon.js:52:22
+    # Subtest: PUT apply valid coupon to non-existing basket throws error
+    ok 4 - PUT apply valid coupon to non-existing basket throws error
+      ---
+      duration_ms: 19.816689
+      type: 'test'
+      ...
+    1..4
+not ok 6 - /rest/basket/:id/coupon/:coupon
+  ---
+  duration_ms: 76.780252
+  type: 'suite'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/basket.test.js:209:31'
+  failureType: 'subtestsFailed'
+  error: '3 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..6
+# tests 22
+# suites 7
+# pass 13
+# fail 9
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2172.681485

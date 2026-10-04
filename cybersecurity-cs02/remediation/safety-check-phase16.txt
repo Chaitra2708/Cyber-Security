@@ -1,0 +1,44 @@
+=== Phase 16.7 REMEDIATION SAFETY CHECK (final configuration) ===
+Timestamp: 2026-10-04T15:50:56+05:30
+Target: http://127.0.0.1:3000 (OWASP Juice Shop v20.2.0, mitigated build)
+
+[ ] Application starts: PASS - started via scripts/start-lab.sh, 'LAB STATUS: PASS'
+[ ] http://127.0.0.1:3000 accessible: PASS
+
+--- GET / status ---
+HTTP 200
+
+--- Header presence check (baseline used in EVID-REVERIFY-C3) ---
+PRESENT : Strict-Transport-Security
+PRESENT : Content-Security-Policy
+PRESENT : X-XSS-Protection
+PRESENT : Referrer-Policy
+PRESENT : Permissions-Policy
+PRESENT : Cross-Origin-Opener-Policy
+PRESENT : Cross-Origin-Resource-Policy
+PRESENT : X-Content-Type-Options
+PRESENT : X-Frame-Options
+
+--- FUNCTIONAL CONTROL 1: legitimate login (seeded lab account admin@juice-sh.op) ---
+HTTP 200
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+
+--- FUNCTIONAL CONTROL 2: product listing API ---
+HTTP 200
+{"status":"success","data":[{"id":1,"name":"Apple Juice (1000ml)","description":"The all-time classic.","price":1.99,"deluxePrice":0.99,"image":"apple_juice.jpg","createdAt":"2026-10-04T10:20:32.204Z"
+
+--- FUNCTIONAL CONTROL 3: own-basket read with own token ---
+HTTP 200
+{"status":"success","data":{"id":1,"coupon":null,"UserId":1,"createdAt":"2026-10-04T10:20:32.601Z","updatedAt":"2026-10-04T10:20:32.601Z","Products":[{"id":1,"name":"Apple Juice (1000ml)","description
+
+--- FUNCTIONAL CONTROL 4: frontend bundle + API whoami ---
+GET /main.js -> 200 (1207722 bytes)
+GET /rest/user/whoami -> 200
+
+--- BROWSER VERIFICATION (headless Chrome, isolated profile, virtual time 8s) ---
+Console/CSP messages: 0 (no violations, no errors)
+styles.css link after load: media="all" (inline onload handler executed = allowed by CSP hash)
+Rendered product entries present: yes (Apple Juice (1000ml) in DOM)
+Raw browser log: captured during run (see remediation/WEB-VUL-003/after/EVID-RETEST-002-*)
+
+RESULT: application functional after both mitigations; no unrelated functionality intentionally changed.

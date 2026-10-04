@@ -1,0 +1,42 @@
+{
+  "url": "http://127.0.0.1:3000/",
+  "fetched_at": "2026-10-03T20:16:56",
+  "status": 200,
+  "server": null,
+  "x_powered_by": null,
+  "security_headers_present": [
+    {
+      "header": "X-Content-Type-Options",
+      "value": "nosniff"
+    },
+    {
+      "header": "X-Frame-Options",
+      "value": "SAMEORIGIN"
+    },
+    {
+      "header": "Cache-Control",
+      "value": "public, max-age=0"
+    }
+  ],
+  "security_headers_missing": [
+    "Strict-Transport-Security",
+    "Content-Security-Policy",
+    "X-XSS-Protection",
+    "Referrer-Policy",
+    "Permissions-Policy",
+    "Cross-Origin-Opener-Policy",
+    "Cross-Origin-Resource-Policy"
+  ],
+  "cookies": [],
+  "html_fingerprints": {
+    "title": "OWASP Juice Shop",
+    "generator_meta": null,
+    "angular_hint": true,
+    "has_form": false,
+    "body_len": 9393
+  },
+  "technology_guesses": [
+    "Angular SPA (from bundled main.js / ng-version)",
+    "OWASP Juice Shop (application branding in HTML)"
+  ]
+}

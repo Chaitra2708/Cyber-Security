@@ -1,0 +1,55 @@
+# EVID-RETEST-002
+# Phase 17 retest of WEB-VUL-003 (Missing HTTP security headers)
+# Target: http://127.0.0.1:3000/  Route: GET /
+# Date/Time: 2026-10-04T15:55:45+05:30
+# Method: curl -D - (executed) - SAME procedure as Phase 10 (EVID-REVERIFY-C3)
+# Instance: mitigated build, node build/app pid 6690, started 2026-10-04 15:50:27 +05:30
+# Original before evidence: remediation/WEB-VUL-003/before/EVID-REM-002-headers-before.txt and EVID-REVERIFY-C3-headers.txt
+
+=== full response headers for GET / ===
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Referrer-Policy: no-referrer
+X-XSS-Protection: 1; mode=block
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-2ADpmZIga9zdrCfzZ7IWyavasltpcKCkxomklfMTCG0=' 'unsafe-hashes' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' ws://127.0.0.1:3000 wss://127.0.0.1:3000; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+Feature-Policy: payment 'self'
+X-Recruiting: /#/jobs
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sun, 04 Oct 2026 10:20:33 GMT
+ETag: W/"24b1-1a1066dfb5f"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 9393
+Vary: Accept-Encoding
+Date: Sun, 04 Oct 2026 10:25:48 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+=== required header check (same baseline list as Phase 10) ===
+PRESENT : Strict-Transport-Security
+PRESENT : Content-Security-Policy
+PRESENT : X-Content-Type-Options
+PRESENT : X-Frame-Options
+PRESENT : X-XSS-Protection
+PRESENT : Referrer-Policy
+PRESENT : Permissions-Policy
+PRESENT : Cross-Origin-Opener-Policy
+PRESENT : Cross-Origin-Resource-Policy
+PRESENT : Cache-Control
+
+=== browser verification (headless Chrome, isolated profile, 8s virtual time) ===
+Console messages (errors/CSP violations): 0
+styles.css media attribute after load: <link rel="stylesheet" href="styles.css" media="all"
+products rendered in DOM: 1 occurrence(s) of a sample product
+screenshot: remediation/WEB-VUL-003/after/LAB-016-post-remediation.png (296865 bytes)
+
+--- result interpretation ---
+- Before: 7 of 10 baseline hardening headers MISSING
+- After: see presence check above; all present + 0 browser violations = expected secure behavior (FIXED)

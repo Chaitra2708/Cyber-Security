@@ -1,0 +1,48 @@
+{
+  "tool": "cs02-tcp-scan",
+  "version": "1.0",
+  "target_requested": "127.0.0.1",
+  "target_resolved": "127.0.0.1",
+  "port_spec": "top100",
+  "ports_scanned": 63,
+  "started": "2026-10-03T20:16:44",
+  "duration_s": 3.03,
+  "open_ports": [
+    {
+      "port": 80,
+      "state": "open",
+      "latency_ms": 0.0,
+      "http": {
+        "status_line": "HTTP/1.1 200 OK",
+        "server": "Apache/2.4.58 (Ubuntu)",
+        "x_powered_by": ""
+      }
+    },
+    {
+      "port": 631,
+      "state": "open",
+      "latency_ms": 0.1,
+      "http": {
+        "status_line": "HTTP/1.1 200 OK",
+        "server": "CUPS/2.4 IPP/2.1",
+        "x_powered_by": ""
+      }
+    },
+    {
+      "port": 3000,
+      "state": "open",
+      "latency_ms": 0.1,
+      "http": {
+        "status_line": "HTTP/1.1 200 OK",
+        "server": "",
+        "x_powered_by": ""
+      }
+    },
+    {
+      "port": 3306,
+      "state": "open",
+      "latency_ms": 0.1,
+      "banner": "[\u0000\u0000\u0000\n8.0.46-0ubuntu0.24.04.2\u0000\u001c\u0000\u0000\u0000\u001df\u0006:V4\u0004r\u0000\ufffd\ufffd\ufffd\u0002\u0000\ufffd\ufffd\u0015\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000CAn\u0013P\u0001oT\u000b\u0007Bq\u0000caching_sha2_password\u0000"
+    }
+  ]
+}

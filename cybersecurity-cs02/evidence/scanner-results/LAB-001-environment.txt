@@ -1,0 +1,35 @@
+# CS-02 Lab environment capture
+# Date: 2026-10-03T20:16:32+05:30
+
+## OS
+PRETTY_NAME="Linux Mint 22.3"
+VERSION_ID="22.3"
+## Kernel
+6.17.0-35-generic
+## Hostname
+shoyo
+## CPU / RAM
+cores=12
+ram=7.1Gi
+## Interfaces (IPv4)
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    inet 127.0.0.1/8 scope host lo
+2: wlo1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    inet 10.45.57.195/24 brd 10.45.57.255 scope global dynamic noprefixroute wlo1
+## Default route
+default via 10.45.57.186 dev wlo1 proto dhcp src 10.45.57.195 metric 600 
+10.45.57.0/24 dev wlo1 proto kernel scope link src 10.45.57.195 metric 600 
+## Virtualization
+none
+none
+## Tools present
+  nmap: NOT INSTALLED
+  nikto: NOT INSTALLED
+  whatweb: NOT INSTALLED
+  zap: NOT INSTALLED
+  burpsuite: NOT INSTALLED
+  chromium: NOT INSTALLED
+  google-chrome: /usr/bin/google-chrome
+  curl: /usr/bin/curl
+  python3: /usr/bin/python3
+  node: /home/asta/.nvm/versions/node/v20.20.2/bin/node

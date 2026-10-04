@@ -1,0 +1,45 @@
+# EVID-RETEST-004
+# Phase 17-style retest of WEB-VUL-002 (Basket IDOR) - third remediated finding
+# Target: http://127.0.0.1:3000  Route: GET /rest/basket/:id (and coupon/checkout write paths)
+# Date/Time: 2026-10-04T16:46:17+05:30
+# Method: same controlled reproduction as the original finding (finding.md S9 / EVID-REVERIFY-C2)
+# Instance: node build/app started AFTER the ownership-guard change; all three mitigations active
+# Original before evidence: remediation/WEB-VUL-002/before/EVID-REM-006-idor-before.txt (+ EVID-REVERIFY-C2-idor.txt)
+
+--- CONTROL 1: unauthenticated (expected 401) ---
+HTTP 401
+
+--- admin login (token redacted) ---
+HTTP 200
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+
+--- VULNERABILITY REPRODUCTION: admin (UserId 1) reads OTHER user's basket 2 (was HTTP 200 + full contents) ---
+HTTP 403
+{"status":"error","message":"Forbidden: this basket does not belong to the authenticated user"}
+
+--- CONTROL 2: admin reads OWN basket 1 (functionality must persist) ---
+HTTP 200
+{"status":"success","data":{"id":1,"coupon":null,"UserId":1,"createdAt":"2026-10-04T11:16:15.756Z","updatedAt":"2026-10-04T11:16:15.756Z","Products":[{"id":1,"name":"Apple Juice (1000ml)","description
+
+--- CONTROL 3: unknown basket id keeps original response (no data disclosed) ---
+HTTP 200
+{"status":"success","data":null}
+
+--- WRITE PATH: coupon PUT on OTHER user's basket 2 (previously reached update path unchallenged) ---
+HTTP 403
+{"status":"error","message":"Forbidden: this basket does not belong to the authenticated user"}
+
+--- WRITE PATH: coupon PUT on OWN basket 1 (original behaviour: invalid coupon rejected with 404) ---
+HTTP 404
+Invalid coupon.
+
+--- Regression spot-checks: other two remediations still active ---
+SQLi login payload -> HTTP 401 (401 expected)
+CSP header present (1 expected): 1
+legit login -> HTTP 200 (200 expected)
+
+--- RESULT ---
+Cross-user basket READ: was 200 with victim contents, now 403 Forbidden -> not reproducible
+Cross-user basket WRITE (coupon): was processed without authorization, now 403 Forbidden -> not reproducible
+Own-basket read/write and full legitimate flow verified separately (see remediation/WEB-VUL-002/remediation.md)
+Result: FIXED

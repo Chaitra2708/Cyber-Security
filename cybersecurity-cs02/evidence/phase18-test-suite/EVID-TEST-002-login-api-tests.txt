@@ -1,0 +1,260 @@
+TAP version 13
+# info: Detected Node.js version [1mv22.23.3[22m ([32mSUCCESS[39m)
+# info: Detected OS [1mlinux[22m ([32mSUCCESS[39m)
+# info: Detected CPU [1mx64[22m ([32mSUCCESS[39m)
+# info: Configuration [1mdefault[22m validated ([32mSUCCESS[39m)
+# info: Entity models [1m21[22m of [1m21[22m are initialized ([32mSUCCESS[39m)
+# info: All dependencies in [1m./package.json[22m are satisfied ([32mSUCCESS[39m)
+# info: Required file [1mserver.js[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mindex.html[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mstyles.css[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mpolyfills.js[22m is present ([32mSUCCESS[39m)
+# info: Required file [1mmain.js[22m is present ([32mSUCCESS[39m)
+# info: Required file matching [1m/^hacking-instructor-.+\\.js$/[22m is present ([32mSUCCESS[39m)
+# info: Port [1m3000[22m is available ([32mSUCCESS[39m)
+# info: Domain [1mhttps://www.alchemy.com/[22m is reachable ([32mSUCCESS[39m)
+# warn: Environment variable [1mALCHEMY_API_KEY[22m is not present ([33mWARNING[39m)
+# warn: [3m"Mint the Honey Pot" challenge[23m will not work as intended without a valid [1mALCHEMY_API_KEY[22m
+# warn: [3m"Wallet Depletion" challenge[23m will not work as intended without a valid [1mALCHEMY_API_KEY[22m
+# info: Check [1mhttps://howto-web3.owasp-juice.shop[22m for instructions on how to set up and configure the Alchemy API
+# warn: Domain [1mhttp://localhost:11434/v1[22m is not reachable ([33mWARNING[39m)
+# warn: [3m"Chatbot Prompt Injection" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# warn: [3m"Greedy Chatbot Manipulation" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# warn: [3m"AI Debugging" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# warn: [3m"System Prompt Extraction" challenge[23m will not work as intended without access to [1mhttp://localhost:11434/v1[22m
+# info: Check [1mhttps://howto-llm.owasp-juice.shop[22m for instructions on how to set up and configure the LLM API
+# warn: File ./infrastructure could not be read. It might have been moved or deleted. If coding challenges are contained in the file, they will not be available.
+# info: [32mSolved[39m 1-star [36mpasswordRepeatChallenge[39m (Repetitive Registration)
+# info: Cheat score for [36mpasswordRepeatChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.9800416666666667[39m
+# Subtest: /rest/user/login
+    # Subtest: POST login newly created user
+    ok 1 - POST login newly created user
+      ---
+      duration_ms: 211.588577
+      type: 'test'
+      ...
+    # Subtest: POST login non-existing user
+    ok 2 - POST login non-existing user
+      ---
+      duration_ms: 32.565274
+      type: 'test'
+      ...
+    # Subtest: POST login without credentials
+    ok 3 - POST login without credentials
+      ---
+      duration_ms: 39.644839
+      type: 'test'
+      ...
+# info: [32mSolved[39m 2-star [36mweakPasswordChallenge[39m (Password Strength)
+# info: Cheat score for tutorial [36mweakPasswordChallenge[39m solved in 0min (expected ~2min) with hints allowed: [31m0.99795[39m
+# info: [32mSolved[39m 2-star [36mloginAdminChallenge[39m (Login Admin)
+# info: Cheat score for tightly coupled tutorial [36mloginAdminChallenge[39m solved in 0min (expected ~0min) with hints allowed: [32m0[39m
+    # Subtest: POST login with admin credentials
+    ok 4 - POST login with admin credentials
+      ---
+      duration_ms: 84.607582
+      type: 'test'
+      ...
+# info: [32mSolved[39m 6-star [36mloginSupportChallenge[39m (Login Support Team)
+# info: Cheat score for [36mloginSupportChallenge[39m solved in 0min (expected ~12min) with hints allowed and 0% expected preceding URL interaction: [31m1[39m
+    # Subtest: POST login with support-team credentials
+    ok 5 - POST login with support-team credentials
+      ---
+      duration_ms: 56.207409
+      type: 'test'
+      ...
+# info: [32mSolved[39m 2-star [36mloginRapperChallenge[39m (Login MC SafeSearch)
+# info: Cheat score for [36mloginRapperChallenge[39m solved in 0min (expected ~4min) with hints allowed: [31m0.9997708333333334[39m
+    # Subtest: POST login with MC SafeSearch credentials
+    ok 6 - POST login with MC SafeSearch credentials
+      ---
+      duration_ms: 53.119473
+      type: 'test'
+      ...
+# info: [32mSolved[39m 3-star [36mloginAmyChallenge[39m (Login Amy)
+# info: Cheat score for [36mloginAmyChallenge[39m solved in 0min (expected ~6min) with hints allowed: [31m0.9998277777777778[39m
+    # Subtest: POST login with Amy credentials
+    ok 7 - POST login with Amy credentials
+      ---
+      duration_ms: 60.324686
+      type: 'test'
+      ...
+    # Subtest: POST login with wurstbrot credentials expects 2FA token
+    ok 8 - POST login with wurstbrot credentials expects 2FA token
+      ---
+      duration_ms: 32.159421
+      type: 'test'
+      ...
+# info: [32mSolved[39m 4-star [36moauthUserPasswordChallenge[39m (Login Bjoern)
+# info: Cheat score for [36moauthUserPasswordChallenge[39m solved in 0min (expected ~8min) with hints allowed: [31m0.9997958333333333[39m
+    # Subtest: POST login as bjoern.kimminich@gmail.com with known password
+    ok 9 - POST login as bjoern.kimminich@gmail.com with known password
+      ---
+      duration_ms: 72.037447
+      type: 'test'
+      ...
+    # Subtest: POST login with WHERE-clause disabling SQL injection attack
+    not ok 10 - POST login with WHERE-clause disabling SQL injection attack
+      ---
+      duration_ms: 25.259156
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:136:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        401 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 401
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:144:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: POST login with known email "admin@juice-sh.op" in SQL injection attack
+    not ok 11 - POST login with known email "admin@juice-sh.op" in SQL injection attack
+      ---
+      duration_ms: 49.992313
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:148:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        401 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 401
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:156:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: POST login with known email "jim@juice-sh.op" in SQL injection attack
+    not ok 12 - POST login with known email "jim@juice-sh.op" in SQL injection attack
+      ---
+      duration_ms: 43.072369
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:160:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        401 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 401
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:168:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: POST login with known email "bender@juice-sh.op" in SQL injection attack
+    not ok 13 - POST login with known email "bender@juice-sh.op" in SQL injection attack
+      ---
+      duration_ms: 41.605953
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:172:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        401 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 401
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:180:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: POST login with non-existing email "acc0unt4nt@juice-sh.op" via UNION SELECT injection attack
+    not ok 14 - POST login with non-existing email "acc0unt4nt@juice-sh.op" via UNION SELECT injection attack
+      ---
+      duration_ms: 50.627574
+      type: 'test'
+      location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:184:29'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        
+        401 !== 200
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 200
+      actual: 401
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:192:26)
+        process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    # Subtest: POST login with query-breaking SQL Injection attack
+    ok 15 - POST login with query-breaking SQL Injection attack
+      ---
+      duration_ms: 42.126731
+      type: 'test'
+      ...
+    1..15
+not ok 1 - /rest/user/login
+  ---
+  duration_ms: 2033.5387
+  type: 'suite'
+  location: '/home/asta/Desktop/project bb/cybersecurity-cs02/lab/juice-shop_20.2.0/build/test/api/login.test.js:20:31'
+  failureType: 'subtestsFailed'
+  error: '5 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: /rest/saveLoginIp
+    # Subtest: GET last login IP will be saved as True-Client-IP header value
+    ok 1 - GET last login IP will be saved as True-Client-IP header value
+      ---
+      duration_ms: 123.836762
+      type: 'test'
+      ...
+    # Subtest: GET last login IP will be saved as remote IP when True-Client-IP is not present
+    ok 2 - GET last login IP will be saved as remote IP when True-Client-IP is not present
+      ---
+      duration_ms: 88.294028
+      type: 'test'
+      ...
+    # Subtest: GET last login IP returns 401 Unauthorized when no token is provided
+    ok 3 - GET last login IP returns 401 Unauthorized when no token is provided
+      ---
+      duration_ms: 22.782927
+      type: 'test'
+      ...
+    1..3
+ok 2 - /rest/saveLoginIp
+  ---
+  duration_ms: 235.461016
+  type: 'suite'
+  ...
+1..2
+# tests 18
+# suites 2
+# pass 13
+# fail 5
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4578.65603

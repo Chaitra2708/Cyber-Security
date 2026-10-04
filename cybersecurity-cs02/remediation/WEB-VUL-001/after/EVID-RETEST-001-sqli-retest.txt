@@ -1,0 +1,24 @@
+# EVID-RETEST-001
+# Phase 17 retest of WEB-VUL-001 (SQL injection authentication bypass)
+# Target: http://127.0.0.1:3000  Route: POST /rest/user/login
+# Date/Time: 2026-10-04T15:55:24+05:30
+# Method: curl (executed) - SAME procedure as Phase 10 (EVID-REVERIFY-C1)
+# Instance: mitigated build, node build/app pid 6690, started 2026-10-04 15:50:27 +05:30
+# Original before evidence: remediation/WEB-VUL-001/before/EVID-REM-001-sqli-before.txt and EVID-REVERIFY-C1-sqli.txt
+
+--- CONTROL: invalid credentials (expected 401) ---
+HTTP:401
+Invalid email or password.
+--- CONTROL: legitimate seeded credentials (expected 200 - functionality intact) ---
+HTTP:200
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+--- TEST (tokens redacted): ' OR 1=1-- ---
+HTTP:401
+Invalid email or password.
+--- TEST (tokens redacted): ' OR '1'='1' -- ---
+HTTP:401
+Invalid email or password.
+--- result interpretation ---
+- Control (invalid): HTTP 401 (same secure baseline as before)
+- Control (valid seeded login): HTTP 200 (application functionality preserved)
+- Payloads: see HTTP codes above; 401 = injection no longer bypasses authentication (FIXED), 200 = still vulnerable (NOT FIXED)

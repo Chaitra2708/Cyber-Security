@@ -1,0 +1,29 @@
+================================================================
+URL        : http://127.0.0.1:3000/
+Status     : 200
+Server     : None
+X-Powered  : None
+================================================================
+
+[Security headers PRESENT]
+  + X-Content-Type-Options: nosniff
+  + X-Frame-Options: SAMEORIGIN
+  + Cache-Control: public, max-age=0
+
+[Security headers MISSING]
+  - Strict-Transport-Security
+  - Content-Security-Policy
+  - X-XSS-Protection
+  - Referrer-Policy
+  - Permissions-Policy
+  - Cross-Origin-Opener-Policy
+  - Cross-Origin-Resource-Policy
+
+[Cookies]
+  (no Set-Cookie on this response)
+
+[Technology guesses]
+  * Angular SPA (from bundled main.js / ng-version)
+  * OWASP Juice Shop (application branding in HTML)
+
+[+] JSON written to evidence/scanner-results/RECON-002-technology.json

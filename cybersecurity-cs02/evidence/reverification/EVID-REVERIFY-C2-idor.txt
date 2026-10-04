@@ -1,0 +1,22 @@
+# EVID-RETEST-C2
+# Phase 10 candidate re-verification
+# Candidate: C2 - Broken Access Control (IDOR on /rest/basket/:id)
+# Historical evidence: evidence/findings/WEB-VUL-002-validation.txt + evidence/responses/WEB-VUL-002-victim-basket.json
+# Note: evidence/responses/WEB-VUL-002-response.txt actually contains a 401 UnauthorizedError (see inventory)
+# Target: http://127.0.0.1:3000
+# Route: GET /rest/basket/1
+# Date/Time: 2026-10-03T21:13:49+05:30
+# Method: curl (executed)
+
+--- CONTROL 1: unauthenticated request (expected 401) ---
+HTTP:401
+<html>
+  <head>
+    <meta charset='utf-8'> 
+    <title>UnauthorizedError: No Authorization header was found</title>
+    <style>* {
+  margin: 0;
+  padding: 0;
+  
+--- CONTROL 2: authenticated as a normal customer (no admin role) ---
+customer JWT present: YES

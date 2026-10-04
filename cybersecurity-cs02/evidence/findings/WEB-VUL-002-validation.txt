@@ -1,0 +1,11 @@
+# Evidence ID: EVD-V2-RES
+# Finding: WEB-VUL-002
+# Date: 2026-10-03T19:37:32+05:30
+# Attacker: customer account id=25 role=customer (no admin privileges)
+# Victim:   basket id=1, owner UserId=1
+# HTTP: 200   items returned: 3
+# Verdict:
+   VULNERABLE - horizontal privilege escalation confirmed
+   Attacker (UserId 25) read basket owned by UserId 1 (3 items).
+# Response body (tokens redacted):
+{"status":"success","data":{"id":1,"coupon":null,"UserId":1,"createdAt":"2026-10-03T13:55:55.848Z","updatedAt":"2026-10-03T13:55:55.848Z","Products":[{"id":1,"name":"Apple Juice (1000ml)","description":"The all-time classic.","price":1.99,"deluxePrice":0.99,"image":"apple_juice.jpg","createdAt":"2026-10-03T13:55:55.506Z","updatedAt":"2026-10-03T13:55:55.506Z","deletedAt":null,"BasketItem":{"ProductId":1,"BasketId":1,"id":1,"quantity":2,"createdAt":"2026-10-03T13:55:55.926Z","updatedAt":"2026-10-03T13:55:55.926Z"}},{"id":2,"name":"Orange Juice (1000ml)","description":"Made from oranges hand-picked by Uncle Dittmeyer.","price":2.99,"deluxePrice":2.49,"image":"orange_juice.jpg","createdAt":"2026-10-03T13:55:55.506Z","updatedAt":"2026-10-03T13:55:55.506Z","deletedAt":null,"BasketItem":{"ProductId":2,"BasketId":1,"id":2,"quantity":3,"createdAt":"2026-10-03T13:55:55.926Z","updatedAt":"2026-10-03T13:55:55.926Z"}},{"id":3,"name":"Eggfruit Juice (500ml)","description":"Now with even more exotic flavour.","price":8.99,"deluxePrice":8.99,"image":"eggfruit_juice.jpg","createdAt":"2026-10-03T13:55:55.506Z","updatedAt":"2026-10-03T13:55:55.506Z","deletedAt":null,"BasketItem":{"ProductId":3,"BasketId":1,"id":3,"quantity":1,"createdAt":"2026-10-03T13:55:55.926Z","updatedAt":"2026-10-03T13:55:55.926Z"}}]}}

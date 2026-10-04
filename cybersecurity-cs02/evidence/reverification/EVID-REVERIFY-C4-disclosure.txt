@@ -1,0 +1,18 @@
+# EVID-REVERIFY-C4
+# Candidate: C4 - Sensitive information disclosure
+# Historical: evidence/responses/WEB-VUL-004-metrics.txt + evidence/responses/WEB-VUL-004-version.txt
+# Target: http://127.0.0.1:3000
+# Date/Time: 2026-10-03T21:16:52+05:30
+
+--- GET /metrics (info disclosure, unauthenticated) ---
+HTTP:200 (25640 bytes)
+# HELP juiceshop_llm_input_tokens_total Number of total input tokens processed
+# TYPE juiceshop_llm_input_tokens_total counter
+juiceshop_llm_input_tokens_total{
+--- GET /rest/admin/application-version (version disclosure, unauthenticated) ---
+HTTP:200
+body: {"version":"20.2.0"}
+--- robots.txt ( discloses /ftp directory ) ---
+HTTP:200
+User-agent: *
+Disallow: /ftp
