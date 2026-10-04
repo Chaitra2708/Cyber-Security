@@ -1,3 +1,30 @@
+> ## ⚠️ SUPERSEDED HISTORICAL LOG — NOT THE CURRENT STATE
+>
+> This file is the **working log of an earlier project phase** (findings WEB-VUL-001…005,
+> 3 mitigations). It is retained unchanged as part of the project's history.
+>
+> **It must not be used as the current status.** It is internally inconsistent (it
+> states both "2 of 5" and "3 findings" remediated) and its counts are obsolete.
+>
+> **Current authoritative status (closeout, 2026-10-04):**
+>
+> | Item | Value |
+> |---|---|
+> | Findings | **10** (WEB-VUL-001 … WEB-VUL-010) |
+> | Remediated + re-tested | **5** — 001, 002, 003, 008, 010 |
+> | Open | **5** — 004, 005, 006, 007, 009 |
+> | Evidence index | **74** rows, 0 broken paths, 0 duplicate IDs |
+> | Baseline | **unmodified**, still serving on :3000 |
+> | Remediation instance | separate copy on **:3001** |
+> | Lab health | `check-lab.sh` → `LAB STATUS: PASS` (10/10) |
+>
+> Authoritative documents:
+> `FINAL_SUBMISSION_CHECKLIST.md`, `docs/final-state-snapshot.txt`,
+> `findings/REMEDIATION_REGISTER.md`, `docs/risk-analysis.md`,
+> `docs/retesting.md`, `report/CS-02_Final_Security_Assessment_Report.md`.
+
+---
+
 # CS-02 Project Status
 
 **Project:** Web Application Security Assessment Using OWASP Methodology

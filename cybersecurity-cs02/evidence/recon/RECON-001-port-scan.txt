@@ -1,0 +1,16 @@
+RECON-001 : TCP port scan of the authorised lab host
+captured : 2026-10-04T20:17:25+05:30
+method   : python3 socket connect_ex (no nmap available on this host)
+note     : nmap/nikto/zap are NOT installed; sudo requires a password, so no
+           scanner output is claimed. Results below are raw connect() results.
+
+HOST        PORT   STATE    SERVICE
+127.0.0.1   3000   OPEN     OWASP Juice Shop (lab target)
+127.0.0.1   80     OPEN     Apache httpd (unrelated pre-existing service)
+127.0.0.1   3306   OPEN     MySQL
+127.0.0.1   33060  OPEN     MySQL X protocol
+127.0.0.1   631    OPEN     CUPS
+127.0.0.1   5500   CLOSED   former VS Code Live Server (must stay unused)
+127.0.0.1   443    CLOSED   HTTPS
+127.0.0.1   22     CLOSED   SSH
+127.0.0.1   8080   CLOSED   alternate HTTP

@@ -1,0 +1,31 @@
+REMED BEFORE-EVIDENCE (captured from VULNERABLE BASELINE on port 3000)
+captured : 2026-10-04T20:28:12+05:30
+baseline : lab/juice-shop_20.2.0  md5(server.ts)=862db332c79fda47f933a20448a8780b
+
+NOTE (added during the final audit, 2026-10-04): the checksum recorded above belongs to a
+copy of server.ts that had already been edited with remediation code, so it was NOT the
+shipped release. The baseline has since been restored byte-for-byte from the original
+distribution archive and now reads md5 ba10fa21169fa8baf09f08730515d109 (plus a documented
+loopback bind). The CORS observation recorded below was valid at capture time and remains
+valid: the restored baseline still answers Access-Control-Allow-Origin: *.
+See evidence/remediation/REMED-baseline-integrity.txt.
+
+==================== REMED-001 / WEB-VUL-010 : CORS ====================
+--- Preflight from attacker origin (VULNERABLE) ---
+  HTTP/1.1 204 No Content
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+  Access-Control-Allow-Headers: authorization,content-type
+
+--- Simple GET with attacker origin (VULNERABLE) ---
+  Access-Control-Allow-Origin: *
+
+==================== REMED-002 / WEB-VUL-008 : encryption keys ====================
+--- Anonymous key access (VULNERABLE) ---
+  GET /encryptionkeys/          -> HTTP 200
+    file: jwt.pub
+    file: premium.key
+  GET /encryptionkeys/premium.key -> HTTP 200, 50 bytes
+  GET /encryptionkeys/jwt.pub     -> HTTP 200, 248 bytes
+
+RESULT: BOTH FINDINGS CONFIRMED VULNERABLE ON BASELINE.

@@ -1,0 +1,15 @@
+CS-02 LAB-003 : real OWASP Juice Shop running
+captured: 2026-10-04T20:06:26+05:30
+host: shoyo
+process: 31661
+31745
+cwd: /home/asta/Desktop/Cyber-Security/cybersecurity-cs02/lab/juice-shop_20.2.0
+node: v20.20.2
+--- HTTP status ---
+GET / -> 200
+--- root title ---
+<title>OWASP Juice Shop</title>
+--- REST API sample ---
+{"status":"success","data":[{"id":1,"name":"Apple Juice (1000ml)","description":"The all-time classic.","price":1.99,"deluxePrice":0.99,"image":"apple_juice.jpg
+--- port 5500 status ---
+free (no Live Server)

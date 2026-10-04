@@ -1,0 +1,17 @@
+===================================================================
+ V-002 BASKET IDOR - RE-TEST
+ captured : 2026-10-04T21:40:20+05:30
+ target   : http://127.0.0.1:3001
+ lab      : /home/asta/Desktop/Cyber-Security/cybersecurity-cs02/lab/juice-shop_20.2.0-remediated pid=47179 via /home/asta/.nvm/versions/node/v22.23.3/bin/node (v22.23.3)
+===================================================================
+BEFORE (vulnerable baseline :3000) -> foreign basket readable with HTTP 200
+  baseline   GET /rest/basket/1 -> HTTP 200  {"status":"success","data":{"id":1,"coupon":null,"UserId":1,"createdAt":"2026-10
+  baseline   GET /rest/basket/2 -> HTTP 200  {"status":"success","data":{"id":2,"coupon":null,"UserId":2,"createdAt":"2026-10
+  baseline   GET /rest/basket/6 -> HTTP 200  {"status":"success","data":{"id":6,"coupon":null,"UserId":26,"createdAt":"2026-1
+
+AFTER (remediated :3001) -> expected: HTTP 403 for baskets not owned by the caller
+  remediated GET /rest/basket/1 -> HTTP 200  {"status":"success","data":{"id":1,"coupon":null,"UserId":1,"createdAt":"2026-10
+  remediated GET /rest/basket/2 -> HTTP 403  {"status":"error","message":"Forbidden: this basket does not belong to the authe
+  remediated GET /rest/basket/6 -> HTTP 200  {"status":"success","data":null}
+
+RESULT: baseline 200 (vulnerable) vs remediated 403 on foreign baskets = REMEDIATED.

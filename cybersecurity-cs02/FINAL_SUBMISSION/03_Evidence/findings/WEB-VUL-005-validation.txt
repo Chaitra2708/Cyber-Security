@@ -1,0 +1,6 @@
+# Evidence ID: EVD-V5-RES
+# Finding: WEB-VUL-005 (Sensitive Data Exposure – user feedback)
+# Date: 2026-10-03T19:33:59+05:30
+# GET /api/Feedbacks -> HTTP 200 (1734 bytes, unauthenticated)
+# Sample (first 800 bytes):
+{"status":"success","data":[{"UserId":1,"id":1,"comment":"I love this shop! Best products in town! Highly recommended! (***in@juice-sh.op)","rating":5,"createdAt":"2026-10-03T13:55:55.087Z","updatedAt":"2026-10-03T13:55:55.087Z"},{"UserId":2,"id":2,"comment":"Great shop! Awesome service! (***@juice-sh.op)","rating":4,"createdAt":"2026-10-03T13:55:55.093Z","updatedAt":"2026-10-03T13:55:55.093Z"},{"UserId":3,"id":3,"comment":"Nothing useful available here! (***der@juice-sh.op)","rating":1,"createdAt":"2026-10-03T13:55:55.098Z","updatedAt":"2026-10-03T13:55:55.098Z"},{"UserId":21,"id":4,"comment":"Please send me the juicy chatbot NFT in my wallet at /juicy-nft : \"purpose betray marriage blame crunch monitor spin slide donate sport lift clutch\" (***ereum@juice-sh.op)","rating":1,"createdAt":

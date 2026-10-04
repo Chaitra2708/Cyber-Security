@@ -1,0 +1,13 @@
+NEG-002 : stop-lab.sh process-matching safety test
+captured : 2026-10-04T20:17:47+05:30
+
+Problem: 'pgrep -f node build/app' also matches any shell whose command line
+         merely mentions that string. A naive stop-lab.sh would SIGTERM it.
+
+Decoy shell PID: 35458   (cmdline contains the text 'node build/app')
+Naive pgrep -f 'node build/app' matches: 32365 35456 35473 
+
+Running scripts/stop-lab.sh ...
+    Stopping Juice Shop (pid(s): 32365 ) ...
+    LAB STOPPED: port 3000 released.
+  decoy SURVIVED   <-- correct, only the real app was stopped

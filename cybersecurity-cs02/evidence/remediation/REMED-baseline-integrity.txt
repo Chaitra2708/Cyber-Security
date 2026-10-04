@@ -1,0 +1,108 @@
+BASELINE INTEGRITY - PROOF AGAINST THE AUTHENTIC UPSTREAM DISTRIBUTION
+captured: 2026-10-04T21:42:00+05:30
+
+PURPOSE
+  The vulnerable baseline must be byte-for-byte the shipped OWASP Juice Shop
+  release, so that every "before" result is reproducible. This file proves that
+  by comparing the working tree against the ORIGINAL downloaded archive, not
+  against a value recorded earlier in the project.
+
+1. THE AUTHENTIC REFERENCE
+  lab/juice-shop-20.2.0_node22_linux_x64.tgz
+  md5    : b9c1827299595e264e0bd7a9ccb470a7
+  sidecar: lab/juice.tgz.md5  -> b9c1827299595e264e0bd7a9ccb470a7  (MATCH)
+
+  Extracted to /tmp/pristine and compared with `diff -rq`.
+
+2. FULL-TREE COMPARISON  (pristine vs lab/juice-shop_20.2.0)
+  Command:
+    diff -rq --exclude=node_modules --exclude=data --exclude=ftp --exclude=resources \
+      /tmp/pristine/juice-shop_20.2.0 lab/juice-shop_20.2.0
+
+  Files whose CONTENT differs: 1
+    build/server.js   - differs ONLY by the loopback bind (see section 4)
+
+  Only expected runtime difference:
+    data/juiceshop.sqlite   - created by the application at first start
+
+  No application logic in the baseline differs from the shipped release.
+
+3. FILE CHECKSUMS
+  Baseline            (lab/juice-shop_20.2.0)
+    server.ts              ba10fa21169fa8baf09f08730515d109
+    build/server.js        54bd707f205eda1eafc22f3cb4bf196c
+    build/routes/login.js  6b533c7686bab55c0c8bef99b1769305
+    build/routes/basket.js 0acc51ba34f81d70c07e2da437a0cf93
+
+  Remediation copy   (lab/juice-shop_20.2.0-remediated)
+    server.ts              cb3360a264169442aa063dd9a103e787
+    build/server.js        b9c263d64dd3540063ff621d4fb1c658
+
+  NOTE ON server.ts: the previous value quoted throughout the project
+  (862db332c79fda47f933a20448a8780b) was NOT the shipped file. It was a copy
+  that had already been edited with three remediation fixes. See section 5.
+
+4. THE ONE DELIBERATE DIFFERENCE (loopback bind)
+  lab/juice-shop_20.2.0/build/server.js differs from the release in exactly one
+  statement:
+
+    - server.listen(port, () => {                     <- shipped release
+    + server.listen(port, '127.0.0.1', () => {         <- this laboratory
+
+  This is LABORATORY ISOLATION, not a vulnerability fix. It restricts the
+  listening interface so the intentionally vulnerable application is not
+  reachable from the LAN. It changes no request-handling logic and no route.
+  The same bind is present in the remediation copy, so the two instances differ
+  only by the five remediations under test.
+
+5. DEFECT FOUND AND REPAIRED DURING THE FINAL AUDIT
+  Before this audit, six files in the "unmodified" baseline had been edited with
+  remediation code, so the baseline no longer reproduced three of its own
+  findings:
+
+    build/server.js        + ensureBasketOwnership() on basket routes
+                           + security-header middleware
+    build/routes/basket.js + ensureBasketOwnership() implementation
+    build/routes/login.js  SQL string concatenation -> bound parameters
+    server.ts              same three changes
+    routes/login.ts        same three changes
+    routes/basket.ts       same three changes
+
+  Consequence: WEB-VUL-001, WEB-VUL-002 and WEB-VUL-003 could NOT be reproduced
+  on port 3000, so the "baseline still vulnerable" claim was unsupported for
+  those three findings.
+
+  Repair: the six files were restored byte-for-byte from the verified upstream
+  archive and only the loopback bind was re-applied. No finding was altered,
+  added or removed by this repair.
+
+6. LIVE CONFIRMATION THAT THE BASELINE REPRODUCES ITS FINDINGS
+  Port 3000 = vulnerable baseline, port 3001 = remediated copy.
+
+  WEB-VUL-001  login SQLi   :3000  ' OR 1=1--        -> HTTP 200 + admin JWT
+                              :3001  ' OR 1=1--        -> HTTP 401
+  WEB-VUL-002  basket IDOR  :3000  foreign basket     -> HTTP 200 + contents
+                              :3001  foreign basket     -> HTTP 403
+  WEB-VUL-003  headers      :3000  2 of 9 hardening headers present
+                              :3001  9 of 9 present
+  WEB-VUL-008  key files    :3000  /encryptionkeys/premium.key -> HTTP 200, 50 bytes
+                              :3001  -> HTTP 404, no key material
+  WEB-VUL-010  CORS         :3000  Access-Control-Allow-Origin: *
+                              :3001  no Access-Control-Allow-Origin for a foreign origin
+
+  Findings still open on BOTH instances (expected - not remediated):
+  WEB-VUL-004 /metrics 200, WEB-VUL-005 /api/Feedbacks 200,
+  WEB-VUL-006 /api/Users 200 for a customer, WEB-VUL-007 JWT payload leak,
+  WEB-VUL-009 /rest/products/search boolean SQLi (3 rows vs 46 rows).
+
+CONCLUSION
+  The baseline is the shipped release plus a documented loopback bind, verified
+  against the archive whose MD5 matches its sidecar. All five remediated findings
+  now reproduce on the baseline and are absent on the remediation copy.
+=== live MD5 snapshot appended 2026-10-04T21:41:12+05:30 ===
+ba10fa21169fa8baf09f08730515d109  lab/juice-shop_20.2.0/server.ts
+54bd707f205eda1eafc22f3cb4bf196c  lab/juice-shop_20.2.0/build/server.js
+6b533c7686bab55c0c8bef99b1769305  lab/juice-shop_20.2.0/build/routes/login.js
+0acc51ba34f81d70c07e2da437a0cf93  lab/juice-shop_20.2.0/build/routes/basket.js
+cb3360a264169442aa063dd9a103e787  lab/juice-shop_20.2.0-remediated/server.ts
+b9c263d64dd3540063ff621d4fb1c658  lab/juice-shop_20.2.0-remediated/build/server.js

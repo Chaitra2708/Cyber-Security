@@ -1,0 +1,15 @@
+NEG-001 : Health-guard negative test (is_up logic from scripts/start-lab.sh)
+captured : 2026-10-04T20:17:34+05:30
+
+Case 1 - directory listing server on 127.0.0.1:5599 (the exact failure mode
+         that produced 'Index of /' on port 5500 earlier in this project):
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+  RESULT: rejected  <-- correct
+
+Case 2 - dead port 127.0.0.1:3999:
+  RESULT: rejected  <-- correct
+
+Case 3 - real Juice Shop on 127.0.0.1:3000:
+  RESULT: accepted  <-- correct

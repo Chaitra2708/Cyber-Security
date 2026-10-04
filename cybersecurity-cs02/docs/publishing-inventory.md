@@ -45,7 +45,7 @@ Legend:
 
 | Artifact | Classification | Notes |
 |---|---|---|
-| `findings/WEB-VUL-001..005/finding.md` (5 files) | PUBLIC | Tokens redacted at capture time |
+| `findings/WEB-VUL-001`…`findings/WEB-VUL-005` (5 files) | PUBLIC | Tokens redacted at capture time |
 
 ## 5. remediation/
 

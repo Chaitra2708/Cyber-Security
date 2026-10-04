@@ -1,0 +1,11 @@
+===================================================================
+ V-005 UNAUTHENTICATED FEEDBACK - RE-TEST
+ captured : 2026-10-04T21:40:20+05:30
+ target   : http://127.0.0.1:3000
+ lab      : /home/asta/Desktop/Cyber-Security/cybersecurity-cs02/lab/juice-shop_20.2.0 pid=46277 via /home/asta/.nvm/versions/node/v22.23.3/bin/node (v22.23.3)
+===================================================================
+  GET /api/Feedbacks (no token) -> HTTP 200
+  sample:
+{"status":"success","data":[{"UserId":1,"id":1,"comment":"I love this shop! Best products in town! Highly recommended! (***in@juice-sh.op)","rating":5,"createdAt":"2026-10-04T16:03:35.254Z","updatedAt":"2026-10-04T16:03:35.254Z"},{"UserId":2,"id":2,"comment":"Great shop! Awesome service! (***@juice-
+
+RESULT: STILL OPEN.

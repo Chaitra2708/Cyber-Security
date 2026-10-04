@@ -1,0 +1,6 @@
+# Evidence ID: EVD-V4-RES
+# Finding: WEB-VUL-004 (Security Misconfiguration / Info Disclosure)
+# Date: 2026-10-03T19:33:59+05:30
+# GET /metrics -> HTTP 200 (25572 bytes, unauthenticated)
+# GET /rest/admin/application-version -> HTTP 200  body: {"version":"20.2.0"}
+# robots.txt reveals: User-agent: * Disallow: /ftp

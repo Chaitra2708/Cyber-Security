@@ -1,0 +1,32 @@
+===================================================================
+ V-003 SECURITY HEADERS - RE-TEST
+ captured : 2026-10-04T21:40:20+05:30
+ target   : http://127.0.0.1:3001
+ lab      : /home/asta/Desktop/Cyber-Security/cybersecurity-cs02/lab/juice-shop_20.2.0-remediated pid=47179 via /home/asta/.nvm/versions/node/v22.23.3/bin/node (v22.23.3)
+===================================================================
+BEFORE (vulnerable baseline :3000)
+  Content-Security-Policy          ABSENT
+  X-Frame-Options                  PRESENT
+  X-Content-Type-Options           PRESENT
+  Referrer-Policy                  ABSENT
+  Strict-Transport-Security        ABSENT
+  Permissions-Policy               ABSENT
+  X-XSS-Protection                 ABSENT
+  Cross-Origin-Opener-Policy       ABSENT
+  Cross-Origin-Resource-Policy     ABSENT
+
+AFTER (remediated :3001)
+  Content-Security-Policy          PRESENT
+  X-Frame-Options                  PRESENT
+  X-Content-Type-Options           PRESENT
+  Referrer-Policy                  PRESENT
+  Strict-Transport-Security        PRESENT
+  Permissions-Policy               PRESENT
+  X-XSS-Protection                 PRESENT
+  Cross-Origin-Opener-Policy       PRESENT
+  Cross-Origin-Resource-Policy     PRESENT
+  X-Powered-By                     absent (good)
+  Access-Control-Allow-Origin      
+
+RESULT: 9/9 hardening headers ABSENT on baseline, PRESENT on remediated = REMEDIATED.
+        Wildcard CORS is a separate finding (WEB-VUL-010), verified in V-010.

@@ -1,0 +1,17 @@
+cors@2.8.6 SEMANTICS ANALYSIS (basis for REMED-001)
+captured: 2026-10-04T20:33:44+05:30
+
+Source: lab/juice-shop_20.2.0/node_modules/cors/lib/index.js (cors version 2.8.6)
+
+1) configureOrigin() branches:
+   - options.origin falsy or '*'  -> ACAO: * for every request  (the vulnerable config)
+   - isString(options.origin)    -> ACAO: options.origin, echoed WITHOUT checking
+                                     the request Origin header  -> NOT an allow-list
+   - array/regexp                -> isOriginAllowed(requestOrigin, origin);
+                                     ACAO emitted only when allowed, else omitted
+2) middlewareWrapper(): if origin is a function and the callback yields a falsy
+   value it calls next(err), so the OPTIONS preflight falls through to the router
+   and Juice Shop answers 500 'Unexpected path' instead of 204.
+
+CONCLUSION: the allow-list must be passed as an ARRAY so the header is omitted
+for unlisted origins while the preflight still terminates with 204.

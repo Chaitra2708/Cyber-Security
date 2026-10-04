@@ -1,0 +1,48 @@
+RECON-002 : Technology fingerprint
+captured : 2026-10-04T20:17:25+05:30
+
+-- HTTP response headers (GET /) --
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Referrer-Policy: no-referrer
+X-XSS-Protection: 1; mode=block
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-2ADpmZIga9zdrCfzZ7IWyavasltpcKCkxomklfMTCG0=' 'unsafe-hashes' 'sha256-MhtPZXr7+LpJUY5qtMutB+qWfQtMaPccfe7QXtCcEYc='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' ws://127.0.0.1:3000 wss://127.0.0.1:3000; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+Feature-Policy: payment 'self'
+X-Recruiting: /#/jobs
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sun, 04 Oct 2026 14:37:29 GMT
+ETag: W/"24b1-1a107593762"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 9393
+Vary: Accept-Encoding
+Date: Sun, 04 Oct 2026 14:47:25 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+
+-- runtime --
+OS            : Linux Mint 22.3 / Linux 6.17.0-35-generic x86_64 GNU/Linux
+App version   : 20.2.0
+Express       : 4.22.2
+Node runtime  : v22.23.3 (matches engines.node=22)
+Frontend      : Angular SPA (index.html references main.js/styles.css/polyfills.js)
+Database      : SQLite via Sequelize -> data/juiceshop.sqlite
+X-Powered-By  : absent (no framework version leaked)
+
+-- listening sockets --
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+LISTEN 0      511        127.0.0.1:3000       0.0.0.0:*          
+LISTEN 0      151        127.0.0.1:3306       0.0.0.0:*          
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*          
+LISTEN 0      70         127.0.0.1:33060      0.0.0.0:*          
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:631        0.0.0.0:*          
+LISTEN 0      511                *:80               *:*          
+LISTEN 0      4096           [::1]:631           [::]:*          

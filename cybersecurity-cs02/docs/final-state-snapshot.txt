@@ -1,0 +1,59 @@
+CS-02 FINAL STATE SNAPSHOT
+captured: 2026-10-04T21:45:00+05:30
+
+-- Application --
+  Target            : OWASP Juice Shop 20.2.0 (official node22 linux x64 distribution)
+  Node runtime      : node v22.23.3 (engines.node=22)
+  Express           : 4.22.2   Frontend: Angular SPA   DB: SQLite via Sequelize
+  Baseline          : lab/juice-shop_20.2.0           :3000  PRISTINE (loopback bind only)
+  Remediation copy  : lab/juice-shop_20.2.0-remediated :3001  REMED-001..005
+
+-- Integrity (verified against lab/juice-shop-20.2.0_node22_linux_x64.tgz,
+   md5 b9c1827299595e264e0bd7a9ccb470a7, matching lab/juice.tgz.md5) --
+ba10fa21169fa8baf09f08730515d109  lab/juice-shop_20.2.0/server.ts
+54bd707f205eda1eafc22f3cb4bf196c  lab/juice-shop_20.2.0/build/server.js
+6b533c7686bab55c0c8bef99b1769305  lab/juice-shop_20.2.0/build/routes/login.js
+0acc51ba34f81d70c07e2da437a0cf93  lab/juice-shop_20.2.0/build/routes/basket.js
+cb3360a264169442aa063dd9a103e787  lab/juice-shop_20.2.0-remediated/server.ts
+b9c263d64dd3540063ff621d4fb1c658  lab/juice-shop_20.2.0-remediated/build/server.js
+
+  Full-tree diff against the archive: exactly one intentional difference in the
+  baseline, `server.listen(port, '127.0.0.1', ...)` - laboratory isolation, not a
+  vulnerability fix. See evidence/remediation/REMED-baseline-integrity.txt.
+
+-- Network --
+  Host IP (LAN)   : 10.59.163.195/24   Gateway: 10.59.163.213
+  App binds loopback only; LAN IP must NOT reach it (verified by check-lab.sh)
+  Ports in use    : 3000 baseline, 3001 remediation, 80 Apache (unrelated pre-existing), 3306/33060 MySQL, 631 CUPS
+
+-- Findings (10): 5 remediated + re-tested, 5 open --
+  Every row below was re-validated against the live lab on 2026-10-04 ~21:38-21:41.
+  Remediated findings are verified on :3001 with the vulnerable baseline :3000 shown
+  side by side; open findings are verified on :3000, where they still reproduce.
+
+  WEB-VUL-001  High      REMEDIATED  baseline :3000  ' OR 1=1-- -> 200 + admin JWT
+                                    remediated :3001 -> 401 (all 5 payloads); control 200
+  WEB-VUL-002  High      REMEDIATED  baseline :3000  foreign basket -> 200 + contents
+                                    remediated :3001 -> 403; own basket unchanged
+  WEB-VUL-003  Medium    REMEDIATED  baseline :3000  2 of 9 hardening headers present
+                                    remediated :3001 -> 9 of 9 present
+  WEB-VUL-004  Medium    OPEN        /metrics, application-version, robots.txt -> 200, no token
+  WEB-VUL-005  Low       OPEN        /api/Feedbacks -> 200, no token
+  WEB-VUL-006  High      OPEN        /api/Users: no token 401, customer token 200 (25 records)
+  WEB-VUL-007  Critical  OPEN        JWT payload carries the MD5 password hash + totpSecret
+  WEB-VUL-008  High      REMEDIATED  baseline :3000  /encryptionkeys/premium.key -> 200, 50 B
+                                    remediated :3001 -> 404, no key material
+  WEB-VUL-009  High      OPEN        search: 'apple' 3 rows vs ' OR '1'='1 46 rows
+  WEB-VUL-010  Medium    REMEDIATED  baseline :3000  Access-Control-Allow-Origin: *
+                                    remediated :3001 -> no ACAO for a foreign origin
+
+-- Known limitations --
+  1. No nmap/Nikto/ZAP/WhatWeb/Nuclei installed; sudo requires a password. All findings
+     validated with curl / python socket / source analysis. No scanner severity claimed.
+  2. Shipped distribution has no tsconfig.json, so 'npm run build:server' (tsc) cannot
+     run. Fixes applied to build/*.js (the runtime artefact) and mirrored in *.ts.
+  3. XSS not reproduced; not claimed as a finding.
+  4. Privilege escalation not demonstrated (PATCH unrouted); WEB-VUL-006 is read-only.
+  5. 5 findings remain open: WEB-VUL-004,005,006,007,009.
+  6. No Kali Linux host and no virtual machines were available; the laboratory ran on a
+     single Linux Mint 22.3 host. See report section 3.3 - not fabricated.

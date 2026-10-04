@@ -1,0 +1,24 @@
+===================================================================
+ V-008 UNAUTHENTICATED ENCRYPTION KEY EXPOSURE - VALIDATION
+ captured : 2026-10-04T21:40:20+05:30
+ target   : http://127.0.0.1:3001
+ lab      : /home/asta/Desktop/Cyber-Security/cybersecurity-cs02/lab/juice-shop_20.2.0-remediated pid=47179 via /home/asta/.nvm/versions/node/v22.23.3/bin/node (v22.23.3)
+===================================================================
+Objective: can an anonymous caller download server-side key material?
+Method:    GET /encryptionkeys/ and fetch each listed file with no token.
+
+BEFORE (vulnerable baseline :3000)
+  GET /encryptionkeys/ (no token) -> HTTP 200
+  directory listing:
+    jwt.pub
+    premium.key
+
+  download premium.key    -> HTTP 200, 50 bytes
+  download jwt.pub        -> HTTP 200, 248 bytes
+
+AFTER (remediated :3001) -> expected: HTTP 404, no key material
+  download premium.key    -> HTTP 404, 9 bytes
+  download jwt.pub        -> HTTP 404, 9 bytes
+
+  (key material itself intentionally NOT printed in this evidence file)
+RESULT: baseline serves key material to anonymous clients, remediated answers 404 = REMEDIATED.

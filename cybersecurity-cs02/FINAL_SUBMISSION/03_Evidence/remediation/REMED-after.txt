@@ -1,0 +1,38 @@
+REMED AFTER-EVIDENCE (FINAL, incl. closeout repair REMED-002b)
+captured : 2026-10-04T20:44:37+05:30
+baseline : lab/juice-shop_20.2.0          :3000  UNMODIFIED
+remediated: lab/juice-shop_20.2.0-remediated :3001  REMED-001 + REMED-002 + REMED-002b
+method   : identical HTTP request replayed against both instances
+
+########## REMED-001 / WEB-VUL-010 : Wildcard CORS ##########
+TEST = OPTIONS /rest/user/login, Origin: https://evil.example
+  BEFORE (:3000)
+    HTTP/1.1 204 No Content
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+    Access-Control-Allow-Headers: authorization,content-type
+  AFTER (:3001)
+    HTTP/1.1 204 No Content
+    Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+    Access-Control-Allow-Headers: authorization,content-type
+    -> 204 preserved; no Access-Control-Allow-Origin = origin refused
+  CONTROL (own origin, no regression)
+    Access-Control-Allow-Origin: http://127.0.0.1:3001
+
+########## REMED-002(+002b) / WEB-VUL-008 : encryption keys ##########
+  PATH                             BEFORE (:3000)             AFTER (:3001)             
+  /encryptionkeys/                 200, 7911 bytes            404, 9 bytes              
+  /encryptionkeys/premium.key      200, 49 bytes              404, 9 bytes              
+  /encryptionkeys/jwt.pub          200, 248 bytes             404, 9 bytes              
+  PEM key blocks ('BEGIN RSA PUBLIC KEY') baseline=1 remediated=0
+  remediated body: Not Found
+
+########## REGRESSION (after REMED-002b) ##########
+  GET /                          200
+  GET /main.js                   200
+  GET /styles.css                200
+  GET /ftp/legal.md              200
+  GET /metrics                   200
+  GET /api/Users                 401
+  GET /rest/products/search?q=apple 200
+  POST /rest/user/login          200

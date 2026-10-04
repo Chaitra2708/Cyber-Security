@@ -1,0 +1,17 @@
+===================================================================
+ V-004 INFORMATION DISCLOSURE - RE-TEST
+ captured : 2026-10-04T21:40:20+05:30
+ target   : http://127.0.0.1:3000
+ lab      : /home/asta/Desktop/Cyber-Security/cybersecurity-cs02/lab/juice-shop_20.2.0 pid=46277 via /home/asta/.nvm/versions/node/v22.23.3/bin/node (v22.23.3)
+===================================================================
+  /metrics                             -> HTTP 200
+  /rest/admin/application-version      -> HTTP 200
+  /robots.txt                          -> HTTP 200
+
+  /metrics sample:
+# HELP juiceshop_llm_input_tokens_total Number of total input tokens processed
+# TYPE juiceshop_llm_input_tokens_total counter
+juiceshop_llm_input_tokens_total{app="juiceshop"} 0
+
+
+RESULT: all still 200 unauthenticated = STILL OPEN.
