@@ -6,6 +6,34 @@ An authorized web application security assessment conducted against an
 intentionally vulnerable OWASP Juice Shop instance in an isolated laboratory
 environment.
 
+---
+
+## Access
+
+### LOCAL LAB (private, never published)
+
+| Instance | URL |
+|---|---|
+| Vulnerable baseline | http://127.0.0.1:3000/ |
+| Remediated instance | http://127.0.0.1:3001/ |
+
+Both bind loopback only and are unreachable from the internet.
+
+### PUBLIC SECURE DEMO (any device, HTTPS)
+
+**https://chaitra2708.github.io/Cyber-Security/**
+
+A read-only documentation build of this assessment — findings, risk register,
+remediation, re-testing, architecture and report summary.
+
+Health check: https://chaitra2708.github.io/Cyber-Security/health.html
+
+> **The vulnerable assessment instance is not publicly exposed.** The public site
+> contains no application runtime, no database and no credentials. The remediated
+> instance was explicitly *not* published because it still carries five open
+> findings (including live SQL injection and credential-leaking JWTs) — see
+> `docs/cloud-deployment.md`.
+
 ## Project Overview
 
 This project deploys OWASP Juice Shop v20.2.0 locally, assesses it with a
