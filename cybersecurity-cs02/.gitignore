@@ -36,3 +36,6 @@ lab/
 backend/data/mysql-data/
 backend/data/*.sock
 backend/data/*.pid
+
+# Generated public demo site (rebuild with scripts/build-demo-site.py)
+site/
