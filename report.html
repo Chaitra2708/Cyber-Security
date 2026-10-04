@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Report · CS-02</title><style>
+:root{--bg:#0f1720;--card:#182430;--ink:#e8eef5;--mut:#93a4b8;--line:#2b3a4a;
+--ok:#2fbf71;--open:#e0a33e;--crit:#e5484d;--high:#f0883e;--med:#e0c341;--low:#4a9de0;
+--acc:#4a9de0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,#132030,#1c3040);border-bottom:1px solid var(--line);
+padding:44px 0 34px}
+header h1{margin:0 0 8px;font-size:1.9rem;letter-spacing:-.4px}
+header p{margin:0;color:var(--mut);max-width:70ch}
+nav{position:sticky;top:0;background:#0f1720ee;backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:9px 20px}
+nav a{color:var(--mut);text-decoration:none;white-space:nowrap;padding:6px 12px;
+border-radius:7px;font-size:.92rem}
+nav a:hover,nav a.on{background:var(--card);color:var(--ink)}
+main{padding:34px 0 70px}
+section{margin-bottom:46px}
+h2{font-size:1.35rem;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h3{font-size:1.06rem;margin:24px 0 9px;color:var(--ink)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px}
+.card .n{font-size:1.85rem;font-weight:700;line-height:1.1}
+.card .l{color:var(--mut);font-size:.86rem;margin-top:5px;text-transform:uppercase;
+letter-spacing:.5px}
+.card.ok .n{color:var(--ok)} .card.open .n{color:var(--open)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93rem}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-size:.79rem;text-transform:uppercase;letter-spacing:.5px}
+tr:hover td{background:#1b2836}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87rem}
+pre{background:#0b1219;border:1px solid var(--line);border-radius:9px;padding:14px;
+overflow-x:auto}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.75rem;
+font-weight:600;white-space:nowrap}
+.b-ok{background:#12351f;color:var(--ok);border:1px solid #1d5c37}
+.b-open{background:#3a2c11;color:var(--open);border:1px solid #6b511c}
+.b-crit{background:#3a1517;color:var(--crit);border:1px solid #6b2226}
+.b-high{background:#3a2413;color:var(--high);border:1px solid #6b3d1c}
+.b-med{background:#38320f;color:var(--med);border:1px solid #5f551c}
+.b-low{background:#12293a;color:var(--low);border:1px solid #1f4560}
+.note{background:#132030;border-left:3px solid var(--acc);border-radius:0 8px 8px 0;
+padding:13px 16px;margin:16px 0;color:var(--mut)}
+.note strong{color:var(--ink)}
+.warn{border-left-color:var(--open)}
+ul{padding-left:20px} li{margin:5px 0}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:.87rem;padding:22px 0}
+.pill{display:inline-block;background:var(--card);border:1px solid var(--line);
+border-radius:7px;padding:3px 10px;margin:3px 5px 3px 0;font-size:.85rem}
+img{max-width:100%;border:1px solid var(--line);border-radius:9px}
+</style></head><body>
+<header><div class="wrap">
+<h1>CS-02 — Web Application Security Assessment</h1>
+<p>OWASP methodology assessment of OWASP Juice Shop 20.2.0. This is the
+<b>public, documentation-only</b> demonstration build. The vulnerable
+application itself is not published and runs only inside an isolated local
+laboratory.</p></div></header>
+<nav><div class="wrap"><a href="index.html" class="">Overview</a><a href="findings.html" class="">Findings</a><a href="remediation.html" class="">Remediation</a><a href="retesting.html" class="">Re-Testing</a><a href="results.html" class="">Results</a><a href="architecture.html" class="">Architecture</a><a href="report.html" class="on">Report</a></div></nav>
+<main><div class="wrap">
+<section><h2>Report summary</h2>
+<p>The full technical report is a ten-chapter document held in the project
+repository. This page summarises its conclusions for the public demonstration
+build.</p>
+<table><tr><th>Chapter</th><th>Content</th></tr>
+<tr><td>1 Introduction</td><td>Background, problem statement, objectives, scope and limitations</td></tr>
+<tr><td>2 Existing system &amp; proposed approach</td><td>Current security posture and the assessment approach chosen</td></tr>
+<tr><td>3 Requirements &amp; laboratory environment</td><td>Observed hardware, software, network configuration, IP addressing and architecture</td></tr>
+<tr><td>4 Methodology</td><td>Reconnaissance, application mapping, security testing, controlled validation, remediation and re-testing</td></tr>
+<tr><td>5 Implementation</td><td>Laboratory setup, deployment, evidence collection</td></tr>
+<tr><td>6 Security assessment &amp; analysis</td><td>All findings, technical evidence, risk analysis and impact</td></tr>
+<tr><td>7 Security remediation</td><td>Recommended controls and those actually implemented</td></tr>
+<tr><td>8 Testing &amp; validation</td><td>Initial results, re-testing, regression and before/after comparison</td></tr>
+<tr><td>9 Results &amp; discussion</td><td>Objective achievement, challenges and lessons learned</td></tr>
+<tr><td>10 Conclusion &amp; future scope</td><td>Conclusions, honest limitations and future work</td></tr>
+</table></section>
+<section><h2>Limitations, stated plainly</h2><ul>
+<li>The specification asked for a Kali Linux VM and an Ubuntu Server VM under
+virtualisation. That environment was not available, so the lab was built on a
+single Linux host. Those screenshots were <em>not</em> fabricated.</li>
+<li>No automated security scanners were available, so every finding was
+validated with direct HTTP testing and source analysis. No scanner severity is
+quoted anywhere in this project, because none was produced.</li>
+<li>The shipped Juice Shop distribution contains no <code>tsconfig.json</code>,
+so the TypeScript sources could not be recompiled. Fixes were applied to the
+runtime build and mirrored into the sources, which are therefore not
+type-checked.</li>
+<li>XSS was tested for but could not be reproduced, so it is reported as
+<em>unconfirmed</em> rather than as a passing result.</li>
+<li>Privilege escalation was not demonstrated, so that finding is rated on
+proven read-only impact only.</li>
+<li>{len(opn)} findings remain open with written recommendations.</li>
+</ul></section></div></main>
+<footer><div class="wrap">CS-02 · Documentation-only public build ·
+Findings, risk, remediation and re-testing results. No application runtime,
+no database and no credentials are published here.</div></footer>
+</body></html>

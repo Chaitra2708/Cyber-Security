@@ -1,0 +1,303 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Findings · CS-02</title><style>
+:root{--bg:#0f1720;--card:#182430;--ink:#e8eef5;--mut:#93a4b8;--line:#2b3a4a;
+--ok:#2fbf71;--open:#e0a33e;--crit:#e5484d;--high:#f0883e;--med:#e0c341;--low:#4a9de0;
+--acc:#4a9de0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,#132030,#1c3040);border-bottom:1px solid var(--line);
+padding:44px 0 34px}
+header h1{margin:0 0 8px;font-size:1.9rem;letter-spacing:-.4px}
+header p{margin:0;color:var(--mut);max-width:70ch}
+nav{position:sticky;top:0;background:#0f1720ee;backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:9px 20px}
+nav a{color:var(--mut);text-decoration:none;white-space:nowrap;padding:6px 12px;
+border-radius:7px;font-size:.92rem}
+nav a:hover,nav a.on{background:var(--card);color:var(--ink)}
+main{padding:34px 0 70px}
+section{margin-bottom:46px}
+h2{font-size:1.35rem;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h3{font-size:1.06rem;margin:24px 0 9px;color:var(--ink)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px}
+.card .n{font-size:1.85rem;font-weight:700;line-height:1.1}
+.card .l{color:var(--mut);font-size:.86rem;margin-top:5px;text-transform:uppercase;
+letter-spacing:.5px}
+.card.ok .n{color:var(--ok)} .card.open .n{color:var(--open)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93rem}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-size:.79rem;text-transform:uppercase;letter-spacing:.5px}
+tr:hover td{background:#1b2836}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87rem}
+pre{background:#0b1219;border:1px solid var(--line);border-radius:9px;padding:14px;
+overflow-x:auto}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.75rem;
+font-weight:600;white-space:nowrap}
+.b-ok{background:#12351f;color:var(--ok);border:1px solid #1d5c37}
+.b-open{background:#3a2c11;color:var(--open);border:1px solid #6b511c}
+.b-crit{background:#3a1517;color:var(--crit);border:1px solid #6b2226}
+.b-high{background:#3a2413;color:var(--high);border:1px solid #6b3d1c}
+.b-med{background:#38320f;color:var(--med);border:1px solid #5f551c}
+.b-low{background:#12293a;color:var(--low);border:1px solid #1f4560}
+.note{background:#132030;border-left:3px solid var(--acc);border-radius:0 8px 8px 0;
+padding:13px 16px;margin:16px 0;color:var(--mut)}
+.note strong{color:var(--ink)}
+.warn{border-left-color:var(--open)}
+ul{padding-left:20px} li{margin:5px 0}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:.87rem;padding:22px 0}
+.pill{display:inline-block;background:var(--card);border:1px solid var(--line);
+border-radius:7px;padding:3px 10px;margin:3px 5px 3px 0;font-size:.85rem}
+img{max-width:100%;border:1px solid var(--line);border-radius:9px}
+</style></head><body>
+<header><div class="wrap">
+<h1>CS-02 — Web Application Security Assessment</h1>
+<p>OWASP methodology assessment of OWASP Juice Shop 20.2.0. This is the
+<b>public, documentation-only</b> demonstration build. The vulnerable
+application itself is not published and runs only inside an isolated local
+laboratory.</p></div></header>
+<nav><div class="wrap"><a href="index.html" class="">Overview</a><a href="findings.html" class="on">Findings</a><a href="remediation.html" class="">Remediation</a><a href="retesting.html" class="">Re-Testing</a><a href="results.html" class="">Results</a><a href="architecture.html" class="">Architecture</a><a href="report.html" class="">Report</a></div></nav>
+<main><div class="wrap">
+<section><h2>All findings (10)</h2>
+<p>Severity is assigned from technical reasoning about the damage if exploited
+and how reachable it is — it is <em>not</em> copied from an automated scanner,
+because no scanner was used in this assessment.</p>
+<article id="WEB-VUL-001"><h3>WEB-VUL-001 — SQL Injection in the login endpoint bypasses authentication
+<span class="badge b-high">High</span>
+<span class="badge b-ok">Remediated</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop login API (/rest/user/login), backend Node.js/Express layer<br>
+<strong>Endpoint:</strong> <code>POST http://127.0.0.1:3000/rest/user/login</code></p>
+<h3>Description</h3><p>The login endpoint accepts the user-supplied email and password and embeds them in a
+database query without server-side sanitisation. Providing a specially crafted email
+value causes the underlying SQL statement to be modified so that the authentication
+check succeeds without a valid password, issuing an administrator-role session token.</p>
+<h3>Potential impact</h3><p>The observed behaviour may allow an unauthenticated attacker to obtain an administrator
+session token without credentials. Consequence: full administrative access to the
+vulnerable training application, its data and functions in the laboratory.</p>
+<h3>Recommendation</h3><p>Implement parameterised queries / prepared statements for the login check, so the email
+is always treated as data and never as SQL. Add server-side authentication outcome
+verification (e.g. a successful login must be re-checked against the returned record
+fields).</p></article><hr>
+<article id="WEB-VUL-002"><h3>WEB-VUL-002 — Object-level access control gap on /rest/basket/:id
+<span class="badge b-high">High</span>
+<span class="badge b-ok">Remediated</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop REST API (/rest/basket/:id), basket data of other authenticated<br>
+<strong>Endpoint:</strong> <code>GET http://127.0.0.1:3000/rest/basket/:id</code></p>
+<h3>Description</h3><p>The basket endpoints return another user&#x27;s shopping basket when the JSON data
+contains the owner&#x27;s user ID. The API authenticates the caller with any valid token,
+but it does not verify that the requested basket belongs to that caller. Any
+authenticated user (or an attacker who has stolen any user&#x27;s token) can enumerate
+basket IDs and read other users&#x27; contents.</p>
+<h3>Potential impact</h3><p>The observed behaviour may allow any authenticated account to read another user&#x27;s basket
+contents (product names, quantities, pricing). Consequence in the lab: disclosure of other
+users&#x27; purchased items; in a real system this class of flaw (BOLA) typically underpins
+account-takeover-grade data exposure and is a starting point for further abuse.</p>
+<h3>Recommendation</h3><p>Enforce object-level ownership on every /rest/basket read: reject a request unless
+basket.UserId === authenticatedUserId. Validate that a basket exists before returning it.</p></article><hr>
+<article id="WEB-VUL-003"><h3>WEB-VUL-003 — Missing security HTTP response headers
+<span class="badge b-med">Medium</span>
+<span class="badge b-ok">Remediated</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop serving layer (GET / homepage) — HTTP response headers<br>
+<strong>Endpoint:</strong> <code>GET http://127.0.0.1:3000/</code></p>
+<h3>Description</h3><p>The application does not set a standard set of HTTP security headers. Missing
+headers weaken browser-side protections against clickjacking, content-type
+sniffing, cross-site scripting defence nigation and information leakage via
+referrer. The server response contains only three security-related headers.</p>
+<h3>Potential impact</h3><p>The observed behaviour may weaken browser-side defences (clickjacking, MIME-sniffing,
+referrer leakage). Impact in the laboratory is limited to the isolated app; in a
+deployed system it increases the likelihood and severity of client-side attacks.</p>
+<h3>Recommendation</h3><p>Add a standardised security header set to every HTTP response, for example:
+Strict-Transport-Security, Content-Security-Policy, X-Content-Type-Options: nosniff,
+X-Frame-Options: SAMEORIGIN, Referrer-Policy, Permissions-Policy,
+Cross-Origin-Opener-Policy, and Cross-Origin-Resource-Policy. Prefer a
+well-audited HTTP header library (helmet) rather than hand-rolled headers, then
+verify each header renders in a real browser/network inspector.</p></article><hr>
+<article id="WEB-VUL-004"><h3>WEB-VUL-004 — Unauthenticated exposure of deployment/internal information
+<span class="badge b-med">Medium</span>
+<span class="badge b-open">Open</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop serving layer, three public endpoints:<br>
+<strong>Endpoint:</strong> <code>- GET http://127.0.0.1:3000/metrics</code></p>
+<h3>Description</h3><p>Three unauthenticated endpoints return information that should not be public:
+Prometheus-style telemetry, the deployed application version, and a robots.txt
+directing crawlers to the /ftp directory. None of these should be reachable without
+an authenticated session.</p>
+<h3>Potential impact</h3><p>The observed behaviour may expose deployment details (server telemetry, exact
+application version, internal directory structure) to unauthenticated visitors.
+Consequence: information for fingerprinting, mapping and planning further (potentially
+targeted) attacks against the lab application is readily obtainable by any visitor.</p>
+<h3>Recommendation</h3><p>Require authentication for /metrics (or disable the endpoint), remove the
+/rest/admin/application-version endpoint (or restrict it to authorised admin sessions),
+and review the intended purpose of /ftp and robots.txt so no unintended paths are
+advertised. Re-run the same three requests after the change and confirm HTTP 401/403 or
+removal.</p></article><hr>
+<article id="WEB-VUL-005"><h3>WEB-VUL-005 — User feedback data returned without authentication
+<span class="badge b-low">Low</span>
+<span class="badge b-open">Open</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop feedback API (GET /api/Feedbacks), SQLite application database<br>
+<strong>Endpoint:</strong> <code>GET http://127.0.0.1:3000/api/Feedbacks</code></p>
+<h3>Description</h3><p>The API endpoint that returns customer feedback (including masked email addresses and
+ratings) returns it without requiring authentication. Even though the emails are masked,
+the endpoint leaks user-generated content and user IDs to any caller, and the mechanism
+is inconsistent: the same API surface that exposes feedback returns 401 for /api/Users.</p>
+<h3>Potential impact</h3><p>The observed behaviour may allow a visitor to collect user-generated content, user IDs
+and email addresses (masked) anonymously. In the laboratory this demonstrates an
+unintentional information-disclosure boundary; in production it can amplify
+phishing/spam mailing lists and user-profiling.</p>
+<h3>Recommendation</h3><p>Require authentication for /api/Feedbacks (or restrict it to the authenticated user&#x27;s
+own feedback). Make the access-control boundary consistent across all /api/ read
+endpoints, then re-test the request with and without a token.</p></article><hr>
+<article id="WEB-VUL-006"><h3>WEB-VUL-006 — A customer-role account can read the full admin-only user directory
+<span class="badge b-high">High</span>
+<span class="badge b-open">Open</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop user REST API (/api/Users, /api/Users/:id), SQLite application<br>
+<strong>Endpoint:</strong> <code>GET http://127.0.0.1:3000/api/Users</code></p>
+<h3>Description</h3><p>The user-management API is protected by an authentication check only. Once a caller
+holds any valid JWT, including one issued to a freshly self-registered account with
+the customer role, the full user directory is returned. There is no role check
+restricting the endpoint to admin. An anonymous caller is correctly rejected with
+401, so the flaw is an authorization failure behind the authentication boundary rather
+than an unauthenticated exposure.</p>
+<h3>Potential impact</h3><p>Any registered customer — the lowest privilege tier, obtainable in seconds by anyone
+who can reach the registration form — can enumerate every account in the system with
+its role. This gives an attacker an exact target list of administrator accounts for
+credential stuffing, targeted phishing, or password-spraying, and maps the internal
+role structure. Combined with WEB-VUL-007 (password hashes recoverable from a token),
+the exposure becomes a direct path to account takeover of any of the 24 accounts.</p>
+<h3>Recommendation</h3><p>Enforce role-based authorization on the user-management routes, not just
+authentication. Reject any caller whose token role is not admin (or accounting for
+the accounting-scoped fields) before the handler runs, and scope /api/Users/:id
+reads so a caller may only ever retrieve their own record. Remove email, role,
+lastLoginIp, deluxeToken and isActive from any non-admin projection. Re-test the
+three-token matrix above; the customer row must return 403.</p></article><hr>
+<article id="WEB-VUL-007"><h3>WEB-VUL-007 — JWT payload carries the account password hash, role and TOTP secret field
+<span class="badge b-crit">Critical</span>
+<span class="badge b-open">Open</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop authentication layer — JWT issued by POST /rest/user/login<br>
+<strong>Endpoint:</strong> <code>POST http://127.0.0.1:3000/rest/user/login</code></p>
+<h3>Description</h3><p>On successful login the server issues a JSON Web Token whose payload embeds the entire
+user record rather than the minimal set of claims the client needs. Because a JWT
+payload is only base64url-encoded and not encrypted, anyone who can read the token —
+the legitimate user, a browser extension, an XSS payload, a proxy log, or an attacker
+who steals the token — recovers the stored password hash and the account role without
+any further access to the server. The hash is unsalted MD5 (see WEB-VUL-008 note in
+docs/vulnerability-findings.md), so it is directly reversible to plaintext by
+rainbow table or brute force.</p>
+<h3>Potential impact</h3><p>Any party that obtains a session token by any means can read the account&#x27;s password
+hash and crack it to plaintext, because the hash is unsalted MD5. Because the token is
+stored client-side and travels on every API request, the exposure surface includes
+browser storage, developer tools, shared machines, HTTP proxy logs and any future
+cross-site scripting flaw. For a TOTP-enrolled account the embedded secret permits
+generation of valid second-factor codes, converting a single-token compromise into
+full account takeover.</p>
+<h3>Recommendation</h3><p>Include only the claims the client actually needs — a subject identifier, the role,
+bid and expiry (iat/exp) — and never the password hash, TOTP secret or profile
+fields. Move to a password hashing function with a per-user salt and a high work factor
+(bcrypt, scrypt or Argon2id) so that any hash which does leak is not directly
+reversible. Sign the token with a short expiry and add exp; verify the signature on
+every request rather than trusting the decoded payload. Re-test by decoding the payload
+of a fresh login and confirming the absence of password and totpSecret.</p></article><hr>
+<article id="WEB-VUL-008"><h3>WEB-VUL-008 — /encryptionkeys/ directory and its key files are downloadable without authentication
+<span class="badge b-high">High</span>
+<span class="badge b-ok">Remediated</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop static file serving (/encryptionkeys, /encryptionkeys/:file mounted<br>
+<strong>Endpoint:</strong> <code>GET http://127.0.0.1:3000/encryptionkeys/</code></p>
+<h3>Description</h3><p>The application exposes its encryptionkeys directory through a static route with no
+authentication and no file-type restriction. Any anonymous client can list the directory
+and download each file it contains. The directory holds two distinct kinds of key
+material:
+
+- premium.key (49 bytes) — the shared secret used to decrypt premium-product content
+  and coupon codes. This is sensitive secret key material.
+- jwt.pub (248 bytes) — an RSA public key (-----BEGIN RSA PUBLIC KEY-----) used
+  to verify JWT signatures. It is not a private key, but publishing it exposes the
+  token-signing scheme to offline analysis and aids forgery attempts, and it confirms
+  the algorithm and key length an attacker should target.
+
+Both are reachable anonymously and neither belongs in a web-served directory.
+
+For contrast, the sibling /ftp route in the same application does enforce a file
+extension allow-list — a request for /ftp/package.json returns
+403 Only .md and .pdf files are allowed!. The encryption-keys route has no equivalent
+control, so the two file-serving surfaces have inconsistent protection and the weaker
+one carries the more sensitive material.</p>
+<h3>Potential impact</h3><p>An attacker with no access to the application gains the symmetric key protecting
+premium content and coupon validation, plus the JWT verification key. Anything the
+application relies on these keys to keep confidential is no longer confidential, and the
+keys cannot be rotated usefully while the same route keeps serving whatever file it
+finds in the directory.</p>
+<h3>Recommendation</h3><p>Remove the /encryptionkeys route from the static file mounts entirely and load the
+key from a location outside any web-served directory. If a listing route is required
+for the product, serve only the public key and gate it behind authentication. Add an
+automated check that fails the build if any file under encryptionkeys/ is reachable
+over HTTP. Re-test by requesting the directory and both filenames with no token; all
+three must return 404 or 403.</p></article><hr>
+<article id="WEB-VUL-009"><h3>WEB-VUL-009 — Boolean-based SQL injection in /rest/products/search, with the SQLite engine and
+<span class="badge b-high">High</span>
+<span class="badge b-open">Open</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop product search API (/rest/products/search), Sequelize data layer,<br>
+<strong>Endpoint:</strong> <code>GET http://127.0.0.1:3000/rest/products/search?q=&lt;payload&gt;</code></p>
+<h3>Description</h3><p>The q search parameter is interpolated into the generated SQL statement instead of
+being passed as a bound parameter, so a caller controls the WHERE clause. Injection is
+demonstrated by a boolean differential: a tautology returns the whole product catalogue
+while a contradiction returns nothing. In addition, a malformed payload produces an
+HTTP 500 whose rendered page names the database engine and the driver error message,
+so the injection point is self-describing to an attacker.
+
+This is a distinct issue from WEB-VUL-001, which covered SQL injection in the login
+endpoint. That login endpoint was re-tested during this session and now rejects every
+payload with 401, yet the identical injection class remains reachable through
+product search.</p>
+<h3>Potential impact</h3><p>Because the injected expression controls the result set, the whole Products table is
+already enumerable and the same technique extends to any table joined in the query, or
+to any table once the schema is inferred. In this application that includes the Users
+table addressed in WEB-VUL-006, so an attacker who is not authenticated at all could
+reach account data that the authenticated API restricts. The verbose SQLite errors
+shorten the path by naming the engine and reporting exactly where parsing failed.</p>
+<h3>Recommendation</h3><p>Pass all search terms as bound parameters through the ORM&#x27;s parameter binding so user
+input is never concatenated into SQL text. Where free-text search is required, use
+parameterised LIKE with an escaped wildcard or a dedicated full-text index. Return an
+empty result for malformed input instead of propagating the driver error, and map
+database exceptions to a generic HTTP 500 in a global error handler so engine names
+never reach the client. Re-test by repeating the four requests in section 9; the
+tautology must return the same 3 records as apple.</p></article><hr>
+<article id="WEB-VUL-010"><h3>WEB-VUL-010 — API returns Access-Control-Allow-Origin:  for every origin with no allow-list
+<span class="badge b-med">Medium</span>
+<span class="badge b-ok">Remediated</span></h3>
+<p><strong>Component:</strong> OWASP Juice Shop CORS handling (Helmet/CORS middleware configured in server.ts),<br>
+<strong>Endpoint:</strong> <code>OPTIONS http://127.0.0.1:3000/rest/user/login</code></p>
+<h3>Description</h3><p>Every response carries Access-Control-Allow-Origin:  regardless of the requesting
+Origin, and the preflight response additionally advertises the full set of write
+methods and reflects authorization and content-type as permitted request headers.
+There is no origin allow-list, so any website a user or administrator visits can issue
+cross-origin requests to the API from the victim&#x27;s browser and read the responses.
+
+The application is unusually well hardened at the browser layer — a strict
+Content-Security-Policy, X-Frame-Options: SAMEORIGIN, Cross-Origin-Opener-Policy and
+Cross-Origin-Resource-Policy: same-origin are all present (WEB-VUL-003 remediated) —
+which makes the wildcard CORS the one remaining gap that defeats that browser-side
+defence. Note that Access-Control-Allow-Credentials is not set, so the browser
+will not attach cookies; the exposure is therefore limited to responses that do not
+require ambient cookie credentials, and the practical impact is correspondingly
+bounded. It is reported as a real misconfiguration rather than a demonstrated
+high-severity breach.</p>
+<h3>Potential impact</h3><p>Any origin can read unauthenticated API responses cross-site, which widens the reach of
+the disclosures in WEB-VUL-004, WEB-VUL-005 and WEB-VUL-008: a user only has to visit
+an attacker page for that content to be harvested from their browser. Combined with any
+future script-execution flaw on the site, the permissive CORS would let injected code
+read API responses from the authenticated origin. Because credentials are not
+allow-listed, this does not by itself permit authenticated cross-origin reads, which
+is the main reason it is rated Medium.</p>
+<h3>Recommendation</h3><p>Replace the wildcard with an explicit allow-list of trusted origins and reflect only an
+origin that appears in that list. Do not combine a wildcard origin with credentialed
+requests. If the SPA is served from the same origin — as it is here, since
+http://127.0.0.1:3000 serves both the UI and the API — no cross-origin access is
+required at all, so the policy can be removed entirely. Re-test the preflight in
+section 9 and confirm an unlisted origin receives no Access-Control-Allow-Origin.</p></article><hr></section></div></main>
+<footer><div class="wrap">CS-02 · Documentation-only public build ·
+Findings, risk, remediation and re-testing results. No application runtime,
+no database and no credentials are published here.</div></footer>
+</body></html>

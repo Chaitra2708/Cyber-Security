@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Results · CS-02</title><style>
+:root{--bg:#0f1720;--card:#182430;--ink:#e8eef5;--mut:#93a4b8;--line:#2b3a4a;
+--ok:#2fbf71;--open:#e0a33e;--crit:#e5484d;--high:#f0883e;--med:#e0c341;--low:#4a9de0;
+--acc:#4a9de0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,#132030,#1c3040);border-bottom:1px solid var(--line);
+padding:44px 0 34px}
+header h1{margin:0 0 8px;font-size:1.9rem;letter-spacing:-.4px}
+header p{margin:0;color:var(--mut);max-width:70ch}
+nav{position:sticky;top:0;background:#0f1720ee;backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:9px 20px}
+nav a{color:var(--mut);text-decoration:none;white-space:nowrap;padding:6px 12px;
+border-radius:7px;font-size:.92rem}
+nav a:hover,nav a.on{background:var(--card);color:var(--ink)}
+main{padding:34px 0 70px}
+section{margin-bottom:46px}
+h2{font-size:1.35rem;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h3{font-size:1.06rem;margin:24px 0 9px;color:var(--ink)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px}
+.card .n{font-size:1.85rem;font-weight:700;line-height:1.1}
+.card .l{color:var(--mut);font-size:.86rem;margin-top:5px;text-transform:uppercase;
+letter-spacing:.5px}
+.card.ok .n{color:var(--ok)} .card.open .n{color:var(--open)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93rem}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-size:.79rem;text-transform:uppercase;letter-spacing:.5px}
+tr:hover td{background:#1b2836}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87rem}
+pre{background:#0b1219;border:1px solid var(--line);border-radius:9px;padding:14px;
+overflow-x:auto}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.75rem;
+font-weight:600;white-space:nowrap}
+.b-ok{background:#12351f;color:var(--ok);border:1px solid #1d5c37}
+.b-open{background:#3a2c11;color:var(--open);border:1px solid #6b511c}
+.b-crit{background:#3a1517;color:var(--crit);border:1px solid #6b2226}
+.b-high{background:#3a2413;color:var(--high);border:1px solid #6b3d1c}
+.b-med{background:#38320f;color:var(--med);border:1px solid #5f551c}
+.b-low{background:#12293a;color:var(--low);border:1px solid #1f4560}
+.note{background:#132030;border-left:3px solid var(--acc);border-radius:0 8px 8px 0;
+padding:13px 16px;margin:16px 0;color:var(--mut)}
+.note strong{color:var(--ink)}
+.warn{border-left-color:var(--open)}
+ul{padding-left:20px} li{margin:5px 0}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:.87rem;padding:22px 0}
+.pill{display:inline-block;background:var(--card);border:1px solid var(--line);
+border-radius:7px;padding:3px 10px;margin:3px 5px 3px 0;font-size:.85rem}
+img{max-width:100%;border:1px solid var(--line);border-radius:9px}
+</style></head><body>
+<header><div class="wrap">
+<h1>CS-02 — Web Application Security Assessment</h1>
+<p>OWASP methodology assessment of OWASP Juice Shop 20.2.0. This is the
+<b>public, documentation-only</b> demonstration build. The vulnerable
+application itself is not published and runs only inside an isolated local
+laboratory.</p></div></header>
+<nav><div class="wrap"><a href="index.html" class="">Overview</a><a href="findings.html" class="">Findings</a><a href="remediation.html" class="">Remediation</a><a href="retesting.html" class="">Re-Testing</a><a href="results.html" class="on">Results</a><a href="architecture.html" class="">Architecture</a><a href="report.html" class="">Report</a></div></nav>
+<main><div class="wrap">
+<section><h2>Risk register</h2>
+<p>Every finding is scored on likelihood, impact, exploitability and exposure,
+with a written rationale. Severity and overall risk are kept deliberately as
+separate scales.</p>
+<table><tr><th>ID</th><th>Vulnerability</th><th>L</th><th>I</th><th>E</th><th>X</th>
+<th>Overall</th><th>Priority</th></tr>
+<tr><td>WEB-VUL-001</td><td>SQL Injection in login endpoint</td><td>2</td><td>5</td><td>3</td><td>4</td><td><b>Low (residual - REMEDIATED)</b></td><td>P3 - monitor</td></tr><tr><td>WEB-VUL-002</td><td>Broken object-level authorization on baskets</td><td>2</td><td>3</td><td>3</td><td>3</td><td><b>Low (residual - REMEDIATED)</b></td><td>P3 - monitor</td></tr><tr><td>WEB-VUL-003</td><td>Missing HTTP security headers</td><td>2</td><td>3</td><td>2</td><td>3</td><td><b>Low (residual - REMEDIATED)</b></td><td>P3 - monitor</td></tr><tr><td>WEB-VUL-004</td><td>Unauthenticated information disclosure</td><td>4</td><td>2</td><td>5</td><td>5</td><td><b>Medium</b></td><td>P2</td></tr><tr><td>WEB-VUL-005</td><td>Unauthenticated exposure of user feedback</td><td>4</td><td>2</td><td>5</td><td>5</td><td><b>Medium</b></td><td>P2</td></tr><tr><td>WEB-VUL-006</td><td>Broken function-level authorization on user directory</td><td>5</td><td>4</td><td>4</td><td>3</td><td><b>High</b></td><td>P1</td></tr><tr><td>WEB-VUL-007</td><td>Sensitive data embedded in JWT payload</td><td>4</td><td>5</td><td>4</td><td>3</td><td><b>High</b></td><td>P1</td></tr><tr><td>WEB-VUL-008</td><td>Unauthenticated encryption key material exposure</td><td>5</td><td>4</td><td>5</td><td>5</td><td><b>High</b></td><td>P1</td></tr><tr><td>WEB-VUL-009</td><td>SQL Injection in product search</td><td>5</td><td>4</td><td>5</td><td>5</td><td><b>High</b></td><td>P1</td></tr><tr><td>WEB-VUL-010</td><td>Wildcard CORS policy</td><td>3</td><td>2</td><td>5</td><td>5</td><td><b>Medium</b></td><td>P2</td></tr>
+</table></section>
+<section><h2>Evidence register</h2>
+<p>78 indexed evidence records, each mapped to a file, every path verified
+to exist, with no duplicate identifiers.</p>
+<table><tr><th>ID</th><th>Phase</th><th>Description</th><th>Result</th></tr>
+<tr><td>RAW-001</td><td>Phase 12 (historical)</td><td>SQLi authentication bypass validation</td><td>Historical</td></tr><tr><td>RAW-002</td><td>Phase 12 (historical)</td><td>Broken access control / IDOR validation (historical)</td><td>Historical</td></tr><tr><td>RAW-003</td><td>Phase 12 (historical)</td><td>Missing security headers validation</td><td>Historical</td></tr><tr><td>RAW-004</td><td>Phase 12 (historical)</td><td>Information disclosure validation (/metrics,  version,  robots.txt)</td><td>Historical</td></tr><tr><td>RAW-005</td><td>Phase 12 (historical)</td><td>Unauthenticated feedback exposure validation</td><td>Historical</td></tr><tr><td>RAW-006</td><td>Phase 12 (historical)</td><td>SQLi control/test response (token redacted)</td><td>Historical</td></tr><tr><td>RAW-007</td><td>Phase 12 (historical)</td><td>/api/Users probe (401)</td><td>Historical</td></tr><tr><td>RAW-008</td><td>Phase 12 (historical)</td><td>Admin reads basket id=2 (owner UserId 2) - IDOR evidence</td><td>Historical</td></tr><tr><td>RAW-009</td><td>Phase 12 (historical)</td><td>SQLi request payload captured</td><td>Historical</td></tr><tr><td>RAW-010</td><td>Phase 12 (historical)</td><td>IDOR request captured</td><td>Historical</td></tr><tr><td>RAW-011</td><td>Phase 9</td><td>Application entry point (headers+title)</td><td>Observed</td></tr><tr><td>RAW-012</td><td>Phase 9</td><td>Route/page rendering (headless Chrome)</td><td>Observed</td></tr><tr><td>RAW-013</td><td>Phase 7</td><td>Port/service enumeration (63 ports)</td><td>Observed</td></tr><tr><td>RAW-014</td><td>Phase 7</td><td>Technology identification (HTTP fingerprint)</td><td>Observed</td></tr><tr><td>RAW-015</td><td>Phase 7</td><td>Response headers (C3 baseline)</td><td>Observed</td></tr><tr><td>RAW-016</td><td>Phase 7</td><td>Recon raw outputs</td><td>Observed</td></tr><tr><td>RAW-017</td><td>Phase 7</td><td>Port scan JSON</td><td>Observed</td></tr><tr><td>RAW-018</td><td>Phase 7</td><td>Lab environment (OS,  interfaces,  tools)</td><td>Recorded</td></tr><tr><td>RAW-019</td><td>Phase 9</td><td>Application running screenshot (1366x900)</td><td>Observed</td></tr><tr><td>RAW-020</td><td>Phase 5</td><td>Juice Shop startup log</td><td>Recorded</td></tr><tr><td>CURR-001</td><td>Phase 10</td><td>Re-verification C1 (SQLi auth bypass)</td><td>Confirmed</td></tr><tr><td>CURR-002</td><td>Phase 10</td><td>Re-verification C2 (IDOR/broken access control)</td><td>Confirmed</td></tr><tr><td>CURR-003</td><td>Phase 10</td><td>Re-verification C3 (missing security headers)</td><td>Confirmed</td></tr><tr><td>CURR-004</td><td>Phase 10</td><td>Re-verification C4 (information disclosure)</td><td>Confirmed</td></tr><tr><td>CURR-005</td><td>Phase 10</td><td>Re-verification C5 (feedback exposure)</td><td>Confirmed</td></tr><tr><td>EVID-REM-001</td><td>Phase 16</td><td>Before-state WEB-VUL-001: SQLi auth bypass reproduced on unmodified instance</td><td>Vulnerable behavior reproduced</td></tr><tr><td>EVID-REM-002</td><td>Phase 16</td><td>Before-state WEB-VUL-003: seven hardening headers missing on unmodified instance</td><td>Vulnerable behavior reproduced</td></tr><tr><td>EVID-REM-003</td><td>Phase 16</td><td>Remediation implementation record WEB-VUL-001 (parameterised login query)</td><td>Mitigation implemented (retest pending)</td></tr><tr><td>EVID-REM-004</td><td>Phase 16</td><td>Remediation implementation record WEB-VUL-003 (hardening header set added)</td><td>Mitigation implemented (retest pending)</td></tr><tr><td>EVID-REM-005</td><td>Phase 16</td><td>Post-remediation safety and functionality check (headers + controls + browser)</td><td>Application functional (PASS)</td></tr><tr><td>EVID-RETEST-001</td><td>Phase 17</td><td>Retest WEB-VUL-001: SQLi payloads vs mitigated login (same Phase 10 procedure)</td><td>FIXED (payloads HTTP 401; valid login HTTP 200)</td></tr><tr><td>EVID-RETEST-002</td><td>Phase 17</td><td>Retest WEB-VUL-003: header enumeration + headless browser check vs mitigated serving layer</td><td>FIXED (10/10 headers present; 0 browser violations)</td></tr><tr><td>EVID-RETEST-003</td><td>Phase 17</td><td>Post-remediation screenshot of application rendering under new CSP (headless Chrome)</td><td>Observed (application renders correctly)</td></tr><tr><td>EVID-TEST-001</td><td>Phase 18 (pre-report verification)</td><td>Server unit suite run 1 while lab running: 415 tests / 392 pass / 4 fail / 17 cancelled</td><td>4 failures environmental (3 missing packaged files + port 30</td></tr><tr><td>EVID-TEST-001B</td><td>Phase 18 (pre-report verification)</td><td>Server unit suite run 2 with lab stopped: 415 tests / 410 pass / 3 fail / 0 cancelled</td><td>3 failures = files absent from release package; no login-rel</td></tr><tr><td>EVID-TEST-002</td><td>Phase 18 (pre-report verification)</td><td>Login API suite: 18 tests / 13 pass / 5 fail</td><td>FAIL - 5 failures are the SQLi-assertion tests (fixed vulner</td></tr><tr><td>EVID-TEST-003</td><td>Phase 18 (pre-report verification)</td><td>Full API suite with mitigations: 537 tests / 486 pass / 38 fail / 6 cancelled / 7 skipped</td><td>Baseline for control comparison</td></tr><tr><td>EVID-TEST-004</td><td>Phase 18 (pre-report verification)</td><td>Full API suite control run with original code restored: 537 tests / 492 pass / 33 fail / 5 cancelled / 7 skipped</td><td>Proves exactly 6 delta failures are the vulnerability-assert</td></tr><tr><td>EVID-TEST-005</td><td>Phase 18 (pre-report verification)</td><td>Login remediation regression analysis and test-run record (Task 1.2-1.4)</td><td>Login remediation regression check: FAIL (5 intended vulnera</td></tr><tr><td>EVID-REM-006</td><td>Phase 16/18 (third remediation)</td><td>Before-state WEB-VUL-002: cross-user basket read reproduced (HTTP 200 with UserId 2 contents)</td><td>Vulnerable behavior reproduced</td></tr>
+</table><p class="pill">showing first 40 of 78</p></section>
+<section><h2>Test results</h2><table>
+<tr><th>Check</th><th>Result</th></tr>
+<tr><td>Laboratory health check</td><td><span class="badge b-ok">PASS — 10 of 10 checks</span></td></tr>
+<tr><td>Vulnerable baseline reproduces its findings</td><td><span class="badge b-ok">PASS</span></td></tr>
+<tr><td>Remediated copy shows each fix effective</td><td><span class="badge b-ok">PASS</span></td></tr>
+<tr><td>Network isolation (LAN cannot reach the app)</td><td><span class="badge b-ok">PASS</span></td></tr>
+<tr><td>Automated scanners</td><td><span class="badge b-open">NOT USED — none available</span></td></tr>
+<tr><td>TypeScript compilation</td><td><span class="badge b-open">NOT PERFORMED — distribution has no tsconfig.json</span></td></tr>
+<tr><td>XSS reproduction</td><td><span class="badge b-open">NOT REPRODUCED — reported as unconfirmed</span></td></tr>
+</table></section></div></main>
+<footer><div class="wrap">CS-02 · Documentation-only public build ·
+Findings, risk, remediation and re-testing results. No application runtime,
+no database and no credentials are published here.</div></footer>
+</body></html>

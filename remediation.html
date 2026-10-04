@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Remediation · CS-02</title><style>
+:root{--bg:#0f1720;--card:#182430;--ink:#e8eef5;--mut:#93a4b8;--line:#2b3a4a;
+--ok:#2fbf71;--open:#e0a33e;--crit:#e5484d;--high:#f0883e;--med:#e0c341;--low:#4a9de0;
+--acc:#4a9de0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,#132030,#1c3040);border-bottom:1px solid var(--line);
+padding:44px 0 34px}
+header h1{margin:0 0 8px;font-size:1.9rem;letter-spacing:-.4px}
+header p{margin:0;color:var(--mut);max-width:70ch}
+nav{position:sticky;top:0;background:#0f1720ee;backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:9px 20px}
+nav a{color:var(--mut);text-decoration:none;white-space:nowrap;padding:6px 12px;
+border-radius:7px;font-size:.92rem}
+nav a:hover,nav a.on{background:var(--card);color:var(--ink)}
+main{padding:34px 0 70px}
+section{margin-bottom:46px}
+h2{font-size:1.35rem;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+h3{font-size:1.06rem;margin:24px 0 9px;color:var(--ink)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px}
+.card .n{font-size:1.85rem;font-weight:700;line-height:1.1}
+.card .l{color:var(--mut);font-size:.86rem;margin-top:5px;text-transform:uppercase;
+letter-spacing:.5px}
+.card.ok .n{color:var(--ok)} .card.open .n{color:var(--open)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.93rem}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-size:.79rem;text-transform:uppercase;letter-spacing:.5px}
+tr:hover td{background:#1b2836}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87rem}
+pre{background:#0b1219;border:1px solid var(--line);border-radius:9px;padding:14px;
+overflow-x:auto}
+.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.75rem;
+font-weight:600;white-space:nowrap}
+.b-ok{background:#12351f;color:var(--ok);border:1px solid #1d5c37}
+.b-open{background:#3a2c11;color:var(--open);border:1px solid #6b511c}
+.b-crit{background:#3a1517;color:var(--crit);border:1px solid #6b2226}
+.b-high{background:#3a2413;color:var(--high);border:1px solid #6b3d1c}
+.b-med{background:#38320f;color:var(--med);border:1px solid #5f551c}
+.b-low{background:#12293a;color:var(--low);border:1px solid #1f4560}
+.note{background:#132030;border-left:3px solid var(--acc);border-radius:0 8px 8px 0;
+padding:13px 16px;margin:16px 0;color:var(--mut)}
+.note strong{color:var(--ink)}
+.warn{border-left-color:var(--open)}
+ul{padding-left:20px} li{margin:5px 0}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:.87rem;padding:22px 0}
+.pill{display:inline-block;background:var(--card);border:1px solid var(--line);
+border-radius:7px;padding:3px 10px;margin:3px 5px 3px 0;font-size:.85rem}
+img{max-width:100%;border:1px solid var(--line);border-radius:9px}
+</style></head><body>
+<header><div class="wrap">
+<h1>CS-02 — Web Application Security Assessment</h1>
+<p>OWASP methodology assessment of OWASP Juice Shop 20.2.0. This is the
+<b>public, documentation-only</b> demonstration build. The vulnerable
+application itself is not published and runs only inside an isolated local
+laboratory.</p></div></header>
+<nav><div class="wrap"><a href="index.html" class="">Overview</a><a href="findings.html" class="">Findings</a><a href="remediation.html" class="on">Remediation</a><a href="retesting.html" class="">Re-Testing</a><a href="results.html" class="">Results</a><a href="architecture.html" class="">Architecture</a><a href="report.html" class="">Report</a></div></nav>
+<main><div class="wrap">
+<section><h2>Remediation status</h2>
+<p>5 findings were remediated and re-tested. 5 remain
+<b>open by decision</b>: forcing them closed would misrepresent the result,
+so each carries a documented reason instead.</p>
+<table><tr><th>ID</th><th>Severity</th><th>Recommended control</th><th>Implemented</th></tr>
+<tr><td>WEB-VUL-001</td><td><span class='badge b-high'>High</span></td><td>Implement parameterised queries / prepared statements for the login check, so the email
+is always treated as data and never as SQL. Add server-side authentication outcome
+verification (e.g. a successful login must be re-checked ag</td><td><span class='badge b-ok'>Remediated</span></td></tr><tr><td>WEB-VUL-002</td><td><span class='badge b-high'>High</span></td><td>Enforce object-level ownership on every /rest/basket read: reject a request unless
+basket.UserId === authenticatedUserId. Validate that a basket exists before returning it.</td><td><span class='badge b-ok'>Remediated</span></td></tr><tr><td>WEB-VUL-003</td><td><span class='badge b-med'>Medium</span></td><td>Add a standardised security header set to every HTTP response, for example:
+Strict-Transport-Security, Content-Security-Policy, X-Content-Type-Options: nosniff,
+X-Frame-Options: SAMEORIGIN, Referrer-Policy, Permissions-Policy,
+Cro</td><td><span class='badge b-ok'>Remediated</span></td></tr><tr><td>WEB-VUL-004</td><td><span class='badge b-med'>Medium</span></td><td>Require authentication for /metrics (or disable the endpoint), remove the
+/rest/admin/application-version endpoint (or restrict it to authorised admin sessions),
+and review the intended purpose of /ftp and robots.txt so no uninten</td><td><span class='badge b-open'>Open</span></td></tr><tr><td>WEB-VUL-005</td><td><span class='badge b-low'>Low</span></td><td>Require authentication for /api/Feedbacks (or restrict it to the authenticated user&#x27;s
+own feedback). Make the access-control boundary consistent across all /api/ read
+endpoints, then re-test the request with and without a token.</td><td><span class='badge b-open'>Open</span></td></tr><tr><td>WEB-VUL-006</td><td><span class='badge b-high'>High</span></td><td>Enforce role-based authorization on the user-management routes, not just
+authentication. Reject any caller whose token role is not admin (or accounting for
+the accounting-scoped fields) before the handler runs, and scope /api/User</td><td><span class='badge b-open'>Open</span></td></tr><tr><td>WEB-VUL-007</td><td><span class='badge b-crit'>Critical</span></td><td>Include only the claims the client actually needs — a subject identifier, the role,
+bid and expiry (iat/exp) — and never the password hash, TOTP secret or profile
+fields. Move to a password hashing function with a per-user salt an</td><td><span class='badge b-open'>Open</span></td></tr><tr><td>WEB-VUL-008</td><td><span class='badge b-high'>High</span></td><td>Remove the /encryptionkeys route from the static file mounts entirely and load the
+key from a location outside any web-served directory. If a listing route is required
+for the product, serve only the public key and gate it behind </td><td><span class='badge b-ok'>Remediated</span></td></tr><tr><td>WEB-VUL-009</td><td><span class='badge b-high'>High</span></td><td>Pass all search terms as bound parameters through the ORM&#x27;s parameter binding so user
+input is never concatenated into SQL text. Where free-text search is required, use
+parameterised LIKE with an escaped wildcard or a dedicated fu</td><td><span class='badge b-open'>Open</span></td></tr><tr><td>WEB-VUL-010</td><td><span class='badge b-med'>Medium</span></td><td>Replace the wildcard with an explicit allow-list of trusted origins and reflect only an
+origin that appears in that list. Do not combine a wildcard origin with credentialed
+requests. If the SPA is served from the same origin — as </td><td><span class='badge b-ok'>Remediated</span></td></tr>
+</table></section>
+<section><h2>What a remediation had to prove</h2>
+<div class="note">Each fix is only accepted when the attack result changes
+<em>and</em> legitimate use still works — otherwise the "fix" would just be a
+broken application. Every re-test pairs an attack probe with a functional
+control.</div></section></div></main>
+<footer><div class="wrap">CS-02 · Documentation-only public build ·
+Findings, risk, remediation and re-testing results. No application runtime,
+no database and no credentials are published here.</div></footer>
+</body></html>
