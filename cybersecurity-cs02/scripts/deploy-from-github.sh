@@ -26,7 +26,7 @@ REPO_URL="https://github.com/Chaitra2708/Cyber-Security"
 EXPECTED_REMOTE="https://github.com/Chaitra2708/Cyber-Security"
 PORT="${PORT:-3000}"
 HOST="127.0.0.1"
-LOG="/tmp/cs02-deploy-3000.log"
+LOG="/tmp/cs02-deploy-${PORT}.log"
 READY_TIMEOUT=120
 
 fail() { echo "ERROR: $*" >&2; exit 1; }
@@ -170,14 +170,19 @@ fi
 
 # --- 8. start --------------------------------------------------------------
 step "8/10 start OWASP Juice Shop"
+# Detect an instance belonging to THIS app directory. Matching only on
+# "build/app" would find an unrelated Juice Shop already running on this host
+# (for example the baseline lab on :3000) and then wrongly skip the start.
+APP_DIR_ABS="$(cd "$APP_DIR" && pwd)"
 RUNNING_PID=""
 for p in $(pgrep -x node 2>/dev/null); do
   tr '\0' ' ' < "/proc/$p/cmdline" 2>/dev/null | grep -q 'build/app' || continue
+  [ "$(readlink -f "/proc/$p/cwd" 2>/dev/null)" = "$APP_DIR_ABS" ] || continue
   RUNNING_PID="$p"
   break
 done
 if [ -n "$RUNNING_PID" ]; then
-  echo " already running (pid $RUNNING_PID)"
+  echo " already running from this directory (pid $RUNNING_PID)"
 else
   echo " starting: PORT=$PORT node build/app   (cwd $APP_DIR)"
   ( cd "$APP_DIR" && PORT="$PORT" setsid node build/app > "$LOG" 2>&1 < /dev/null & )

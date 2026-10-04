@@ -26,7 +26,7 @@ REPO_URL="https://github.com/Chaitra2708/Cyber-Security"
 EXPECTED_REMOTE="https://github.com/Chaitra2708/Cyber-Security"
 PORT="${PORT:-3000}"
 HOST="127.0.0.1"
-LOG="/tmp/cs02-deploy-3000.log"
+LOG="/tmp/cs02-deploy-${PORT}.log"
 READY_TIMEOUT=120
 
 fail() { echo "ERROR: $*" >&2; exit 1; }
@@ -110,18 +110,35 @@ step "5/10 locate the runnable Juice Shop application"
 # official distribution extracted under the CS-02 lab directory.
 APP_DIR="$PROJECT_DIR/lab/juice-shop_20.2.0"
 TGZ="$PROJECT_DIR/lab/juice-shop-20.2.0_node22_linux_x64.tgz"
+JUICE_VERSION="20.2.0"
+# Official OWASP Juice Shop packaged release (third-party binary, deliberately not
+# committed to git - see cybersecurity-cs02/.gitignore "lab/").
+RELEASE_URL="https://github.com/juice-shop/juice-shop/releases/download/v${JUICE_VERSION}/juice-shop-${JUICE_VERSION}_node22_linux_x64.tgz"
+EXPECT_MD5="b9c1827299595e264e0bd7a9ccb470a7"
 
 if [ ! -f "$APP_DIR/build/app.js" ]; then
-  echo " application not extracted yet - extracting from the repository archive"
-  [ -f "$TGZ" ] || fail "distribution archive missing: $TGZ"
-  if [ -f "$PROJECT_DIR/lab/juice.tgz.md5" ]; then
-    EXPECT_MD5="$(tr -d ' \n' < "$PROJECT_DIR/lab/juice.tgz.md5")"
-    ACTUAL_MD5="$(md5sum "$TGZ" | cut -d' ' -f1)"
-    if [ "$EXPECT_MD5" != "$ACTUAL_MD5" ]; then
-      fail "archive checksum mismatch (expected $EXPECT_MD5, got $ACTUAL_MD5)"
+  echo " application not present - preparing the official OWASP Juice Shop ${JUICE_VERSION} distribution"
+  mkdir -p "$PROJECT_DIR/lab"
+  if [ ! -f "$TGZ" ]; then
+    echo " downloading: $RELEASE_URL"
+    if command -v curl >/dev/null 2>&1; then
+      curl -fL --retry 2 --connect-timeout 20 -o "$TGZ.part" "$RELEASE_URL" \
+        || fail "download failed (no network?) - place the archive at $TGZ manually"
+    else
+      fail "curl is required to download the distribution"
     fi
-    echo " checksum: $ACTUAL_MD5 (matches lab/juice.tgz.md5)"
+    mv "$TGZ.part" "$TGZ"
+  else
+    echo " archive already present: $TGZ"
   fi
+  ACTUAL_MD5="$(md5sum "$TGZ" | cut -d' ' -f1)"
+  if [ "$ACTUAL_MD5" != "$EXPECT_MD5" ]; then
+    rm -f "$TGZ"
+    fail "archive checksum mismatch (expected $EXPECT_MD5, got $ACTUAL_MD5) - archive deleted, re-run to retry"
+  fi
+  echo " checksum : $ACTUAL_MD5 (verified)"
+  printf '%s' "$ACTUAL_MD5" > "$PROJECT_DIR/lab/juice.tgz.md5"
+  echo " extracting..."
   tar xzf "$TGZ" -C "$PROJECT_DIR/lab" || fail "extraction failed"
 fi
 [ -f "$APP_DIR/build/app.js" ] || fail "build/app.js not found in $APP_DIR"
@@ -135,7 +152,11 @@ if [ -d "$APP_DIR/node_modules/express" ]; then
   echo " node_modules present - reusing existing install (no reinstall needed)"
 else
   echo " node_modules missing - installing from package-lock.json"
-  ( cd "$APP_DIR" && npm ci --omit=dev ) || fail "npm ci failed"
+  if [ -f "$APP_DIR/package-lock.json" ]; then
+    ( cd "$APP_DIR" && npm ci --omit=dev ) || fail "npm ci failed"
+  else
+    ( cd "$APP_DIR" && npm install --omit=dev ) || fail "npm install failed"
+  fi
 fi
 
 # --- 7. build --------------------------------------------------------------
@@ -149,14 +170,19 @@ fi
 
 # --- 8. start --------------------------------------------------------------
 step "8/10 start OWASP Juice Shop"
+# Detect an instance belonging to THIS app directory. Matching only on
+# "build/app" would find an unrelated Juice Shop already running on this host
+# (for example the baseline lab on :3000) and then wrongly skip the start.
+APP_DIR_ABS="$(cd "$APP_DIR" && pwd)"
 RUNNING_PID=""
 for p in $(pgrep -x node 2>/dev/null); do
   tr '\0' ' ' < "/proc/$p/cmdline" 2>/dev/null | grep -q 'build/app' || continue
+  [ "$(readlink -f "/proc/$p/cwd" 2>/dev/null)" = "$APP_DIR_ABS" ] || continue
   RUNNING_PID="$p"
   break
 done
 if [ -n "$RUNNING_PID" ]; then
-  echo " already running (pid $RUNNING_PID)"
+  echo " already running from this directory (pid $RUNNING_PID)"
 else
   echo " starting: PORT=$PORT node build/app   (cwd $APP_DIR)"
   ( cd "$APP_DIR" && PORT="$PORT" setsid node build/app > "$LOG" 2>&1 < /dev/null & )

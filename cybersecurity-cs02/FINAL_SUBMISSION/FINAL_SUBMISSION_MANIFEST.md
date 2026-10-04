@@ -9,6 +9,10 @@
 | Field | Value |
 |---|---|
 | **Project** | CS-02 — Web Application Security Assessment Using OWASP Methodology |
+| **Source Repository** | https://github.com/Chaitra2708/Cyber-Security |
+| **Branch / Commit** | `main` @ `553606e` |
+| **Baseline** | http://127.0.0.1:3000/ |
+| **Remediation** | http://127.0.0.1:3001/ |
 | **Application** | OWASP Juice Shop 20.2.0 (official `node22_linux_x64` distribution) |
 | **Methodology** | OWASP WSTG phases; findings mapped to OWASP Top 10 categories |
 | **Laboratory** | Single Linux Mint 22.3 host, loopback-only binding |
@@ -38,6 +42,8 @@ Derived from the artifacts on disk, not from documentation prose.
 |---|---|---|
 | **Lab** | **PASS** | `scripts/check-lab.sh` → `LAB STATUS: PASS` (10/10 checks); both instances live on loopback |
 | **Application** | **PASS** | Juice Shop 20.2.0 serving; 93 product tiles; REST API and SPA functional on both instances |
+| **Git** | **PASS** | `origin` = the CS-02 repository; local HEAD == `origin/main` == `553606e`; 0 ahead / 0 behind; pushed successfully |
+| **Clean clone** | **PASS** | Fresh `--depth 1` clone into a temp directory, deployed from scratch: distribution downloaded and MD5-verified, app started, HTTP 200, 93 tiles, real catalog rendered |
 | **Findings** | **PASS** | 10 findings, 17 sections each, all 8 spec-required fields present |
 | **Remediated + retested** | **PASS** | 5 findings with before evidence, implementation, after evidence and functional control |
 | **Open findings** | **PASS** | 5 findings documented with evidence, impact, severity, recommendation and a stated reason for remaining open |
@@ -72,6 +78,7 @@ Derived from the artifacts on disk, not from documentation prose.
 | Traceability | `docs/traceability.md` · `docs/traceability-matrix.md` |
 | Lab scripts | `scripts/start-lab.sh` · `stop-lab.sh` · `check-lab.sh` · `capture-verification-evidence.sh` |
 | Compliance audit | `FINAL_SUBMISSION_AUDIT.md` |
+| Runbook | `FINAL_RUNBOOK.md` · `docs/github-deployment.md` |
 | Packaged submission | `CS-02_FINAL_SUBMISSION.zip` |
 
 ## Limitations (actual only)
